@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */; };
 		C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */; };
-		C04CBA4E2A8D7F2F003E6686 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA4D2A8D7F2F003E6686 /* ViewController.swift */; };
 		C04CBA532A8D7F2F003E6686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA522A8D7F2F003E6686 /* Assets.xcassets */; };
 		C04CBA562A8D7F2F003E6686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA542A8D7F2F003E6686 /* LaunchScreen.storyboard */; };
+		C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA602A8D816C003E6686 /* CharactersListModuleAssembly.swift */; };
+		C04CBA652A8D816C003E6686 /* CharactersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA612A8D816C003E6686 /* CharactersListController.swift */; };
+		C04CBA662A8D816C003E6686 /* CharactersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA622A8D816C003E6686 /* CharactersListView.swift */; };
+		C04CBA672A8D816C003E6686 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA632A8D816C003E6686 /* CharactersListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C04CBA462A8D7F2E003E6686 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C04CBA4D2A8D7F2F003E6686 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C04CBA522A8D7F2F003E6686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04CBA552A8D7F2F003E6686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04CBA572A8D7F2F003E6686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C04CBA602A8D816C003E6686 /* CharactersListModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListModuleAssembly.swift; sourceTree = "<group>"; };
+		C04CBA612A8D816C003E6686 /* CharactersListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListController.swift; sourceTree = "<group>"; };
+		C04CBA622A8D816C003E6686 /* CharactersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListView.swift; sourceTree = "<group>"; };
+		C04CBA632A8D816C003E6686 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +62,63 @@
 			children = (
 				C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */,
 				C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */,
-				C04CBA4D2A8D7F2F003E6686 /* ViewController.swift */,
+				C04CBA5E2A8D7FE3003E6686 /* Models */,
+				C04CBA5D2A8D7FDB003E6686 /* Screens */,
 				C04CBA522A8D7F2F003E6686 /* Assets.xcassets */,
 				C04CBA542A8D7F2F003E6686 /* LaunchScreen.storyboard */,
 				C04CBA572A8D7F2F003E6686 /* Info.plist */,
 			);
 			path = RickAndMorty;
+			sourceTree = "<group>";
+		};
+		C04CBA5D2A8D7FDB003E6686 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA5F2A8D7FED003E6686 /* CharactersList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C04CBA5E2A8D7FE3003E6686 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA6A2A8D842D003E6686 /* Entities */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C04CBA5F2A8D7FED003E6686 /* CharactersList */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA682A8D8181003E6686 /* View */,
+				C04CBA692A8D83D6003E6686 /* ViewModel */,
+				C04CBA602A8D816C003E6686 /* CharactersListModuleAssembly.swift */,
+			);
+			path = CharactersList;
+			sourceTree = "<group>";
+		};
+		C04CBA682A8D8181003E6686 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA622A8D816C003E6686 /* CharactersListView.swift */,
+				C04CBA612A8D816C003E6686 /* CharactersListController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C04CBA692A8D83D6003E6686 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA632A8D816C003E6686 /* CharactersListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C04CBA6A2A8D842D003E6686 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +191,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C04CBA4E2A8D7F2F003E6686 /* ViewController.swift in Sources */,
+				C04CBA652A8D816C003E6686 /* CharactersListController.swift in Sources */,
+				C04CBA672A8D816C003E6686 /* CharactersListViewModel.swift in Sources */,
+				C04CBA662A8D816C003E6686 /* CharactersListView.swift in Sources */,
 				C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */,
 				C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */,
+				C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
