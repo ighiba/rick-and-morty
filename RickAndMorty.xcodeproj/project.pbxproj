@@ -21,6 +21,11 @@
 		C04CBA792A8D8923003E6686 /* CharacterResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA782A8D8923003E6686 /* CharacterResponseTests.swift */; };
 		C04CBA812A8D8968003E6686 /* TestJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA802A8D8968003E6686 /* TestJSONResponse.swift */; };
 		C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA842A8D8E8B003E6686 /* CharacterResponse.swift */; };
+		C04CBA8A2A8D948B003E6686 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA882A8D948B003E6686 /* NetworkManager.swift */; };
+		C04CBA8B2A8D948B003E6686 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA892A8D948B003E6686 /* FetchError.swift */; };
+		C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA8F2A8D9840003E6686 /* Endpoint.swift */; };
+		C04CBA922A8D986B003E6686 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA912A8D986B003E6686 /* API.swift */; };
+		C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA942A8D98F6003E6686 /* CharacterEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		C04CBA782A8D8923003E6686 /* CharacterResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponseTests.swift; sourceTree = "<group>"; };
 		C04CBA802A8D8968003E6686 /* TestJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONResponse.swift; sourceTree = "<group>"; };
 		C04CBA842A8D8E8B003E6686 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
+		C04CBA882A8D948B003E6686 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C04CBA892A8D948B003E6686 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
+		C04CBA8F2A8D9840003E6686 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C04CBA912A8D986B003E6686 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C04CBA942A8D98F6003E6686 /* CharacterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +170,10 @@
 		C04CBA6B2A8D8511003E6686 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C04CBA8E2A8D976C003E6686 /* API */,
 				C04CBA832A8D8E3E003E6686 /* Responses */,
+				C04CBA882A8D948B003E6686 /* NetworkManager.swift */,
+				C04CBA892A8D948B003E6686 /* FetchError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -196,6 +209,24 @@
 				C04CBA842A8D8E8B003E6686 /* CharacterResponse.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		C04CBA8E2A8D976C003E6686 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA932A8D9875003E6686 /* Endpoints */,
+				C04CBA912A8D986B003E6686 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C04CBA932A8D9875003E6686 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA8F2A8D9840003E6686 /* Endpoint.swift */,
+				C04CBA942A8D98F6003E6686 /* CharacterEndpoint.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,14 +329,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */,
 				C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */,
 				C04CBA652A8D816C003E6686 /* CharactersListController.swift in Sources */,
 				C04CBA672A8D816C003E6686 /* CharactersListViewModel.swift in Sources */,
+				C04CBA8B2A8D948B003E6686 /* FetchError.swift in Sources */,
+				C04CBA922A8D986B003E6686 /* API.swift in Sources */,
 				C04CBA6D2A8D862B003E6686 /* Character.swift in Sources */,
+				C04CBA8A2A8D948B003E6686 /* NetworkManager.swift in Sources */,
 				C04CBA662A8D816C003E6686 /* CharactersListView.swift in Sources */,
 				C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */,
 				C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */,
 				C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */,
+				C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */,
 				C04CBA712A8D88C1003E6686 /* Episode.swift in Sources */,
 				C04CBA6F2A8D88B3003E6686 /* Origin.swift in Sources */,
 			);
