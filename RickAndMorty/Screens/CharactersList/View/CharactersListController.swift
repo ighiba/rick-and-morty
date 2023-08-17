@@ -7,6 +7,8 @@
 
 import UIKit
 
+private let largeTitleFont: UIFont = .gilroyBold.withSize(28)
+
 class CharactersListViewController: UICollectionViewController {
 
     var viewModel: CharactersListViewModelDelegate! {
@@ -20,8 +22,6 @@ class CharactersListViewController: UICollectionViewController {
     var charactersListView = CharactersListView()
     var dataSource: DataSource!
     
-    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
-    
     override func loadView() {
         collectionView = charactersListView
         collectionView.delegate = self
@@ -34,7 +34,31 @@ class CharactersListViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    private func setupNavigationBar() {
+        title = "Characters"
+        
+        let titleAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font : largeTitleFont,
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ]
+
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
+        navBarAppearance.backgroundColor = .defaultBackgroundColor
+        navBarAppearance.largeTitleTextAttributes = titleAttributes
+        navBarAppearance.titleTextAttributes = titleAttributes
+        
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 

@@ -29,8 +29,13 @@
 		C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA962A8DA72C003E6686 /* CharacterModel.swift */; };
 		C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */; };
 		C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA9B2A8DAA2F003E6686 /* Array+Identifable.swift */; };
-		C04CBAA22A8E2F2D003E6686 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBAA12A8E2F2D003E6686 /* CharacterCell.swift */; };
 		C04CBAA42A8E302A003E6686 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBAA32A8E302A003E6686 /* ImageLoader.swift */; };
+		C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBAB72A8E4036003E6686 /* UIFont.swift */; };
+		C04CBABA2A8E42E1003E6686 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBAB92A8E42E1003E6686 /* UIColor.swift */; };
+		C04CBAC92A8E4850003E6686 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBAC82A8E4850003E6686 /* CharacterCell.swift */; };
+		C04CBACE2A8E4887003E6686 /* gilroy-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACB2A8E4887003E6686 /* gilroy-semibold.ttf */; };
+		C04CBACF2A8E4887003E6686 /* gilroy-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACC2A8E4887003E6686 /* gilroy-bold.ttf */; };
+		C04CBAD02A8E4887003E6686 /* gilroy-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACD2A8E4887003E6686 /* gilroy-medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +74,13 @@
 		C04CBA962A8DA72C003E6686 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 		C04CBA9B2A8DAA2F003E6686 /* Array+Identifable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifable.swift"; sourceTree = "<group>"; };
-		C04CBAA12A8E2F2D003E6686 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		C04CBAA32A8E302A003E6686 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		C04CBAB72A8E4036003E6686 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		C04CBAB92A8E42E1003E6686 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C04CBAC82A8E4850003E6686 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		C04CBACB2A8E4887003E6686 /* gilroy-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-semibold.ttf"; sourceTree = "<group>"; };
+		C04CBACC2A8E4887003E6686 /* gilroy-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-bold.ttf"; sourceTree = "<group>"; };
+		C04CBACD2A8E4887003E6686 /* gilroy-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +127,7 @@
 				C04CBA6B2A8D8511003E6686 /* Network */,
 				C04CBA5E2A8D7FE3003E6686 /* Models */,
 				C04CBA5D2A8D7FDB003E6686 /* Screens */,
-				C04CBA9D2A8E2F0D003E6686 /* UI */,
+				C04CBAC62A8E483C003E6686 /* UI */,
 				C04CBA9A2A8DAA1C003E6686 /* Extensions */,
 				C04CBA522A8D7F2F003E6686 /* Assets.xcassets */,
 				C04CBA542A8D7F2F003E6686 /* LaunchScreen.storyboard */,
@@ -247,25 +257,38 @@
 		C04CBA9A2A8DAA1C003E6686 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C04CBAB72A8E4036003E6686 /* UIFont.swift */,
+				C04CBAB92A8E42E1003E6686 /* UIColor.swift */,
 				C04CBA9B2A8DAA2F003E6686 /* Array+Identifable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C04CBA9D2A8E2F0D003E6686 /* UI */ = {
+		C04CBAC62A8E483C003E6686 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C04CBAA02A8E2F21003E6686 /* Cells */,
+				C04CBAC72A8E4843003E6686 /* Cells */,
+				C04CBACA2A8E4874003E6686 /* Fonts */,
 			);
-			name = UI;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		C04CBAA02A8E2F21003E6686 /* Cells */ = {
+		C04CBAC72A8E4843003E6686 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C04CBAA12A8E2F2D003E6686 /* CharacterCell.swift */,
+				C04CBAC82A8E4850003E6686 /* CharacterCell.swift */,
 			);
-			name = Cells;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C04CBACA2A8E4874003E6686 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBACC2A8E4887003E6686 /* gilroy-bold.ttf */,
+				C04CBACD2A8E4887003E6686 /* gilroy-medium.ttf */,
+				C04CBACB2A8E4887003E6686 /* gilroy-semibold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,8 +372,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04CBACE2A8E4887003E6686 /* gilroy-semibold.ttf in Resources */,
+				C04CBAD02A8E4887003E6686 /* gilroy-medium.ttf in Resources */,
 				C04CBA562A8D7F2F003E6686 /* LaunchScreen.storyboard in Resources */,
 				C04CBA532A8D7F2F003E6686 /* Assets.xcassets in Resources */,
+				C04CBACF2A8E4887003E6686 /* gilroy-bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,10 +397,12 @@
 				C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */,
 				C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */,
 				C04CBAA42A8E302A003E6686 /* ImageLoader.swift in Sources */,
+				C04CBAC92A8E4850003E6686 /* CharacterCell.swift in Sources */,
 				C04CBA652A8D816C003E6686 /* CharactersListController.swift in Sources */,
 				C04CBA672A8D816C003E6686 /* CharactersListViewModel.swift in Sources */,
 				C04CBA8B2A8D948B003E6686 /* FetchError.swift in Sources */,
 				C04CBA922A8D986B003E6686 /* API.swift in Sources */,
+				C04CBABA2A8E42E1003E6686 /* UIColor.swift in Sources */,
 				C04CBA6D2A8D862B003E6686 /* Character.swift in Sources */,
 				C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */,
 				C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */,
@@ -383,8 +411,8 @@
 				C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */,
 				C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */,
 				C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */,
-				C04CBAA22A8E2F2D003E6686 /* CharacterCell.swift in Sources */,
 				C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */,
+				C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */,
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,
 				C04CBA712A8D88C1003E6686 /* Episode.swift in Sources */,
 				C04CBA6F2A8D88B3003E6686 /* Origin.swift in Sources */,

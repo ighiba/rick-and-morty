@@ -14,6 +14,6 @@ class CharactersListModuleAssembly {
         
         view.viewModel = viewModel
 
-        return view
+        return UINavigationController(rootViewController: view)
     }
 }

@@ -15,7 +15,7 @@ private let labelSpacing: CGFloat = 3
 private let cellCornerRadius: CGFloat = 16
 private let imageViewCornerRadius: CGFloat = 10
 
-private let cellBackgroundColor: UIColor = UIColor(named: "cellBackgroundColor")!
+private let nameLabelFont: UIFont = .gilroySemibold.withSize(17)
 
 final class CharacterCell: UICollectionViewCell {
     
@@ -93,7 +93,7 @@ final class CharacterCell: UICollectionViewCell {
     
     private func configureBackground() -> UIBackgroundConfiguration {
         var configuration = UIBackgroundConfiguration.listPlainCell()
-        configuration.backgroundColor = cellBackgroundColor
+        configuration.backgroundColor = .cellBackgroundColor
         configuration.cornerRadius = cellCornerRadius
         return configuration
     }
@@ -104,7 +104,7 @@ final class CharacterCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = nameLabelFont
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
