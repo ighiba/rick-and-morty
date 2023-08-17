@@ -12,7 +12,8 @@ private let widthMultipler: CGFloat = 1.0 - spacingMultiplier
 private let systemSpacingMultiplier: CGFloat = 1.0 + spacingMultiplier
 private let labelSpacing: CGFloat = 3
 
-private let defaultCornerRadius: CGFloat = 10
+private let cellCornerRadius: CGFloat = 16
+private let imageViewCornerRadius: CGFloat = 10
 
 final class CharacterCell: UICollectionViewCell {
     
@@ -52,7 +53,8 @@ final class CharacterCell: UICollectionViewCell {
     }
     
     private func setupStyle() {
-        imageView.layer.cornerRadius = defaultCornerRadius
+        imageView.layer.cornerRadius = imageViewCornerRadius
+        imageView.layer.masksToBounds = true
         imageView.backgroundColor = .blue
         
         nameLabel.textColor = .white
@@ -61,15 +63,35 @@ final class CharacterCell: UICollectionViewCell {
     func configure(with characterModel: CharacterModel) {
         characterId = characterModel.id
         nameLabel.text = characterModel.name
-        imageView.image = characterModel.image?.1
-        
+        imageView.image = characterModel.imageContainer?.image
+        if characterModel.imageContainer?.image != nil {
+            imageView.image = characterModel.imageContainer?.image
+        } else {
+            loadCharacterImage(forCharacter: characterModel)
+        }
+
         backgroundConfiguration = configureBackground()
+    }
+    
+    private func loadCharacterImage(forCharacter character: CharacterModel) {
+        guard let imageUrl = character.imageContainer?.url else { return }
+        let id = character.id
+        CachedImageLoader.shared.load(url: imageUrl) { [weak self] result in
+            switch result {
+            case .success(let image):
+                guard id == self?.characterId else { return }
+                self?.imageView.image = image
+                character.imageContainer?.image = image
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func configureBackground() -> UIBackgroundConfiguration {
         var configuration = UIBackgroundConfiguration.listPlainCell()
         configuration.backgroundColor = .red
-        configuration.cornerRadius = defaultCornerRadius
+        configuration.cornerRadius = cellCornerRadius
         return configuration
     }
     

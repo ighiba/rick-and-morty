@@ -30,6 +30,7 @@
 		C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */; };
 		C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA9B2A8DAA2F003E6686 /* Array+Identifable.swift */; };
 		C04CBAA22A8E2F2D003E6686 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBAA12A8E2F2D003E6686 /* CharacterCell.swift */; };
+		C04CBAA42A8E302A003E6686 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBAA32A8E302A003E6686 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 		C04CBA9B2A8DAA2F003E6686 /* Array+Identifable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifable.swift"; sourceTree = "<group>"; };
 		C04CBAA12A8E2F2D003E6686 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		C04CBAA32A8E302A003E6686 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				C04CBA832A8D8E3E003E6686 /* Responses */,
 				C04CBA882A8D948B003E6686 /* NetworkManager.swift */,
 				C04CBA892A8D948B003E6686 /* FetchError.swift */,
+				C04CBAA32A8E302A003E6686 /* ImageLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */,
 				C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */,
+				C04CBAA42A8E302A003E6686 /* ImageLoader.swift in Sources */,
 				C04CBA652A8D816C003E6686 /* CharactersListController.swift in Sources */,
 				C04CBA672A8D816C003E6686 /* CharactersListViewModel.swift in Sources */,
 				C04CBA8B2A8D948B003E6686 /* FetchError.swift in Sources */,

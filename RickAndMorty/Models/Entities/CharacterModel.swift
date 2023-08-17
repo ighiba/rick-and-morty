@@ -7,7 +7,9 @@
 
 import UIKit
 
-struct CharacterModel: Identifiable {
+typealias ImageContainer = (url: URL, image: UIImage?)
+
+class CharacterModel: Identifiable {
     let id: Int
     let name: String
     let status: String
@@ -15,8 +17,8 @@ struct CharacterModel: Identifiable {
     let type: String
     let gender: String
     let origin: Origin
-    let image: (URL, UIImage?)?
-    let episodes: [(URL, EpisodeModel?)]
+    var imageContainer: ImageContainer?
+    var episodes: [(URL, EpisodeModel?)]
     
     init(
         id: Int,
@@ -26,7 +28,7 @@ struct CharacterModel: Identifiable {
         type: String,
         gender: String,
         origin: Origin,
-        image: (URL, UIImage?)?,
+        image: ImageContainer?,
         episodes: [(URL, EpisodeModel?)]
     ) {
         self.id = id
@@ -36,12 +38,12 @@ struct CharacterModel: Identifiable {
         self.type = type
         self.gender = gender
         self.origin = origin
-        self.image = image
+        self.imageContainer = image
         self.episodes = episodes
     }
     
-    init(character: Character) {
-        let image: (URL, UIImage?)? = {
+    convenience init(character: Character) {
+        let image: ImageContainer? = {
             if let url = URL(string: character.imageUrl) {
                 return (url, nil)
             } else {
