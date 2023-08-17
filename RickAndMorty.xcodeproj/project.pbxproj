@@ -50,6 +50,13 @@
 		C0E5DABE2A8E596400DD1480 /* CharacterDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DABA2A8E596400DD1480 /* CharacterDetailController.swift */; };
 		C0E5DAC02A8E596400DD1480 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DABC2A8E596400DD1480 /* CharacterDetailViewModel.swift */; };
 		C0E5DAC42A8E5D0D00DD1480 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAC32A8E5D0D00DD1480 /* CharacterDetailView.swift */; };
+		C0E5DAC62A8E65F500DD1480 /* CharacterAvatarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAC52A8E65F500DD1480 /* CharacterAvatarContainer.swift */; };
+		C0E5DACB2A8E68F600DD1480 /* CharacterAvatarPlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAC82A8E68F600DD1480 /* CharacterAvatarPlaceholder@2x.png */; };
+		C0E5DACC2A8E68F600DD1480 /* CharacterAvatarPlaceholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAC92A8E68F600DD1480 /* CharacterAvatarPlaceholder@3x.png */; };
+		C0E5DACD2A8E68F600DD1480 /* CharacterAvatarPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DACA2A8E68F600DD1480 /* CharacterAvatarPlaceholder.png */; };
+		C0E5DACF2A8E692B00DD1480 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DACE2A8E692B00DD1480 /* UIImage.swift */; };
+		C0E5DAD12A8E6DB400DD1480 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD02A8E6DB400DD1480 /* Font.swift */; };
+		C0E5DAD32A8E6EF900DD1480 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD22A8E6EF900DD1480 /* UIColor+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +116,13 @@
 		C0E5DABA2A8E596400DD1480 /* CharacterDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailController.swift; sourceTree = "<group>"; };
 		C0E5DABC2A8E596400DD1480 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		C0E5DAC32A8E5D0D00DD1480 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		C0E5DAC52A8E65F500DD1480 /* CharacterAvatarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAvatarContainer.swift; sourceTree = "<group>"; };
+		C0E5DAC82A8E68F600DD1480 /* CharacterAvatarPlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CharacterAvatarPlaceholder@2x.png"; sourceTree = "<group>"; };
+		C0E5DAC92A8E68F600DD1480 /* CharacterAvatarPlaceholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CharacterAvatarPlaceholder@3x.png"; sourceTree = "<group>"; };
+		C0E5DACA2A8E68F600DD1480 /* CharacterAvatarPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterAvatarPlaceholder.png; sourceTree = "<group>"; };
+		C0E5DACE2A8E692B00DD1480 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		C0E5DAD02A8E6DB400DD1480 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		C0E5DAD22A8E6EF900DD1480 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,8 +301,11 @@
 		C04CBA9A2A8DAA1C003E6686 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0E5DAD02A8E6DB400DD1480 /* Font.swift */,
 				C04CBAB72A8E4036003E6686 /* UIFont.swift */,
 				C04CBAB92A8E42E1003E6686 /* UIColor.swift */,
+				C0E5DAD22A8E6EF900DD1480 /* UIColor+Color.swift */,
+				C0E5DACE2A8E692B00DD1480 /* UIImage.swift */,
 				C04CBA9B2A8DAA2F003E6686 /* Array+Identifable.swift */,
 			);
 			path = Extensions;
@@ -324,6 +341,7 @@
 		C0E5DAA12A8E535000DD1480 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C0E5DAC72A8E68E500DD1480 /* CharacterAvatar */,
 				C0E5DAA52A8E53EF00DD1480 /* BackgroundMisc */,
 				C0E5DAA42A8E53E500DD1480 /* Portal */,
 				C0E5DAA22A8E536E00DD1480 /* RickAndMortyTitle */,
@@ -383,6 +401,7 @@
 		C0E5DAC12A8E596B00DD1480 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C0E5DAC52A8E65F500DD1480 /* CharacterAvatarContainer.swift */,
 				C0E5DAC32A8E5D0D00DD1480 /* CharacterDetailView.swift */,
 				C0E5DABA2A8E596400DD1480 /* CharacterDetailController.swift */,
 			);
@@ -395,6 +414,16 @@
 				C0E5DABC2A8E596400DD1480 /* CharacterDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C0E5DAC72A8E68E500DD1480 /* CharacterAvatar */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DACA2A8E68F600DD1480 /* CharacterAvatarPlaceholder.png */,
+				C0E5DAC82A8E68F600DD1480 /* CharacterAvatarPlaceholder@2x.png */,
+				C0E5DAC92A8E68F600DD1480 /* CharacterAvatarPlaceholder@3x.png */,
+			);
+			path = CharacterAvatar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,13 +513,16 @@
 				C0E5DAAB2A8E543400DD1480 /* Portal@3x.png in Resources */,
 				C0E5DAA92A8E543400DD1480 /* Portal.png in Resources */,
 				C04CBACF2A8E4887003E6686 /* gilroy-bold.ttf in Resources */,
+				C0E5DACD2A8E68F600DD1480 /* CharacterAvatarPlaceholder.png in Resources */,
 				C0E5DAAA2A8E543400DD1480 /* Portal@2x.png in Resources */,
+				C0E5DACB2A8E68F600DD1480 /* CharacterAvatarPlaceholder@2x.png in Resources */,
 				C0E5DA9A2A8E527E00DD1480 /* Images.xcassets in Resources */,
 				C0E5DAB02A8E543A00DD1480 /* BackgroundMisc@2x.png in Resources */,
 				C0E5DAAF2A8E543A00DD1480 /* BackgroundMisc.png in Resources */,
 				C04CBA532A8D7F2F003E6686 /* Colors.xcassets in Resources */,
 				C0E5DAB52A8E55A000DD1480 /* RickAndMortyTitle@2x.png in Resources */,
 				C04CBA562A8D7F2F003E6686 /* LaunchScreen.storyboard in Resources */,
+				C0E5DACC2A8E68F600DD1480 /* CharacterAvatarPlaceholder@3x.png in Resources */,
 				C0E5DAB12A8E543A00DD1480 /* BackgroundMisc@3x.png in Resources */,
 				C0E5DAB62A8E55A000DD1480 /* RickAndMortyTitle.png in Resources */,
 			);
@@ -510,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E5DAC62A8E65F500DD1480 /* CharacterAvatarContainer.swift in Sources */,
 				C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */,
 				C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */,
 				C04CBAA42A8E302A003E6686 /* ImageLoader.swift in Sources */,
@@ -517,11 +550,13 @@
 				C04CBAC92A8E4850003E6686 /* CharacterCell.swift in Sources */,
 				C04CBA652A8D816C003E6686 /* CharactersListController.swift in Sources */,
 				C04CBA672A8D816C003E6686 /* CharactersListViewModel.swift in Sources */,
+				C0E5DAD12A8E6DB400DD1480 /* Font.swift in Sources */,
 				C0E5DABE2A8E596400DD1480 /* CharacterDetailController.swift in Sources */,
 				C04CBA8B2A8D948B003E6686 /* FetchError.swift in Sources */,
 				C04CBA922A8D986B003E6686 /* API.swift in Sources */,
 				C04CBABA2A8E42E1003E6686 /* UIColor.swift in Sources */,
 				C04CBA6D2A8D862B003E6686 /* Character.swift in Sources */,
+				C0E5DACF2A8E692B00DD1480 /* UIImage.swift in Sources */,
 				C0E5DAC02A8E596400DD1480 /* CharacterDetailViewModel.swift in Sources */,
 				C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */,
 				C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */,
@@ -530,6 +565,7 @@
 				C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */,
 				C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */,
 				C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */,
+				C0E5DAD32A8E6EF900DD1480 /* UIColor+Color.swift in Sources */,
 				C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */,
 				C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */,
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,

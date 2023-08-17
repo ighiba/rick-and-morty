@@ -9,6 +9,12 @@ import UIKit
 
 typealias ImageContainer = (url: URL, image: UIImage?)
 
+struct EpisodeContainer: Identifiable {
+    var id: Int
+    var url: URL
+    var episode: EpisodeModel?
+}
+
 class CharacterModel: Identifiable {
     let id: Int
     let name: String
@@ -18,7 +24,7 @@ class CharacterModel: Identifiable {
     let gender: String
     let origin: Origin
     var imageContainer: ImageContainer?
-    var episodes: [(URL, EpisodeModel?)]
+    var episodes: [EpisodeContainer]
     
     init(
         id: Int,
@@ -29,7 +35,7 @@ class CharacterModel: Identifiable {
         gender: String,
         origin: Origin,
         image: ImageContainer?,
-        episodes: [(URL, EpisodeModel?)]
+        episodes: [EpisodeContainer]
     ) {
         self.id = id
         self.name = name
@@ -51,9 +57,9 @@ class CharacterModel: Identifiable {
             }
         }()
         
-        let episodes: [(URL, EpisodeModel?)] = character.episodeUrls.compactMap { stringUrl in
+        let episodes: [EpisodeContainer] = character.episodeUrls.enumerated().compactMap { (index, stringUrl) in
             if let url = URL(string: stringUrl) {
-                return (url, nil)
+                return EpisodeContainer(id: index, url: url)
             } else {
                 return nil
             }

@@ -10,7 +10,8 @@ import SwiftUI
 
 class CharacterDetailModuleAssembly {
     class func configureModule(character: CharacterModel) -> UIViewController {
-        let view = CharacterDetailViewController(rootView: CharacterDetailView())
+        let rootView = CharacterDetailView(character: character)
+        let view = CharacterDetailViewController(rootView: rootView)
         let viewModel = CharacterDetailViewModel(character: character)
 
         view.viewModel = viewModel
