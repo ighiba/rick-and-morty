@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */; };
 		C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */; };
-		C04CBA532A8D7F2F003E6686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA522A8D7F2F003E6686 /* Assets.xcassets */; };
+		C04CBA532A8D7F2F003E6686 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA522A8D7F2F003E6686 /* Colors.xcassets */; };
 		C04CBA562A8D7F2F003E6686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA542A8D7F2F003E6686 /* LaunchScreen.storyboard */; };
 		C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA602A8D816C003E6686 /* CharactersListModuleAssembly.swift */; };
 		C04CBA652A8D816C003E6686 /* CharactersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA612A8D816C003E6686 /* CharactersListController.swift */; };
@@ -36,6 +36,16 @@
 		C04CBACE2A8E4887003E6686 /* gilroy-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACB2A8E4887003E6686 /* gilroy-semibold.ttf */; };
 		C04CBACF2A8E4887003E6686 /* gilroy-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACC2A8E4887003E6686 /* gilroy-bold.ttf */; };
 		C04CBAD02A8E4887003E6686 /* gilroy-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACD2A8E4887003E6686 /* gilroy-medium.ttf */; };
+		C0E5DA9A2A8E527E00DD1480 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DA992A8E527E00DD1480 /* Images.xcassets */; };
+		C0E5DAA92A8E543400DD1480 /* Portal.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAA62A8E543400DD1480 /* Portal.png */; };
+		C0E5DAAA2A8E543400DD1480 /* Portal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAA72A8E543400DD1480 /* Portal@2x.png */; };
+		C0E5DAAB2A8E543400DD1480 /* Portal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAA82A8E543400DD1480 /* Portal@3x.png */; };
+		C0E5DAAF2A8E543A00DD1480 /* BackgroundMisc.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAAC2A8E543A00DD1480 /* BackgroundMisc.png */; };
+		C0E5DAB02A8E543A00DD1480 /* BackgroundMisc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAAD2A8E543A00DD1480 /* BackgroundMisc@2x.png */; };
+		C0E5DAB12A8E543A00DD1480 /* BackgroundMisc@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAAE2A8E543A00DD1480 /* BackgroundMisc@3x.png */; };
+		C0E5DAB52A8E55A000DD1480 /* RickAndMortyTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAB22A8E55A000DD1480 /* RickAndMortyTitle@2x.png */; };
+		C0E5DAB62A8E55A000DD1480 /* RickAndMortyTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAB32A8E55A000DD1480 /* RickAndMortyTitle.png */; };
+		C0E5DAB72A8E55A000DD1480 /* RickAndMortyTitle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAB42A8E55A000DD1480 /* RickAndMortyTitle@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +62,7 @@
 		C04CBA462A8D7F2E003E6686 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C04CBA522A8D7F2F003E6686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C04CBA522A8D7F2F003E6686 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C04CBA552A8D7F2F003E6686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04CBA572A8D7F2F003E6686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04CBA602A8D816C003E6686 /* CharactersListModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListModuleAssembly.swift; sourceTree = "<group>"; };
@@ -81,6 +91,16 @@
 		C04CBACB2A8E4887003E6686 /* gilroy-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-semibold.ttf"; sourceTree = "<group>"; };
 		C04CBACC2A8E4887003E6686 /* gilroy-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-bold.ttf"; sourceTree = "<group>"; };
 		C04CBACD2A8E4887003E6686 /* gilroy-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-medium.ttf"; sourceTree = "<group>"; };
+		C0E5DA992A8E527E00DD1480 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C0E5DAA62A8E543400DD1480 /* Portal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Portal.png; sourceTree = "<group>"; };
+		C0E5DAA72A8E543400DD1480 /* Portal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portal@2x.png"; sourceTree = "<group>"; };
+		C0E5DAA82A8E543400DD1480 /* Portal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portal@3x.png"; sourceTree = "<group>"; };
+		C0E5DAAC2A8E543A00DD1480 /* BackgroundMisc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundMisc.png; sourceTree = "<group>"; };
+		C0E5DAAD2A8E543A00DD1480 /* BackgroundMisc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackgroundMisc@2x.png"; sourceTree = "<group>"; };
+		C0E5DAAE2A8E543A00DD1480 /* BackgroundMisc@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackgroundMisc@3x.png"; sourceTree = "<group>"; };
+		C0E5DAB22A8E55A000DD1480 /* RickAndMortyTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RickAndMortyTitle@2x.png"; sourceTree = "<group>"; };
+		C0E5DAB32A8E55A000DD1480 /* RickAndMortyTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RickAndMortyTitle.png; sourceTree = "<group>"; };
+		C0E5DAB42A8E55A000DD1480 /* RickAndMortyTitle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RickAndMortyTitle@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +149,8 @@
 				C04CBA5D2A8D7FDB003E6686 /* Screens */,
 				C04CBAC62A8E483C003E6686 /* UI */,
 				C04CBA9A2A8DAA1C003E6686 /* Extensions */,
-				C04CBA522A8D7F2F003E6686 /* Assets.xcassets */,
+				C0E5DAA32A8E53C900DD1480 /* Colors */,
+				C0E5DAA12A8E535000DD1480 /* Images */,
 				C04CBA542A8D7F2F003E6686 /* LaunchScreen.storyboard */,
 				C04CBA572A8D7F2F003E6686 /* Info.plist */,
 			);
@@ -291,6 +312,55 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		C0E5DAA12A8E535000DD1480 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DAA52A8E53EF00DD1480 /* BackgroundMisc */,
+				C0E5DAA42A8E53E500DD1480 /* Portal */,
+				C0E5DAA22A8E536E00DD1480 /* RickAndMortyTitle */,
+				C0E5DA992A8E527E00DD1480 /* Images.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C0E5DAA22A8E536E00DD1480 /* RickAndMortyTitle */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DAB32A8E55A000DD1480 /* RickAndMortyTitle.png */,
+				C0E5DAB22A8E55A000DD1480 /* RickAndMortyTitle@2x.png */,
+				C0E5DAB42A8E55A000DD1480 /* RickAndMortyTitle@3x.png */,
+			);
+			path = RickAndMortyTitle;
+			sourceTree = "<group>";
+		};
+		C0E5DAA32A8E53C900DD1480 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA522A8D7F2F003E6686 /* Colors.xcassets */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		C0E5DAA42A8E53E500DD1480 /* Portal */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DAA62A8E543400DD1480 /* Portal.png */,
+				C0E5DAA72A8E543400DD1480 /* Portal@2x.png */,
+				C0E5DAA82A8E543400DD1480 /* Portal@3x.png */,
+			);
+			path = Portal;
+			sourceTree = "<group>";
+		};
+		C0E5DAA52A8E53EF00DD1480 /* BackgroundMisc */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DAAC2A8E543A00DD1480 /* BackgroundMisc.png */,
+				C0E5DAAD2A8E543A00DD1480 /* BackgroundMisc@2x.png */,
+				C0E5DAAE2A8E543A00DD1480 /* BackgroundMisc@3x.png */,
+			);
+			path = BackgroundMisc;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,10 +443,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04CBACE2A8E4887003E6686 /* gilroy-semibold.ttf in Resources */,
+				C0E5DAB72A8E55A000DD1480 /* RickAndMortyTitle@3x.png in Resources */,
 				C04CBAD02A8E4887003E6686 /* gilroy-medium.ttf in Resources */,
-				C04CBA562A8D7F2F003E6686 /* LaunchScreen.storyboard in Resources */,
-				C04CBA532A8D7F2F003E6686 /* Assets.xcassets in Resources */,
+				C0E5DAAB2A8E543400DD1480 /* Portal@3x.png in Resources */,
+				C0E5DAA92A8E543400DD1480 /* Portal.png in Resources */,
 				C04CBACF2A8E4887003E6686 /* gilroy-bold.ttf in Resources */,
+				C0E5DAAA2A8E543400DD1480 /* Portal@2x.png in Resources */,
+				C0E5DA9A2A8E527E00DD1480 /* Images.xcassets in Resources */,
+				C0E5DAB02A8E543A00DD1480 /* BackgroundMisc@2x.png in Resources */,
+				C0E5DAAF2A8E543A00DD1480 /* BackgroundMisc.png in Resources */,
+				C04CBA532A8D7F2F003E6686 /* Colors.xcassets in Resources */,
+				C0E5DAB52A8E55A000DD1480 /* RickAndMortyTitle@2x.png in Resources */,
+				C04CBA562A8D7F2F003E6686 /* LaunchScreen.storyboard in Resources */,
+				C0E5DAB12A8E543A00DD1480 /* BackgroundMisc@3x.png in Resources */,
+				C0E5DAB62A8E55A000DD1480 /* RickAndMortyTitle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
