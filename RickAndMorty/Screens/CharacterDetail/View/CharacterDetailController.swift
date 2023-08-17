@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwiftUI
 
-class CharacterDetailViewController: UIViewController {
+class CharacterDetailViewController<T: View>: UIHostingController<T> {
 
     var viewModel: CharacterDetailViewModelDelegate! {
         didSet {
@@ -15,12 +16,6 @@ class CharacterDetailViewController: UIViewController {
                 // update
             }
         }
-    }
-
-    var characterDetailView = CharacterDetailView()
-
-    override func loadView() {
-        view = characterDetailView
     }
 
     override func viewDidLoad() {
