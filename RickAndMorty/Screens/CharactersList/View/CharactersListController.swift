@@ -38,11 +38,6 @@ class CharactersListViewController: UICollectionViewController {
         viewModel.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setNeedsStatusBarAppearanceUpdate()
-    }
-    
     private func setupNavigationBar() {
         title = "Characters"
         
@@ -73,7 +68,22 @@ extension CharactersListViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Delegate
 
 extension CharactersListViewController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let selectedCharacter = characterModel(forIndexPath: indexPath) {
+            openDetail(forCharacter: selectedCharacter)
+        }
+    }
     
+    private func characterModel(forIndexPath indexPath: IndexPath) -> CharacterModel? {
+        let row = indexPath.row
+        guard viewModel.characterModelList.indices.contains(row) else { return nil }
+        return viewModel.characterModelList[row]
+    }
+    
+    private func openDetail(forCharacter character: CharacterModel) {
+        let detailView = CharacterDetailModuleAssembly.configureModule(character: character)
+        navigationController?.pushViewController(detailView, animated: true)
+    }
 }
 
 // MARK: - DataSource
