@@ -6,18 +6,22 @@
 //
 
 import Foundation
-import Combine
 
 protocol CharactersListViewModelDelegate: AnyObject {
     var characterModelList: [CharacterModel] { get }
-    var characterModelListPublisher: Published<[CharacterModel]>.Publisher { get }
+    var characterModelListDidChangeHandler: (([CharacterModel]) -> Void)? { get set }
     func viewDidLoad()
 }
 
 class CharactersListViewModel: CharactersListViewModelDelegate {
     
-    @Published var characterModelList: [CharacterModel] = []
-    var characterModelListPublisher: Published<[CharacterModel]>.Publisher { $characterModelList }
+    var characterModelList: [CharacterModel] = [] {
+        didSet {
+            characterModelListDidChangeHandler?(characterModelList)
+        }
+    }
+    
+    var characterModelListDidChangeHandler: (([CharacterModel]) -> Void)?
     
     var networkManager: NetworkManager
     

@@ -9,8 +9,10 @@ import UIKit
 
 class CharactersListModuleAssembly {
     class func configureModule() -> UIViewController {
+        let view = CharactersListViewController()
         let viewModel = CharactersListViewModel(networkManager: NetworkManagerImpl())
-        let view = CharactersListViewController(viewModel: viewModel)
+        
+        view.viewModel = viewModel
 
         return view
     }
