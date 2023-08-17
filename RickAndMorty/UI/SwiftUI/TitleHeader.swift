@@ -15,6 +15,12 @@ struct TitleHeader: View {
     
     private let headerFont: Font = .gilroySemibold(17)
     
+    init(title: String, horizontalSpacing: CGFloat = 0, verticalSpacing: CGFloat = 0) {
+        self.title = title
+        self.horizontalSpacing = horizontalSpacing
+        self.verticalSpacing = verticalSpacing
+    }
+    
     var body: some View {
         Text(title)
             .font(headerFont)

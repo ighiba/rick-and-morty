@@ -22,7 +22,7 @@ struct CharacterAvatarContainer: View {
     private let statusFont: Font = .gilroyMedium(16)
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             VStack {
                 if let characterImage = imageContainer?.image {
                     Image(uiImage: characterImage)
@@ -50,8 +50,8 @@ struct CharacterAvatarContainer: View {
                     .font(statusFont)
                     .foregroundColor(UIColor.greenAccentColor.toColor())
             }
-
         }
+        .frame(maxWidth: .infinity)
     }
 }
 

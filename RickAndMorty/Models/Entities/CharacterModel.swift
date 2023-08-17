@@ -15,7 +15,7 @@ struct OriginContainer {
     var type: String?
 }
 
-struct EpisodeContainer: Identifiable {
+struct EpisodeContainerModel: Identifiable {
     var id: Int
     var url: URL
     var episode: EpisodeModel?
@@ -30,7 +30,7 @@ class CharacterModel: Identifiable {
     let gender: String
     let originContainer: OriginContainer
     var imageContainer: ImageContainer?
-    var episodes: [EpisodeContainer]
+    var episodes: [EpisodeContainerModel]
     
     init(
         id: Int,
@@ -41,7 +41,7 @@ class CharacterModel: Identifiable {
         gender: String,
         originContainer: OriginContainer,
         imageContainer: ImageContainer?,
-        episodes: [EpisodeContainer]
+        episodes: [EpisodeContainerModel]
     ) {
         self.id = id
         self.name = name
@@ -68,9 +68,9 @@ class CharacterModel: Identifiable {
             }
         }()
         
-        let episodes: [EpisodeContainer] = character.episodeUrls.enumerated().compactMap { (index, stringUrl) in
+        let episodes: [EpisodeContainerModel] = character.episodeUrls.enumerated().compactMap { (index, stringUrl) in
             if let url = URL(string: stringUrl) {
-                return EpisodeContainer(id: index, url: url)
+                return EpisodeContainerModel(id: index, url: url)
             } else {
                 return nil
             }

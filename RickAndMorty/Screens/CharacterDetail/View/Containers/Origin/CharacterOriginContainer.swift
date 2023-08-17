@@ -26,7 +26,7 @@ struct CharacterOriginContainer: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            TitleHeader(title: "Origin", horizontalSpacing: horizontalSpacing, verticalSpacing: verticalSpacing)
+            TitleHeader(title: "Origin", verticalSpacing: verticalSpacing)
             VStack(alignment: .leading) {
                 HStack {
                     Image(uiImage: .originPlanet)
@@ -49,7 +49,6 @@ struct CharacterOriginContainer: View {
             }
             .background(UIColor.cellBackgroundColor.toColor())
             .cornerRadius(cornerRadius)
-            .padding([.leading, .trailing], horizontalSpacing)
         }
         .frame(maxWidth: .infinity)
     }

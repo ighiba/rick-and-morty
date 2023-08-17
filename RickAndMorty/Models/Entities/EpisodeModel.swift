@@ -19,7 +19,7 @@ struct EpisodeModel: Identifiable {
         self.id = id
         self.name = name
         self.airDate = Date()
-        self.episodeNum = EpisodeNumber(0, 0) // TODO
+        self.episodeNum = episodeNum
     }
     
     init(episode: EpisodeModel) {

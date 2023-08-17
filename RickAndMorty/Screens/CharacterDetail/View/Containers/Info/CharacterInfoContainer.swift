@@ -21,7 +21,7 @@ struct CharacterInfoContainer: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            TitleHeader(title: "Info", horizontalSpacing: horizontalSpacing, verticalSpacing: verticalSpacing)
+            TitleHeader(title: "Info", verticalSpacing: verticalSpacing)
             VStack {
                 InfoRow(title: "Species:", value: species)
                 InfoRow(title: "Type:", value: type)
@@ -30,7 +30,6 @@ struct CharacterInfoContainer: View {
             .padding([.top, .bottom], verticalSpacing)
             .background(UIColor.cellBackgroundColor.toColor())
             .cornerRadius(cornerRadius)
-            .padding([.leading, .trailing], horizontalSpacing)
         }
         .frame(maxWidth: .infinity)
     }
