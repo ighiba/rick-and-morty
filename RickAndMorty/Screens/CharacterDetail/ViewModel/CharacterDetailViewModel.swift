@@ -13,6 +13,8 @@ protocol CharacterDetailViewModelDelegate: AnyObject {
 
 class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObject {
     
+    // MARK: - Properties
+    
     private var character: CharacterModel
     
     @Published var characterAvatar: CharacterModel.Avatar
@@ -24,12 +26,16 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     
     var networkManager: NetworkManager!
     
+    // MARK: - Init
+    
     init(character: CharacterModel) {
         self.characterAvatar = character.avatar
         self.characterInfo = character.info
         self.originContainer = character.originContainer
         self.character = character
     }
+    
+    // MARK: - Methods
     
     func updateCharacterData() {
         updateOrigin()
@@ -65,7 +71,6 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
         networkManager.fetchLocation(endpoint: .directUrl(url)) { [weak self] result in
             switch result {
             case .success(let fetchedLocation):
-                print(fetchedLocation)
                 self?.character.originContainer.location = fetchedLocation
                 if let originContainer = self?.character.originContainer {
                     self?.originContainer = originContainer
