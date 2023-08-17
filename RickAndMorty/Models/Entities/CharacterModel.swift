@@ -9,6 +9,12 @@ import UIKit
 
 typealias ImageContainer = (url: URL, image: UIImage?)
 
+struct OriginContainer {
+    var url: URL?
+    var name: String?
+    var type: String?
+}
+
 struct EpisodeContainer: Identifiable {
     var id: Int
     var url: URL
@@ -22,7 +28,7 @@ class CharacterModel: Identifiable {
     let species: String
     let type: String
     let gender: String
-    let origin: Origin
+    let originContainer: OriginContainer
     var imageContainer: ImageContainer?
     var episodes: [EpisodeContainer]
     
@@ -33,8 +39,8 @@ class CharacterModel: Identifiable {
         species: String,
         type: String,
         gender: String,
-        origin: Origin,
-        image: ImageContainer?,
+        originContainer: OriginContainer,
+        imageContainer: ImageContainer?,
         episodes: [EpisodeContainer]
     ) {
         self.id = id
@@ -43,13 +49,18 @@ class CharacterModel: Identifiable {
         self.species = species
         self.type = type
         self.gender = gender
-        self.origin = origin
-        self.imageContainer = image
+        self.originContainer = originContainer
+        self.imageContainer = imageContainer
         self.episodes = episodes
     }
     
     convenience init(character: Character) {
-        let image: ImageContainer? = {
+        let originContainer: OriginContainer = {
+            let url = URL(string: character.origin.url ?? "")
+            return OriginContainer(url: url, name: character.origin.name)
+        }()
+        
+        let imageContainer: ImageContainer? = {
             if let url = URL(string: character.imageUrl) {
                 return (url, nil)
             } else {
@@ -72,8 +83,8 @@ class CharacterModel: Identifiable {
             species: character.species,
             type: character.type,
             gender: character.gender,
-            origin: character.origin,
-            image: image,
+            originContainer: originContainer,
+            imageContainer: imageContainer,
             episodes: episodes
         )
     }

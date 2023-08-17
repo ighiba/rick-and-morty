@@ -59,6 +59,11 @@
 		C0E5DAD32A8E6EF900DD1480 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD22A8E6EF900DD1480 /* UIColor+Color.swift */; };
 		C0E5DAD72A8E782000DD1480 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD62A8E782000DD1480 /* InfoRow.swift */; };
 		C0E5DAD92A8E7CA400DD1480 /* CharacterInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD82A8E7CA400DD1480 /* CharacterInfoContainer.swift */; };
+		C0E5DADB2A8E803D00DD1480 /* CharacterOriginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DADA2A8E803D00DD1480 /* CharacterOriginContainer.swift */; };
+		C0E5DAEC2A8E8D6A00DD1480 /* OriginPlanet.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAE92A8E8D6A00DD1480 /* OriginPlanet.png */; };
+		C0E5DAED2A8E8D6A00DD1480 /* OriginPlanet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAEA2A8E8D6A00DD1480 /* OriginPlanet@2x.png */; };
+		C0E5DAEE2A8E8D6A00DD1480 /* OriginPlanet@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAEB2A8E8D6A00DD1480 /* OriginPlanet@3x.png */; };
+		C0E5DAF12A8E8EE200DD1480 /* TitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAF02A8E8EE200DD1480 /* TitleHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +132,11 @@
 		C0E5DAD22A8E6EF900DD1480 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		C0E5DAD62A8E782000DD1480 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
 		C0E5DAD82A8E7CA400DD1480 /* CharacterInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoContainer.swift; sourceTree = "<group>"; };
+		C0E5DADA2A8E803D00DD1480 /* CharacterOriginContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterOriginContainer.swift; sourceTree = "<group>"; };
+		C0E5DAE92A8E8D6A00DD1480 /* OriginPlanet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OriginPlanet.png; sourceTree = "<group>"; };
+		C0E5DAEA2A8E8D6A00DD1480 /* OriginPlanet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OriginPlanet@2x.png"; sourceTree = "<group>"; };
+		C0E5DAEB2A8E8D6A00DD1480 /* OriginPlanet@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OriginPlanet@3x.png"; sourceTree = "<group>"; };
+		C0E5DAF02A8E8EE200DD1480 /* TitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +328,7 @@
 		C04CBAC62A8E483C003E6686 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C0E5DAEF2A8E8ECE00DD1480 /* SwiftUI */,
 				C04CBAC72A8E4843003E6686 /* Cells */,
 				C04CBACA2A8E4874003E6686 /* Fonts */,
 			);
@@ -345,6 +356,7 @@
 		C0E5DAA12A8E535000DD1480 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C0E5DADC2A8E8CDE00DD1480 /* OriginPlanet */,
 				C0E5DAC72A8E68E500DD1480 /* CharacterAvatar */,
 				C0E5DAA52A8E53EF00DD1480 /* BackgroundMisc */,
 				C0E5DAA42A8E53E500DD1480 /* Portal */,
@@ -408,6 +420,7 @@
 				C0E5DAC52A8E65F500DD1480 /* CharacterAvatarContainer.swift */,
 				C0E5DAD62A8E782000DD1480 /* InfoRow.swift */,
 				C0E5DAD82A8E7CA400DD1480 /* CharacterInfoContainer.swift */,
+				C0E5DADA2A8E803D00DD1480 /* CharacterOriginContainer.swift */,
 				C0E5DAC32A8E5D0D00DD1480 /* CharacterDetailView.swift */,
 				C0E5DABA2A8E596400DD1480 /* CharacterDetailController.swift */,
 			);
@@ -430,6 +443,24 @@
 				C0E5DAC92A8E68F600DD1480 /* CharacterAvatarPlaceholder@3x.png */,
 			);
 			path = CharacterAvatar;
+			sourceTree = "<group>";
+		};
+		C0E5DADC2A8E8CDE00DD1480 /* OriginPlanet */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DAE92A8E8D6A00DD1480 /* OriginPlanet.png */,
+				C0E5DAEA2A8E8D6A00DD1480 /* OriginPlanet@2x.png */,
+				C0E5DAEB2A8E8D6A00DD1480 /* OriginPlanet@3x.png */,
+			);
+			path = OriginPlanet;
+			sourceTree = "<group>";
+		};
+		C0E5DAEF2A8E8ECE00DD1480 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DAF02A8E8EE200DD1480 /* TitleHeader.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E5DAED2A8E8D6A00DD1480 /* OriginPlanet@2x.png in Resources */,
 				C04CBACE2A8E4887003E6686 /* gilroy-semibold.ttf in Resources */,
 				C0E5DAB72A8E55A000DD1480 /* RickAndMortyTitle@3x.png in Resources */,
 				C04CBAD02A8E4887003E6686 /* gilroy-medium.ttf in Resources */,
@@ -522,9 +554,11 @@
 				C0E5DACD2A8E68F600DD1480 /* CharacterAvatarPlaceholder.png in Resources */,
 				C0E5DAAA2A8E543400DD1480 /* Portal@2x.png in Resources */,
 				C0E5DACB2A8E68F600DD1480 /* CharacterAvatarPlaceholder@2x.png in Resources */,
+				C0E5DAEE2A8E8D6A00DD1480 /* OriginPlanet@3x.png in Resources */,
 				C0E5DA9A2A8E527E00DD1480 /* Images.xcassets in Resources */,
 				C0E5DAB02A8E543A00DD1480 /* BackgroundMisc@2x.png in Resources */,
 				C0E5DAAF2A8E543A00DD1480 /* BackgroundMisc.png in Resources */,
+				C0E5DAEC2A8E8D6A00DD1480 /* OriginPlanet.png in Resources */,
 				C04CBA532A8D7F2F003E6686 /* Colors.xcassets in Resources */,
 				C0E5DAB52A8E55A000DD1480 /* RickAndMortyTitle@2x.png in Resources */,
 				C04CBA562A8D7F2F003E6686 /* LaunchScreen.storyboard in Resources */,
@@ -563,6 +597,7 @@
 				C04CBABA2A8E42E1003E6686 /* UIColor.swift in Sources */,
 				C04CBA6D2A8D862B003E6686 /* Character.swift in Sources */,
 				C0E5DACF2A8E692B00DD1480 /* UIImage.swift in Sources */,
+				C0E5DAF12A8E8EE200DD1480 /* TitleHeader.swift in Sources */,
 				C0E5DAC02A8E596400DD1480 /* CharacterDetailViewModel.swift in Sources */,
 				C0E5DAD72A8E782000DD1480 /* InfoRow.swift in Sources */,
 				C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */,
@@ -575,6 +610,7 @@
 				C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */,
 				C0E5DAD32A8E6EF900DD1480 /* UIColor+Color.swift in Sources */,
 				C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */,
+				C0E5DADB2A8E803D00DD1480 /* CharacterOriginContainer.swift in Sources */,
 				C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */,
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,
 				C0E5DABD2A8E596400DD1480 /* CharacterDetailModuleAssembly.swift in Sources */,

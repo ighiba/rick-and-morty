@@ -13,29 +13,24 @@ struct CharacterInfoContainer: View {
     var type: String
     var gender: String
     
-    private let verticalSpacing: CGFloat = 20
-    private let horizontalSpacing: CGFloat = 8
+    private let verticalSpacing: CGFloat = 8
+    private let horizontalSpacing: CGFloat = 20
     private let cornerRadius: CGFloat = 16
     
     private let headerFont: Font = .gilroySemibold(17)
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Info")
-                .font(headerFont)
-                .foregroundColor(.white)
-                .alignmentGuide(.leading, computeValue: { _ in -verticalSpacing })
-                .padding(.bottom, horizontalSpacing)
-            
+            TitleHeader(title: "Info", horizontalSpacing: horizontalSpacing, verticalSpacing: verticalSpacing)
             VStack {
                 InfoRow(title: "Species:", value: species)
                 InfoRow(title: "Type:", value: type)
                 InfoRow(title: "Gender:", value: gender)
             }
-            .padding([.top, .bottom], horizontalSpacing)
+            .padding([.top, .bottom], verticalSpacing)
             .background(UIColor.cellBackgroundColor.toColor())
             .cornerRadius(cornerRadius)
-            .padding([.leading, .trailing], verticalSpacing)
+            .padding([.leading, .trailing], horizontalSpacing)
         }
         .frame(maxWidth: .infinity)
     }

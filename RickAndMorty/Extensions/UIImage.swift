@@ -9,4 +9,5 @@ import UIKit
 
 extension UIImage {
     static let characterAvatarPlaceholder = UIImage(named: "CharacterAvatarPlaceholder")!
+    static let originPlanet = UIImage(named: "OriginPlanet")!
 }

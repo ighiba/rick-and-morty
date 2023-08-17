@@ -17,22 +17,26 @@ struct CharacterDetailView: View {
         ZStack {
             UIColor.defaultBackgroundColor.toColor()
                 .ignoresSafeArea()
-            VStack(alignment: .center) {
-                CharacterAvatarContainer(
-                    imageContainer: character.imageContainer,
-                    name: character.name,
-                    status: character.status
-                )
-                .padding(.bottom, verticalSpacing)
-                CharacterInfoContainer(
-                    species: character.species,
-                    type: character.type,
-                    gender: character.gender
-                )
-                
-                
+            ScrollView {
+                VStack(alignment: .center) {
+                    CharacterAvatarContainer(
+                        imageContainer: character.imageContainer,
+                        name: character.name,
+                        status: character.status
+                    )
+                    .padding(.bottom, verticalSpacing)
+                    CharacterInfoContainer(
+                        species: character.species,
+                        type: character.type,
+                        gender: character.gender
+                    )
+                    .padding(.bottom, verticalSpacing)
+                    CharacterOriginContainer(
+                        originContainer: character.originContainer
+                    )
+                }
+                .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity)
             
     //        List(character.episodes) { episode in
     //            Text(episode.url.absoluteString)
