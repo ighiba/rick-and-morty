@@ -58,7 +58,7 @@ final class CharacterCell: UICollectionViewCell {
     private func setupStyle() {
         imageView.layer.cornerRadius = imageViewCornerRadius
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = .blue
+        imageView.backgroundColor = .cellImagePlaceholderColor
         
         nameLabel.textColor = .white
     }

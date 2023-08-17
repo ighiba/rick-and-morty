@@ -10,4 +10,5 @@ import UIKit
 extension UIColor {
     static let defaultBackgroundColor = UIColor(named: "defaultBackgroundColor")!
     static let cellBackgroundColor = UIColor(named: "cellBackgroundColor")!
+    static let cellImagePlaceholderColor = UIColor(named: "cellImagePlaceholderColor")!
 }
