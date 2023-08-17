@@ -12,4 +12,6 @@ extension UIColor {
     static let cellBackgroundColor = UIColor(named: "cellBackgroundColor")!
     static let cellImagePlaceholderColor = UIColor(named: "cellImagePlaceholderColor")!
     static let greenAccentColor = UIColor(named: "greenAccentColor")!
+    static let secondaryTextColor = UIColor(named: "secondaryTextColor")!
+    static let secondaryTextColor2 = UIColor(named: "secondaryTextColor2")!
 }

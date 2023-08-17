@@ -57,6 +57,8 @@
 		C0E5DACF2A8E692B00DD1480 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DACE2A8E692B00DD1480 /* UIImage.swift */; };
 		C0E5DAD12A8E6DB400DD1480 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD02A8E6DB400DD1480 /* Font.swift */; };
 		C0E5DAD32A8E6EF900DD1480 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD22A8E6EF900DD1480 /* UIColor+Color.swift */; };
+		C0E5DAD72A8E782000DD1480 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD62A8E782000DD1480 /* InfoRow.swift */; };
+		C0E5DAD92A8E7CA400DD1480 /* CharacterInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAD82A8E7CA400DD1480 /* CharacterInfoContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,8 @@
 		C0E5DACE2A8E692B00DD1480 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C0E5DAD02A8E6DB400DD1480 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C0E5DAD22A8E6EF900DD1480 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
+		C0E5DAD62A8E782000DD1480 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		C0E5DAD82A8E7CA400DD1480 /* CharacterInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				C0E5DAC52A8E65F500DD1480 /* CharacterAvatarContainer.swift */,
+				C0E5DAD62A8E782000DD1480 /* InfoRow.swift */,
+				C0E5DAD82A8E7CA400DD1480 /* CharacterInfoContainer.swift */,
 				C0E5DAC32A8E5D0D00DD1480 /* CharacterDetailView.swift */,
 				C0E5DABA2A8E596400DD1480 /* CharacterDetailController.swift */,
 			);
@@ -558,8 +564,10 @@
 				C04CBA6D2A8D862B003E6686 /* Character.swift in Sources */,
 				C0E5DACF2A8E692B00DD1480 /* UIImage.swift in Sources */,
 				C0E5DAC02A8E596400DD1480 /* CharacterDetailViewModel.swift in Sources */,
+				C0E5DAD72A8E782000DD1480 /* InfoRow.swift in Sources */,
 				C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */,
 				C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */,
+				C0E5DAD92A8E7CA400DD1480 /* CharacterInfoContainer.swift in Sources */,
 				C04CBA8A2A8D948B003E6686 /* NetworkManager.swift in Sources */,
 				C04CBA662A8D816C003E6686 /* CharactersListView.swift in Sources */,
 				C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */,

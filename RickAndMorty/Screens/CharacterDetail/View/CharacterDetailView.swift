@@ -11,28 +11,33 @@ struct CharacterDetailView: View {
     
     var character: CharacterModel
     
+    private let verticalSpacing: CGFloat = 24
+    
     var body: some View {
-        VStack {
-            CharacterAvatarContainer(
-                imageContainer: character.imageContainer,
-                name: character.name,
-                status: character.status
-            )
-
-        }
-        
-        VStack {
-            Text("Info")
-            
-            VStack {
+        ZStack {
+            UIColor.defaultBackgroundColor.toColor()
+                .ignoresSafeArea()
+            VStack(alignment: .center) {
+                CharacterAvatarContainer(
+                    imageContainer: character.imageContainer,
+                    name: character.name,
+                    status: character.status
+                )
+                .padding(.bottom, verticalSpacing)
+                CharacterInfoContainer(
+                    species: character.species,
+                    type: character.type,
+                    gender: character.gender
+                )
+                
                 
             }
+            .frame(maxWidth: .infinity)
+            
+    //        List(character.episodes) { episode in
+    //            Text(episode.url.absoluteString)
+    //        }
         }
-
-
-//        List(character.episodes) { episode in
-//            Text(episode.url.absoluteString)
-//        }
     }
 }
 

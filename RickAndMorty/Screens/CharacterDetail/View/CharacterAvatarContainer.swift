@@ -15,6 +15,8 @@ struct CharacterAvatarContainer: View {
     
     private let avatarHeight: CGFloat = 148
     private let cornerRadius: CGFloat = 16
+    private let nameTopPadding: CGFloat = 20
+    private let nameBottomPadding: CGFloat = 1
     
     private let nameFont: Font = .gilroyBold(22)
     private let statusFont: Font = .gilroyMedium(16)
@@ -24,6 +26,8 @@ struct CharacterAvatarContainer: View {
             VStack {
                 if let characterImage = imageContainer?.image {
                     Image(uiImage: characterImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: avatarHeight, height: avatarHeight)
                 } else {
                     AsyncImage(url: imageContainer?.url) { image in
@@ -39,12 +43,14 @@ struct CharacterAvatarContainer: View {
             VStack {
                 Text(name)
                     .font(nameFont)
-                    .padding(.bottom, 8)
+                    .foregroundColor(.white)
+                    .padding(.top, nameTopPadding)
+                    .padding(.bottom, nameBottomPadding)
                 Text(status)
                     .font(statusFont)
                     .foregroundColor(UIColor.greenAccentColor.toColor())
             }
-            .padding(.top, 24)
+
         }
     }
 }
@@ -62,5 +68,6 @@ struct CharacterAvatar_Previews: PreviewProvider {
             name: "Rick Sanchez",
             status: "Alive"
         )
+        .background(UIColor.defaultBackgroundColor.toColor())
     }
 }
