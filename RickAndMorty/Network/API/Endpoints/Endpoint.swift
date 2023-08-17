@@ -15,11 +15,11 @@ protocol Endpoint {
 }
 
 extension Endpoint {
-    var baseUrl: URL { URL(string: "https://rickandmortyapi.com/api")! }
+    var baseUrl: URL { URL(string: "https://rickandmortyapi.com")! }
     
     var url: URL? {
         var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)!
-        components.path = path
+        components.path = "/api" + path
         components.queryItems = queryItems
         return components.url
     }
