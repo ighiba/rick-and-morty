@@ -15,10 +15,13 @@ private let labelSpacing: CGFloat = 3
 private let cellCornerRadius: CGFloat = 16
 private let imageViewCornerRadius: CGFloat = 10
 
+private let cellBackgroundColor: UIColor = UIColor(named: "cellBackgroundColor")!
+
 final class CharacterCell: UICollectionViewCell {
     
-    var characterId: CharacterModel.ID?
     static let identifier = "CharacterCell"
+    
+    private var characterId: CharacterModel.ID?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,7 +93,7 @@ final class CharacterCell: UICollectionViewCell {
     
     private func configureBackground() -> UIBackgroundConfiguration {
         var configuration = UIBackgroundConfiguration.listPlainCell()
-        configuration.backgroundColor = .red
+        configuration.backgroundColor = cellBackgroundColor
         configuration.cornerRadius = cellCornerRadius
         return configuration
     }

@@ -20,6 +20,8 @@ class CharactersListViewController: UICollectionViewController {
     var charactersListView = CharactersListView()
     var dataSource: DataSource!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     override func loadView() {
         collectionView = charactersListView
         collectionView.delegate = self

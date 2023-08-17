@@ -11,6 +11,8 @@ private let sectionSpacing: CGFloat = 27
 private let lineSpacing: CGFloat = 16
 private let heightToWidthMultiplier: CGFloat = 1.3
 
+private let defaultBackgroundColor: UIColor = UIColor(named: "defaultBackgroundColor")!
+
 class CharactersListView: UICollectionView {
     
     lazy var flowLayout = {
@@ -25,10 +27,15 @@ class CharactersListView: UICollectionView {
         let defaultLayout = UICollectionViewCompositionalLayout.list(using: .init(appearance: .insetGrouped))
         super.init(frame: .zero, collectionViewLayout: defaultLayout)
         self.collectionViewLayout = flowLayout
+        setupStyle()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupStyle() {
+        backgroundColor = defaultBackgroundColor
     }
     
     func calculateItemSize() -> CGSize {
