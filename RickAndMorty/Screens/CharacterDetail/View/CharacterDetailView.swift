@@ -18,38 +18,34 @@ struct CharacterDetailView: View {
             UIColor.defaultBackgroundColor.toColor()
                 .ignoresSafeArea()
             List {
-                Section {
+                makeSection {
                     CharacterAvatarContainer(characterAvatar: viewModel.characterAvatar)
-                    .padding(.bottom, verticalSpacing)
+                        .padding(.bottom, verticalSpacing)
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
-                
-                Section {
+                makeSection {
                     CharacterInfoContainer(characterInfo: viewModel.characterInfo)
-                    .padding(.bottom, verticalSpacing)
+                        .padding(.bottom, verticalSpacing)
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
-                
-                Section {
+                makeSection {
                     CharacterOriginContainer(originContainer: viewModel.originContainer)
-                    .padding(.bottom, verticalSpacing)
+                        .padding(.bottom, verticalSpacing)
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
-                
                 if !viewModel.episodes.isEmpty {
-                    Section {
+                    makeSection {
                         CharacterEpisodesContainer(episodes: viewModel.episodes)
                     }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
                 }
             }
-            .id(UUID())
             .listStyle(.plain)
         }
+    }
+    
+    private func makeSection<Content: View>(content: () -> Content) -> some View {
+        return Section {
+            content()
+        }
+        .listRowSeparator(.hidden)
+        .listRowBackground(Color.clear)
     }
 }
 
