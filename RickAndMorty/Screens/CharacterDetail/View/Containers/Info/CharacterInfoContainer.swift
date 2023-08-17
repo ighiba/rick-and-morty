@@ -9,9 +9,7 @@ import SwiftUI
 
 struct CharacterInfoContainer: View {
     
-    var species: String
-    var type: String
-    var gender: String
+    var characterInfo: CharacterModel.Info
     
     private let verticalSpacing: CGFloat = 8
     private let horizontalSpacing: CGFloat = 20
@@ -23,9 +21,9 @@ struct CharacterInfoContainer: View {
         VStack(alignment: .leading) {
             TitleHeader(title: "Info", verticalSpacing: verticalSpacing)
             VStack {
-                InfoRow(title: "Species:", value: species)
-                InfoRow(title: "Type:", value: type)
-                InfoRow(title: "Gender:", value: gender)
+                InfoRow(title: "Species:", value: characterInfo.species)
+                InfoRow(title: "Type:", value: characterInfo.type)
+                InfoRow(title: "Gender:", value: characterInfo.gender)
             }
             .padding([.top, .bottom], verticalSpacing)
             .background(UIColor.cellBackgroundColor.toColor())
@@ -37,6 +35,6 @@ struct CharacterInfoContainer: View {
 
 struct CharacterInfoContainer_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterInfoContainer(species: "Human", type: "None", gender: "Male")
+        CharacterInfoContainer(characterInfo: CharacterModel.Info(species: "Human", type: "None", gender: "Male"))
     }
 }

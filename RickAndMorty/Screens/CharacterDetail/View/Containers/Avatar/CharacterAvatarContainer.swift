@@ -9,9 +9,7 @@ import SwiftUI
 
 struct CharacterAvatarContainer: View {
     
-    var imageContainer: ImageContainer?
-    var name: String
-    var status: String
+    var characterAvatar: CharacterModel.Avatar
     
     private let avatarHeight: CGFloat = 148
     private let cornerRadius: CGFloat = 16
@@ -24,13 +22,13 @@ struct CharacterAvatarContainer: View {
     var body: some View {
         VStack(alignment: .center) {
             VStack {
-                if let characterImage = imageContainer?.image {
+                if let characterImage = characterAvatar.imageContainer?.image {
                     Image(uiImage: characterImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: avatarHeight, height: avatarHeight)
                 } else {
-                    AsyncImage(url: imageContainer?.url) { image in
+                    AsyncImage(url: characterAvatar.imageContainer?.url) { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: avatarHeight, height: avatarHeight)
@@ -41,12 +39,12 @@ struct CharacterAvatarContainer: View {
             }
             .cornerRadius(cornerRadius)
             VStack {
-                Text(name)
+                Text(characterAvatar.name)
                     .font(nameFont)
                     .foregroundColor(.white)
                     .padding(.top, nameTopPadding)
                     .padding(.bottom, nameBottomPadding)
-                Text(status)
+                Text(characterAvatar.status)
                     .font(statusFont)
                     .foregroundColor(UIColor.greenAccentColor.toColor())
             }
@@ -64,9 +62,11 @@ struct CharacterAvatar_Previews: PreviewProvider {
     
     static var previews: some View {
         CharacterAvatarContainer(
-            imageContainer: sampleImageContainer,
-            name: "Rick Sanchez",
-            status: "Alive"
+            characterAvatar: CharacterModel.Avatar(
+                imageContainer: sampleImageContainer,
+                name: "Rick Sanchez",
+                status: "Alive"
+            )
         )
         .background(UIColor.defaultBackgroundColor.toColor())
     }

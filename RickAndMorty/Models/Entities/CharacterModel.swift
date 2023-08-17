@@ -9,27 +9,12 @@ import UIKit
 
 typealias ImageContainer = (url: URL, image: UIImage?)
 
-struct OriginContainer {
-    var url: URL?
-    var name: String?
-    var type: String?
-}
-
-struct EpisodeContainerModel: Identifiable {
-    var id: Int
-    var url: URL
-    var episode: EpisodeModel?
-}
-
-class CharacterModel: Identifiable {
+class CharacterModel: Identifiable, ObservableObject {
+    
     let id: Int
-    let name: String
-    let status: String
-    let species: String
-    let type: String
-    let gender: String
-    let originContainer: OriginContainer
-    var imageContainer: ImageContainer?
+    var avatar: Avatar
+    var info: Info
+    var originContainer: OriginContainer
     var episodes: [EpisodeContainerModel]
     
     init(
@@ -44,13 +29,9 @@ class CharacterModel: Identifiable {
         episodes: [EpisodeContainerModel]
     ) {
         self.id = id
-        self.name = name
-        self.status = status
-        self.species = species
-        self.type = type
-        self.gender = gender
+        self.avatar = Avatar(imageContainer: imageContainer, name: name, status: status)
+        self.info = Info(species: species, type: type, gender: gender)
         self.originContainer = originContainer
-        self.imageContainer = imageContainer
         self.episodes = episodes
     }
     
@@ -87,5 +68,55 @@ class CharacterModel: Identifiable {
             imageContainer: imageContainer,
             episodes: episodes
         )
+    }
+}
+
+extension CharacterModel {
+    class Avatar {
+        var imageContainer: ImageContainer?
+        let name: String
+        let status: String
+        
+        init(imageContainer: ImageContainer? = nil, name: String, status: String) {
+            self.imageContainer = imageContainer
+            self.name = name
+            self.status = status
+        }
+    }
+    
+    class Info {
+        let species: String
+        let type: String
+        let gender: String
+        
+        init(species: String, type: String, gender: String) {
+            self.species = species
+            self.type = type
+            self.gender = gender
+        }
+    }
+    
+    class OriginContainer {
+        var url: URL?
+        var name: String?
+        var type: String?
+        
+        init(url: URL? = nil, name: String? = nil, type: String? = nil) {
+            self.url = url
+            self.name = name
+            self.type = type
+        }
+    }
+
+    class EpisodeContainerModel: Identifiable {
+        var id: Int
+        var url: URL
+        var episode: EpisodeModel?
+        
+        init(id: Int, url: URL, episode: EpisodeModel? = nil) {
+            self.id = id
+            self.url = url
+            self.episode = episode
+        }
     }
 }

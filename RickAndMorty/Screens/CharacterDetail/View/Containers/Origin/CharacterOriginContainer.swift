@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterOriginContainer: View {
     
-    var originContainer: OriginContainer
+    var originContainer: CharacterModel.OriginContainer
     
     private let originImageHeight: CGFloat = 64
     
@@ -56,7 +56,7 @@ struct CharacterOriginContainer: View {
 
 struct CharacterOriginContainer_Previews: PreviewProvider {
     
-    static let sampleData = OriginContainer(
+    static let sampleData = CharacterModel.OriginContainer(
         url: URL(string: "https://rickandmortyapi.com/api/location/1")!,
         name: "Earth (C-137)",
         type: "Planet"

@@ -10,11 +10,12 @@ import SwiftUI
 
 class CharacterDetailModuleAssembly {
     class func configureModule(character: CharacterModel) -> UIViewController {
-        let rootView = CharacterDetailView(character: character)
-        let view = CharacterDetailViewController(rootView: rootView)
         let viewModel = CharacterDetailViewModel(character: character)
+        let rootView = CharacterDetailView(viewModel: viewModel)
+        let view = CharacterDetailViewController(rootView: rootView)
 
         view.viewModel = viewModel
+        viewModel.networkManager = NetworkManagerImpl()
         
         return view
     }

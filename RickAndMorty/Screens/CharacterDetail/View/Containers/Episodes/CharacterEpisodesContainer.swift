@@ -24,8 +24,8 @@ struct CharacterEpisodesContainer: View {
 struct EpisodesContainer_Previews: PreviewProvider {
     
     static let sampleData = [
-        EpisodeModel(id: 0, name: "Pilot", airDate: Date(), episodeNum: (1, 1)),
-        EpisodeModel(id: 1, name: "Lawnmower Dog", airDate: Date(), episodeNum: (2, 1))
+        EpisodeModel(id: 0, name: "Pilot", airDate: "December 7, 2013", episodeNum: (1, 1)),
+        EpisodeModel(id: 1, name: "Lawnmower Dog", airDate: "December 17, 2013", episodeNum: (2, 1))
     ]
     
     static var previews: some View {

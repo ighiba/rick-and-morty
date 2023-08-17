@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     
-    @State var character: CharacterModel
+    @StateObject var viewModel: CharacterDetailViewModel
     
     private let verticalSpacing: CGFloat = 24
 
@@ -19,43 +19,35 @@ struct CharacterDetailView: View {
                 .ignoresSafeArea()
             List {
                 Section {
-                    CharacterAvatarContainer(
-                        imageContainer: character.imageContainer,
-                        name: character.name,
-                        status: character.status
-                    )
+                    CharacterAvatarContainer(characterAvatar: viewModel.characterAvatar)
                     .padding(.bottom, verticalSpacing)
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
                 
                 Section {
-                    CharacterInfoContainer(
-                        species: character.species,
-                        type: character.type,
-                        gender: character.gender
-                    )
+                    CharacterInfoContainer(characterInfo: viewModel.characterInfo)
                     .padding(.bottom, verticalSpacing)
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
                 
                 Section {
-                    CharacterOriginContainer(originContainer: character.originContainer)
+                    CharacterOriginContainer(originContainer: viewModel.originContainer)
                     .padding(.bottom, verticalSpacing)
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
                 
-                let episodes = character.episodes.compactMap { $0.episode }
-                if !episodes.isEmpty {
+                if !viewModel.episodes.isEmpty {
                     Section {
-                        CharacterEpisodesContainer(episodes: episodes)
+                        CharacterEpisodesContainer(episodes: viewModel.episodes)
                     }
                     .listRowSeparator(.hidden)
                     .listRowBackground(Color.clear)
                 }
             }
+            .id(UUID())
             .listStyle(.plain)
         }
     }
@@ -67,6 +59,6 @@ struct CharacterDetailView_Previews: PreviewProvider {
     static let sampleCharacter: CharacterModel = sampleData.results.map( { CharacterModel(character: $0) }).first!
     
     static var previews: some View {
-        CharacterDetailView(character: sampleCharacter)
+        CharacterDetailView(viewModel: .init(character: sampleCharacter))
     }
 }

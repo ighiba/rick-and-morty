@@ -10,15 +10,10 @@ import SwiftUI
 
 class CharacterDetailViewController<T: View>: UIHostingController<T> {
 
-    var viewModel: CharacterDetailViewModelDelegate! {
-        didSet {
-            viewModel.characterDidChangeHandler = { [weak self] character in
-                // update
-            }
-        }
-    }
+    weak var viewModel: CharacterDetailViewModelDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.updateCharacterData()
     }
 }

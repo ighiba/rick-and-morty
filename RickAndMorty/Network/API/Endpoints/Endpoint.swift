@@ -18,6 +18,10 @@ extension Endpoint {
     var baseUrl: URL { URL(string: "https://rickandmortyapi.com")! }
     
     var url: URL? {
+        return defaultUrl()
+    }
+    
+    func defaultUrl() -> URL? {
         var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)!
         components.path = "/api" + path
         components.queryItems = queryItems

@@ -32,7 +32,7 @@ struct EpisodeRow: View {
                     .font(episodeNumFont)
                     .foregroundColor(UIColor.greenAccentColor.toColor())
                 Spacer()
-                Text(episode.airDate.formatted(date: .long, time: .omitted))
+                Text(episode.airDate)
                     .font(episodeAirDateFont)
                     .foregroundColor(UIColor.secondaryTextColor2.toColor())
             }
@@ -47,7 +47,7 @@ struct EpisodeRow: View {
 
 struct EpisodeRow_Previews: PreviewProvider {
     
-    static let sampleData = EpisodeModel(id: 0, name: "Pilot", airDate: Date(), episodeNum: (1, 1))
+    static let sampleData = EpisodeModel(id: 0, name: "Pilot", airDate: "December 7, 2013", episodeNum: (1, 1))
     
     static var previews: some View {
         EpisodeRow(episode: sampleData)
