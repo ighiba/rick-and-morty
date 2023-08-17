@@ -22,7 +22,7 @@ struct CharacterInfoContainer: View {
             TitleHeader(title: "Info", verticalSpacing: verticalSpacing)
             VStack {
                 InfoRow(title: "Species:", value: characterInfo.species)
-                InfoRow(title: "Type:", value: characterInfo.type)
+                InfoRow(title: "Type:", value: !characterInfo.type.isEmpty ? characterInfo.type : "None")
                 InfoRow(title: "Gender:", value: characterInfo.gender)
             }
             .padding([.top, .bottom], verticalSpacing)
