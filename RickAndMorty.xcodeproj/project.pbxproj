@@ -69,6 +69,8 @@
 		C0E5DAFC2A8EA77200DD1480 /* CharacterDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAFB2A8EA77200DD1480 /* CharacterDetailSection.swift */; };
 		C0E5DAFE2A8EC35300DD1480 /* EpisodeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DAFD2A8EC35300DD1480 /* EpisodeEndpoint.swift */; };
 		C0E5DB012A8ED40600DD1480 /* ImageLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DB002A8ED40600DD1480 /* ImageLoadError.swift */; };
+		C0E5DB032A8ED72A00DD1480 /* LocationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DB022A8ED72A00DD1480 /* LocationEndpoint.swift */; };
+		C0E5DB052A8ED7BC00DD1480 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DB042A8ED7BC00DD1480 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		C0E5DAFB2A8EA77200DD1480 /* CharacterDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailSection.swift; sourceTree = "<group>"; };
 		C0E5DAFD2A8EC35300DD1480 /* EpisodeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeEndpoint.swift; sourceTree = "<group>"; };
 		C0E5DB002A8ED40600DD1480 /* ImageLoadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadError.swift; sourceTree = "<group>"; };
+		C0E5DB022A8ED72A00DD1480 /* LocationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEndpoint.swift; sourceTree = "<group>"; };
+		C0E5DB042A8ED7BC00DD1480 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +256,7 @@
 			children = (
 				C04CBA6C2A8D862B003E6686 /* Character.swift */,
 				C04CBA6E2A8D88B3003E6686 /* Origin.swift */,
+				C0E5DB042A8ED7BC00DD1480 /* Location.swift */,
 				C04CBA702A8D88C1003E6686 /* Episode.swift */,
 				C04CBA962A8DA72C003E6686 /* CharacterModel.swift */,
 				C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */,
@@ -319,6 +324,7 @@
 				C04CBA8F2A8D9840003E6686 /* Endpoint.swift */,
 				C04CBA942A8D98F6003E6686 /* CharacterEndpoint.swift */,
 				C0E5DAFD2A8EC35300DD1480 /* EpisodeEndpoint.swift */,
+				C0E5DB022A8ED72A00DD1480 /* LocationEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -648,6 +654,7 @@
 				C0E5DAC62A8E65F500DD1480 /* CharacterAvatarContainer.swift in Sources */,
 				C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */,
 				C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */,
+				C0E5DB032A8ED72A00DD1480 /* LocationEndpoint.swift in Sources */,
 				C04CBAA42A8E302A003E6686 /* ImageLoader.swift in Sources */,
 				C0E5DAC42A8E5D0D00DD1480 /* CharacterDetailView.swift in Sources */,
 				C04CBAC92A8E4850003E6686 /* CharacterCell.swift in Sources */,
@@ -681,6 +688,7 @@
 				C0E5DADB2A8E803D00DD1480 /* CharacterOriginContainer.swift in Sources */,
 				C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */,
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,
+				C0E5DB052A8ED7BC00DD1480 /* Location.swift in Sources */,
 				C0E5DABD2A8E596400DD1480 /* CharacterDetailModuleAssembly.swift in Sources */,
 				C04CBA712A8D88C1003E6686 /* Episode.swift in Sources */,
 				C04CBA6F2A8D88B3003E6686 /* Origin.swift in Sources */,

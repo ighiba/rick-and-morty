@@ -36,11 +36,11 @@ struct CharacterOriginContainer: View {
                         .cornerRadius(imageCornerRadius)
                         .padding(imagePadding)
                     VStack(alignment: .leading) {
-                        Text(originContainer.name ?? "")
+                        Text(originContainer.location?.name ?? "Unknown")
                             .font(originNameFont)
                             .foregroundColor(.white)
                             .padding(.bottom, interTextSpacing)
-                        Text(originContainer.type ?? "")
+                        Text(originContainer.location?.type ?? "Unknown")
                             .font(originTypeFont)
                             .foregroundColor(UIColor.greenAccentColor.toColor())
                     }
@@ -58,8 +58,7 @@ struct CharacterOriginContainer_Previews: PreviewProvider {
     
     static let sampleData = CharacterModel.OriginContainer(
         url: URL(string: "https://rickandmortyapi.com/api/location/1")!,
-        name: "Earth (C-137)",
-        type: "Planet"
+        location: Location(id: 0, name: "Earth (C-137)", type: "Planet")
     )
     
     static var previews: some View {

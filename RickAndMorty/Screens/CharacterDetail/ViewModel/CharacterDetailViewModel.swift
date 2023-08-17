@@ -32,6 +32,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     }
     
     func updateCharacterData() {
+        updateOrigin()
         //updateEpisodes()
     }
     
@@ -42,17 +43,36 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
             group.enter()
             networkManager.fetchEpisode(endpoint: .directUrl(episode.url)) { result in
                 switch result {
-                case .success(let success):
-                    episode.episode = EpisodeModel(episode: success)
-                case .failure(let failure):
-                    print(failure)
+                case .success(let fetchedEpisode):
+                    episode.episode = EpisodeModel(episode: fetchedEpisode)
+                case .failure(let error):
+                    print(error)
                 }
                 group.leave()
             }
         }
 
-        group.notify(queue: .main) {
-            self.episodes = self.character.episodes.compactMap { $0.episode }
+        group.notify(queue: .main) { [weak self] in
+            if let episodes = self?.character.episodes.compactMap({ $0.episode }) {
+                self?.episodes = episodes
+            }
+        }
+    }
+    
+    private func updateOrigin() {
+        guard character.originContainer.location == nil else { return }
+        let url = character.originContainer.url
+        networkManager.fetchLocation(endpoint: .directUrl(url)) { [weak self] result in
+            switch result {
+            case .success(let fetchedLocation):
+                print(fetchedLocation)
+                self?.character.originContainer.location = fetchedLocation
+                if let originContainer = self?.character.originContainer {
+                    self?.originContainer = originContainer
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

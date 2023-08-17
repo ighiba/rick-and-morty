@@ -38,7 +38,7 @@ class CharacterModel: Identifiable, ObservableObject {
     convenience init(character: Character) {
         let originContainer: OriginContainer = {
             let url = URL(string: character.origin.url ?? "")
-            return OriginContainer(url: url, name: character.origin.name)
+            return OriginContainer(url: url, location: nil)
         }()
         
         let imageContainer: ImageContainer? = {
@@ -98,13 +98,11 @@ extension CharacterModel {
     
     class OriginContainer {
         var url: URL?
-        var name: String?
-        var type: String?
+        var location: Location?
         
-        init(url: URL? = nil, name: String? = nil, type: String? = nil) {
+        init(url: URL? = nil, location: Location? = nil) {
             self.url = url
-            self.name = name
-            self.type = type
+            self.location = location
         }
     }
 

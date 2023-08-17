@@ -9,10 +9,12 @@ import Foundation
 
 typealias CharactersFetchResult = Result<CharacterResponse, FetchError>
 typealias EpisodeFetchResult = Result<Episode, FetchError>
+typealias LocationFetchResult = Result<Location, FetchError>
 
 protocol NetworkManager: AnyObject {
     func fetchCharacters(endpoint: API.Character, completion: @escaping (CharactersFetchResult) -> Void)
     func fetchEpisode(endpoint: API.Episode, completion: @escaping (EpisodeFetchResult) -> Void)
+    func fetchLocation(endpoint: API.Location, completion: @escaping (LocationFetchResult) -> Void)
 }
 
 class NetworkManagerImpl: NetworkManager {
@@ -26,7 +28,11 @@ class NetworkManagerImpl: NetworkManager {
         fetch(endpoint: endpoint, completion: completion)
     }
     
-    func fetchEpisode(endpoint: API.Episode, completion: @escaping (Result<Episode, FetchError>) -> Void) {
+    func fetchEpisode(endpoint: API.Episode, completion: @escaping (EpisodeFetchResult) -> Void) {
+        fetch(endpoint: endpoint, completion: completion)
+    }
+    
+    func fetchLocation(endpoint: API.Location, completion: @escaping (LocationFetchResult) -> Void) {
         fetch(endpoint: endpoint, completion: completion)
     }
     
