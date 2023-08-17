@@ -26,6 +26,8 @@
 		C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA8F2A8D9840003E6686 /* Endpoint.swift */; };
 		C04CBA922A8D986B003E6686 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA912A8D986B003E6686 /* API.swift */; };
 		C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA942A8D98F6003E6686 /* CharacterEndpoint.swift */; };
+		C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA962A8DA72C003E6686 /* CharacterModel.swift */; };
+		C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		C04CBA8F2A8D9840003E6686 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C04CBA912A8D986B003E6686 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C04CBA942A8D98F6003E6686 /* CharacterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEndpoint.swift; sourceTree = "<group>"; };
+		C04CBA962A8DA72C003E6686 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,8 @@
 				C04CBA6C2A8D862B003E6686 /* Character.swift */,
 				C04CBA6E2A8D88B3003E6686 /* Origin.swift */,
 				C04CBA702A8D88C1003E6686 /* Episode.swift */,
+				C04CBA962A8DA72C003E6686 /* CharacterModel.swift */,
+				C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -336,12 +342,14 @@
 				C04CBA8B2A8D948B003E6686 /* FetchError.swift in Sources */,
 				C04CBA922A8D986B003E6686 /* API.swift in Sources */,
 				C04CBA6D2A8D862B003E6686 /* Character.swift in Sources */,
+				C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */,
 				C04CBA8A2A8D948B003E6686 /* NetworkManager.swift in Sources */,
 				C04CBA662A8D816C003E6686 /* CharactersListView.swift in Sources */,
 				C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */,
 				C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */,
 				C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */,
 				C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */,
+				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,
 				C04CBA712A8D88C1003E6686 /* Episode.swift in Sources */,
 				C04CBA6F2A8D88B3003E6686 /* Origin.swift in Sources */,
 			);
