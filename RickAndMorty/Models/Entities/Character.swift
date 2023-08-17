@@ -15,6 +15,18 @@ struct Character: Identifiable, Decodable {
     let type: String
     let gender: String
     let origin: Origin
-    let image: String
-    let episode: [String]
+    let imageUrl: String
+    let episodeUrls: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case status
+        case species
+        case type
+        case gender
+        case origin
+        case imageUrl = "image"
+        case episodeUrls = "episode"
+    }
 }
