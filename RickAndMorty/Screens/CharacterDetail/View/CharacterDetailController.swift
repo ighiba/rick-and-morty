@@ -14,6 +14,11 @@ class CharacterDetailViewController<T: View>: UIHostingController<T> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationItem()
         viewModel.updateCharacterData()
+    }
+    
+    private func setupNavigationItem() {
+        navigationItem.largeTitleDisplayMode = .never
     }
 }

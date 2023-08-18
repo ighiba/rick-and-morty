@@ -41,13 +41,15 @@ class CharactersListViewController: UICollectionViewController {
     private func setupNavigationBar() {
         title = "Characters"
         
-        navigationController?.navigationBar.standardAppearance = configureNavigationBarAppearance()
+        navigationController?.navigationBar.standardAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
+        navigationController?.navigationBar.scrollEdgeAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
+        navigationController?.navigationBar.compactAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .white
         navigationItem.backButtonDisplayMode = .minimal
     }
     
-    private func configureNavigationBarAppearance() -> UINavigationBarAppearance {
+    private func configureNavigationBarAppearance(largeTitleFont: UIFont) -> UINavigationBarAppearance {
         let titleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.font : largeTitleFont,
             NSAttributedString.Key.foregroundColor : UIColor.white
