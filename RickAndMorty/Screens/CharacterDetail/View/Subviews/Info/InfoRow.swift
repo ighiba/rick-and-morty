@@ -7,14 +7,16 @@
 
 import SwiftUI
 
+private let rowHeight: CGFloat = 40
+
+private let verticalPadding: CGFloat = 16
+
+private let textFont: Font = .gilroyMedium(16)
+
 struct InfoRow: View {
     
     var title: String
     var value: String
-    
-    private let textFont: Font = .gilroyMedium(16)
-    private let verticalPadding: CGFloat = 16
-    private let rowHeight: CGFloat = 40
     
     var body: some View {
         HStack {

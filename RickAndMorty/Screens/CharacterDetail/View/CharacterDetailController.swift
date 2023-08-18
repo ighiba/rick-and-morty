@@ -18,6 +18,11 @@ class CharacterDetailController<T: View>: UIHostingController<T> {
         viewModel.updateCharacterData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavigationItem()
+    }
+    
     private func setupNavigationItem() {
         navigationItem.largeTitleDisplayMode = .never
     }

@@ -7,15 +7,16 @@
 
 import SwiftUI
 
+private let verticalPadding: CGFloat = 8
+
+private let headerFont: Font = .gilroySemibold(17)
+
 struct InfoView: View {
     
     @Binding var characterInfo: CharacterModel.Info
     
-    private let verticalPadding: CGFloat = 8
     private let cornerRadius: CGFloat = 16
-    
-    private let headerFont: Font = .gilroySemibold(17)
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             TitleHeader(title: "Info")
