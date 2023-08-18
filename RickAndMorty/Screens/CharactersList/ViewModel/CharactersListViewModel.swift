@@ -10,11 +10,20 @@ import Foundation
 protocol CharactersListViewModelDelegate: AnyObject {
     var characterModelList: [CharacterModel] { get }
     var characterModelListDidChangeHandler: (([CharacterModel]) -> Void)? { get set }
+    var networkErrorHandler: ((Error) -> Void)? { get set }
     func viewDidLoad()
+    func refreshList()
     func loadNextPage()
 }
 
 class CharactersListViewModel: CharactersListViewModelDelegate {
+    
+    enum ListAction {
+        case append
+        case replace
+    }
+    
+    // MARK: - Properties
     
     var characterModelList: [CharacterModel] = [] {
         didSet {
@@ -23,40 +32,66 @@ class CharactersListViewModel: CharactersListViewModelDelegate {
     }
     
     var characterModelListDidChangeHandler: (([CharacterModel]) -> Void)?
+    var networkErrorHandler: ((Error) -> Void)?
     
     var networkManager: NetworkManager
     var pagingService: PagingService
+    
+    // MARK: - Init
     
     init(networkManager: NetworkManager, pagingService: PagingService) {
         self.networkManager = networkManager
         self.pagingService = pagingService
     }
     
+    // MARK: - Methods
+    
     func viewDidLoad() {
-        let sampleData = CharacterResponse.sampleData
-        processCharactersResponse(sampleData)
+        loadFirstPage()
+    }
+    
+    func refreshList() {
+        loadFirstPage()
+    }
+    
+    private func loadFirstPage() {
+        networkManager.fetchCharacters(endpoint: .getCharacters(page: 1)) { [weak self] result in
+            self?.processCharactersFetchResult(result, listAction: .replace)
+        }
     }
     
     func loadNextPage() {
-        print("load next")
         guard pagingService.isNextAvailable, !pagingService.isLoadingNewPage else { return }
         pagingService.isLoadingNewPage = true
-        print("start load")
         networkManager.fetchCharacters(endpoint: .directUrl(pagingService.nextPageUrl)) { [weak self] result in
-            switch result {
-            case .success(let response):
-                self?.processCharactersResponse(response)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+            self?.processCharactersFetchResult(result, listAction: .append)
             self?.pagingService.isLoadingNewPage = false
         }
     }
     
-    private func processCharactersResponse(_ charactersResponse: CharacterResponse) {
-        let (info, results) = (charactersResponse.info, charactersResponse.results)
+    private func processCharactersFetchResult(_ result: CharactersFetchResult, listAction: ListAction) {
+        switch result {
+        case .success(let response):
+            processCharactersResponse(response, listAction: listAction)
+        case .failure(let error):
+            print(error.localizedDescription)
+            networkErrorHandler?(error)
+        }
+    }
+    
+    private func processCharactersResponse(_ response: CharacterResponse, listAction: ListAction) {
+        let (info, results) = (response.info, response.results)
         pagingService.nextPageUrl = info.next
-        let newCharacterModelList = results.map { CharacterModel(character: $0) }
-        characterModelList += newCharacterModelList
+        let newCharactersModelList = results.map { CharacterModel(character: $0) }
+        processModelList(newCharactersModelList, listAction: listAction)
+    }
+    
+    private func processModelList(_ charactersModelList: [CharacterModel], listAction: ListAction) {
+        switch listAction {
+        case .append:
+            characterModelList += charactersModelList
+        case .replace:
+            characterModelList = charactersModelList
+        }
     }
 }

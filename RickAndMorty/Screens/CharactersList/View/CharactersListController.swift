@@ -10,17 +10,25 @@ import UIKit
 private let largeTitleFont: UIFont = .gilroyBold.withSize(28)
 
 class CharactersListViewController: UICollectionViewController {
+    
+    // MARK: - Properties
 
     var viewModel: CharactersListViewModelDelegate! {
         didSet {
             viewModel.characterModelListDidChangeHandler = { [weak self] _ in
                 self?.updateSnapshot()
             }
+            viewModel.networkErrorHandler = { [weak self] _ in
+                self?.handleRefreshControlEnd()
+            }
         }
     }
     
+    var refreshControl = UIRefreshControl()
     var charactersListView = CharactersListView()
     var dataSource: DataSource!
+    
+    // MARK: - VC lifecycle
     
     override func loadView() {
         collectionView = charactersListView
@@ -34,8 +42,16 @@ class CharactersListViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRefreshControl()
         setupNavigationBar()
         viewModel.viewDidLoad()
+    }
+
+    // MARK: - Methods
+    
+    private func setupRefreshControl() {
+        refreshControl.tintColor = .white
+        collectionView.refreshControl = refreshControl
     }
     
     private func setupNavigationBar() {
@@ -62,6 +78,17 @@ class CharactersListViewController: UICollectionViewController {
         navBarAppearance.titleTextAttributes = titleAttributes
         return navBarAppearance
     }
+    
+    func handleRefreshControlBegin() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.viewModel.refreshList()
+        }
+    }
+    
+    func handleRefreshControlEnd() {
+        guard refreshControl.isRefreshing else { return }
+        refreshControl.endRefreshing()
+    }
 }
 
 // MARK: - DelegateFlowLayout
@@ -72,9 +99,18 @@ extension CharactersListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Delegate paging
+// MARK: - Delegate
 
 extension CharactersListViewController {
+    
+    // Refresh control handling only when user drops scroll viw
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if refreshControl.isRefreshing {
+            handleRefreshControlBegin()
+        }
+    }
+
+    // Handle loading next page when user scroll down
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let bottomOffset = scrollView.contentOffset.y + scrollView.bounds.size.height + 500
         let contentHeight = scrollView.contentSize.height
@@ -83,11 +119,8 @@ extension CharactersListViewController {
             viewModel.loadNextPage()
         }
     }
-}
-
-// MARK: - Delegate didSelectItemAt
-
-extension CharactersListViewController {
+    
+    // Cell selection handling
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let selectedCharacter = characterModel(forIndexPath: indexPath) {
             openDetail(forCharacter: selectedCharacter)
@@ -119,9 +152,13 @@ extension CharactersListViewController {
         snapshot.appendItems(viewModel.characterModelList.map { $0.id } )
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
-            dataSource.apply(snapshot, animatingDifferences: true)
+            dataSource.apply(snapshot, animatingDifferences: true) { [weak self] in
+                self?.handleRefreshControlEnd()
+            }
         } else {
-            dataSource.apply(snapshot)
+            dataSource.apply(snapshot) { [weak self] in
+                self?.handleRefreshControlEnd()
+            }
         }
     }
     
