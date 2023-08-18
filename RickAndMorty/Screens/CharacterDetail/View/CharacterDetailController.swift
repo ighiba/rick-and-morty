@@ -10,12 +10,9 @@ import SwiftUI
 
 class CharacterDetailController<T: View>: UIHostingController<T> {
 
-    weak var viewModel: CharacterDetailViewModelDelegate!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationItem()
-        viewModel.updateCharacterData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
