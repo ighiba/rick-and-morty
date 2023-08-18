@@ -34,7 +34,6 @@ class CharactersListView: UICollectionView {
     }
     
     private func setupStyle() {
-        indicatorStyle = .white
         backgroundColor = .defaultBackgroundColor
     }
     
