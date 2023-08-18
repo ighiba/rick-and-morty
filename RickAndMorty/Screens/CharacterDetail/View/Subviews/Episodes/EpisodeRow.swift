@@ -49,7 +49,11 @@ struct EpisodeRow: View {
 
 struct EpisodeRow_Previews: PreviewProvider {
     
-    static let sampleData = EpisodeModel(id: 0, name: "Claw and Hoarder: Special Ricktim's Morty", airDate: "December 7, 2013", episodeNum: (1, 1))
+    static let sampleData = EpisodeModel(
+        id: 0,
+        name: "Claw and Hoarder: Special Ricktim's Morty",
+        airDate: "December 7, 2013", episodeNum: (1, 1)
+    )
     
     static var previews: some View {
         EpisodeRow(episode: sampleData)
