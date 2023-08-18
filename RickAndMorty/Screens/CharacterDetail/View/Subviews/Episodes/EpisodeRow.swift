@@ -14,7 +14,7 @@ struct EpisodeRow: View {
     private let rowHeight: CGFloat = 86
     private let cornerRadius: CGFloat = 16
     private let horizontalSpacing: CGFloat = 16
-    private let verticalSpacing: CGFloat = 8
+    private let verticalSpacing: CGFloat = 12
     
     private let episodeNameFont: Font = .gilroySemibold(17)
     private let episodeNumFont: Font = .gilroyMedium(13)
@@ -22,11 +22,12 @@ struct EpisodeRow: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Spacer()
             Text(episode.name)
                 .font(episodeNameFont)
                 .foregroundColor(UIColor.mainTextColor.toColor())
-                .padding(.bottom, verticalSpacing)
-                .padding(.leading, horizontalSpacing)
+                .padding([.leading, .trailing], horizontalSpacing)
+            Spacer(minLength: 1)
             HStack {
                 Text("Episode: \(episode.episodeNum.e), Season: \(episode.episodeNum.s)")
                     .font(episodeNumFont)
@@ -37,6 +38,7 @@ struct EpisodeRow: View {
                     .foregroundColor(UIColor.secondaryTextColor2.toColor())
             }
             .padding([.leading, .trailing], horizontalSpacing)
+            Spacer(minLength: verticalSpacing)
         }
         .frame(maxWidth: .infinity)
         .frame(height: rowHeight)
@@ -47,9 +49,10 @@ struct EpisodeRow: View {
 
 struct EpisodeRow_Previews: PreviewProvider {
     
-    static let sampleData = EpisodeModel(id: 0, name: "Pilot", airDate: "December 7, 2013", episodeNum: (1, 1))
+    static let sampleData = EpisodeModel(id: 0, name: "Claw and Hoarder: Special Ricktim's Morty", airDate: "December 7, 2013", episodeNum: (1, 1))
     
     static var previews: some View {
         EpisodeRow(episode: sampleData)
+            .frame(width: 350)
     }
 }
