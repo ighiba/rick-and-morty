@@ -37,6 +37,8 @@ class CharactersListViewModel: CharactersListViewModelDelegate {
     var networkManager: NetworkManager
     var pagingService: PagingService
     
+    private var isLoading: Bool = false
+    
     // MARK: - Init
     
     init(networkManager: NetworkManager, pagingService: PagingService) {
@@ -55,17 +57,19 @@ class CharactersListViewModel: CharactersListViewModelDelegate {
     }
     
     private func loadFirstPage() {
-        networkManager.fetchCharacters(endpoint: .getCharacters(page: 1)) { [weak self] result in
-            self?.processCharactersFetchResult(result, listAction: .replace)
-        }
+        loadCharactersData(endpoint: .getCharacters(page: 1), listAction: .replace)
     }
     
     func loadNextPage() {
-        guard pagingService.isNextAvailable, !pagingService.isLoadingNewPage else { return }
-        pagingService.isLoadingNewPage = true
-        networkManager.fetchCharacters(endpoint: .directUrl(pagingService.nextPageUrl)) { [weak self] result in
+        loadCharactersData(endpoint: .directUrl(pagingService.nextPageUrl), listAction: .append, usingPagingService: pagingService)
+    }
+    
+    private func loadCharactersData(endpoint: API.Character, listAction: ListAction, usingPagingService pagingService: PagingService? = nil) {
+        guard pagingService?.isNextAvailable ?? true, !isLoading else { return }
+        isLoading = true
+        networkManager.fetchCharacters(endpoint: endpoint) { [weak self] result in
             self?.processCharactersFetchResult(result, listAction: .append)
-            self?.pagingService.isLoadingNewPage = false
+            self?.isLoading = false
         }
     }
     
