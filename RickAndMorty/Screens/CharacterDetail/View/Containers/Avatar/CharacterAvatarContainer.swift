@@ -41,7 +41,7 @@ struct CharacterAvatarContainer: View {
             VStack {
                 Text(characterAvatar.name)
                     .font(nameFont)
-                    .foregroundColor(.white)
+                    .foregroundColor(UIColor.mainTextColor.toColor())
                     .padding(.top, nameTopPadding)
                     .padding(.bottom, nameBottomPadding)
                 Text(characterAvatar.status)

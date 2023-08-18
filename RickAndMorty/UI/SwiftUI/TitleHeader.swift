@@ -24,7 +24,7 @@ struct TitleHeader: View {
     var body: some View {
         Text(title)
             .font(headerFont)
-            .foregroundColor(.white)
+            .foregroundColor(UIColor.mainTextColor.toColor())
             .alignmentGuide(.leading, computeValue: { _ in -horizontalSpacing })
             .padding(.bottom, verticalSpacing)
     }

@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIColor {
+    static let mainTextColor = UIColor.white
     static let defaultBackgroundColor = UIColor(named: "defaultBackgroundColor")!
     static let cellBackgroundColor = UIColor(named: "cellBackgroundColor")!
     static let cellImagePlaceholderColor = UIColor(named: "cellImagePlaceholderColor")!

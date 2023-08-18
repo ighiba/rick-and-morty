@@ -38,7 +38,7 @@ struct CharacterOriginContainer: View {
                     VStack(alignment: .leading) {
                         Text(originContainer.location?.name ?? "Unknown")
                             .font(originNameFont)
-                            .foregroundColor(.white)
+                            .foregroundColor(UIColor.mainTextColor.toColor())
                             .padding(.bottom, interTextSpacing)
                         Text(originContainer.location?.type ?? "Unknown")
                             .font(originTypeFont)

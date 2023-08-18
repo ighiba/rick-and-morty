@@ -60,7 +60,7 @@ final class CharacterCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = .cellImagePlaceholderColor
         
-        nameLabel.textColor = .white
+        nameLabel.textColor = .mainTextColor
     }
     
     func configure(with characterModel: CharacterModel) {

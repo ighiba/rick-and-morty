@@ -24,7 +24,7 @@ struct EpisodeRow: View {
         VStack(alignment: .leading) {
             Text(episode.name)
                 .font(episodeNameFont)
-                .foregroundColor(.white)
+                .foregroundColor(UIColor.mainTextColor.toColor())
                 .padding(.bottom, verticalSpacing)
                 .padding(.leading, horizontalSpacing)
             HStack {

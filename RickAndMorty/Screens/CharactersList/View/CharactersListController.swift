@@ -50,7 +50,7 @@ class CharactersListViewController: UICollectionViewController {
     // MARK: - Methods
     
     private func setupRefreshControl() {
-        refreshControl.tintColor = .white
+        refreshControl.tintColor = .mainTextColor
         collectionView.refreshControl = refreshControl
     }
     
@@ -61,14 +61,14 @@ class CharactersListViewController: UICollectionViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
         navigationController?.navigationBar.compactAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .mainTextColor
         navigationItem.backButtonDisplayMode = .minimal
     }
     
     private func configureNavigationBarAppearance(largeTitleFont: UIFont) -> UINavigationBarAppearance {
         let titleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.font : largeTitleFont,
-            NSAttributedString.Key.foregroundColor : UIColor.white
+            NSAttributedString.Key.foregroundColor : UIColor.mainTextColor
         ]
         
         let navBarAppearance = UINavigationBarAppearance()

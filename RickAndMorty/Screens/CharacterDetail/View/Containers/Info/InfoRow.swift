@@ -23,7 +23,7 @@ struct InfoRow: View {
             Spacer()
             Text(value)
                 .font(textFont)
-                .foregroundColor(.white)
+                .foregroundColor(UIColor.mainTextColor.toColor())
                 .padding(.trailing, 16)
         }
         .frame(height: 40)
