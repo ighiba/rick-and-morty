@@ -7,6 +7,8 @@
 
 import UIKit
 
+private let indicatorHeight: CGFloat = 50
+
 final class LoaderIndicator: UIActivityIndicatorView {
     
     override init(style: UIActivityIndicatorView.Style) {
@@ -24,8 +26,8 @@ final class LoaderIndicator: UIActivityIndicatorView {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: 50),
-            self.heightAnchor.constraint(equalToConstant: 50),
+            self.widthAnchor.constraint(equalToConstant: indicatorHeight),
+            self.heightAnchor.constraint(equalToConstant: indicatorHeight),
             self.centerXAnchor.constraint(equalTo: superview.centerXAnchor),
             self.centerYAnchor.constraint(equalTo: superview.centerYAnchor),
         ])
