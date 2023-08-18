@@ -15,13 +15,20 @@ private let labelSpacing: CGFloat = 3
 private let cellCornerRadius: CGFloat = 16
 private let imageViewCornerRadius: CGFloat = 10
 
-private let nameLabelFont: UIFont = .gilroySemibold.withSize(17)
-
 final class CharacterCell: UICollectionViewCell {
+    
+    // MARK: - Properties
     
     static let identifier = "CharacterCell"
     
     private var characterId: CharacterModel.ID?
+
+    // MARK: - Views
+    
+    let imageView = UIImageView()
+    let nameLabel = CharacterNameLabel()
+    
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -97,16 +104,4 @@ final class CharacterCell: UICollectionViewCell {
         configuration.cornerRadius = cellCornerRadius
         return configuration
     }
-    
-    // MARK: - Views
-    
-    let imageView = UIImageView()
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = nameLabelFont
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        return label
-    }()
 }

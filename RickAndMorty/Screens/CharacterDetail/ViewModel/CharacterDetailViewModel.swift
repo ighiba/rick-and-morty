@@ -22,8 +22,6 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     @Published var originContainer: CharacterModel.OriginContainer
     @Published var episodes: [EpisodeModel] = []
     
-    var characterDidChangeHandler: ((CharacterModel) -> Void)?
-    
     var networkManager: NetworkManager!
     
     // MARK: - Init

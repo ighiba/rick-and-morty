@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03749D32A8F96FF002E9565 /* CharacterNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */; };
 		C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */; };
 		C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */; };
 		C04CBA532A8D7F2F003E6686 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA522A8D7F2F003E6686 /* Colors.xcassets */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNameLabel.swift; sourceTree = "<group>"; };
 		C04CBA462A8D7F2E003E6686 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C03749D12A8F96F7002E9565 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		C04CBA3D2A8D7F2E003E6686 = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E5DAEF2A8E8ECE00DD1480 /* SwiftUI */,
+				C03749D12A8F96F7002E9565 /* Labels */,
 				C04CBAC72A8E4843003E6686 /* Cells */,
 				C04CBACA2A8E4874003E6686 /* Fonts */,
 			);
@@ -706,6 +717,7 @@
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,
 				C0E5DB052A8ED7BC00DD1480 /* Location.swift in Sources */,
 				C0E5DABD2A8E596400DD1480 /* CharacterDetailModuleAssembly.swift in Sources */,
+				C03749D32A8F96FF002E9565 /* CharacterNameLabel.swift in Sources */,
 				C04CBA712A8D88C1003E6686 /* Episode.swift in Sources */,
 				C04CBA6F2A8D88B3003E6686 /* Origin.swift in Sources */,
 			);

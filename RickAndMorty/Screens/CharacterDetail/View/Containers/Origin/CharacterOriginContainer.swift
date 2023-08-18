@@ -14,7 +14,6 @@ struct CharacterOriginContainer: View {
     private let originImageHeight: CGFloat = 64
     
     private let verticalSpacing: CGFloat = 8
-    private let horizontalSpacing: CGFloat = 20
     private let interTextSpacing: CGFloat = 4
     private let imagePadding: CGFloat = 12
     
