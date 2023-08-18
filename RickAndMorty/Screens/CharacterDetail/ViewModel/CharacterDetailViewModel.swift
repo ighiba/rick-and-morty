@@ -72,9 +72,8 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
         }
 
         group.notify(queue: .main) { [weak self] in
-            if let episodes = self?.character.episodeContainers.compactMap({ $0.episode }) {
-                self?.episodes = episodes
-            }
+            guard let episodes = self?.character.episodeContainers.compactMap({ $0.episode }) else { return }
+            self?.episodes = episodes
         }
     }
 }

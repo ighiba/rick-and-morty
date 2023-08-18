@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C03749D32A8F96FF002E9565 /* CharacterNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */; };
+		C03749D52A8F9ADA002E9565 /* EpisodeDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D42A8F9ADA002E9565 /* EpisodeDecodeTests.swift */; };
+		C03749D72A8F9B11002E9565 /* TestJSONEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D62A8F9B11002E9565 /* TestJSONEpisode.swift */; };
+		C03749D92A8F9B90002E9565 /* TestJSONLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D82A8F9B90002E9565 /* TestJSONLocation.swift */; };
 		C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */; };
 		C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */; };
 		C04CBA532A8D7F2F003E6686 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA522A8D7F2F003E6686 /* Colors.xcassets */; };
@@ -19,7 +22,7 @@
 		C04CBA6D2A8D862B003E6686 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA6C2A8D862B003E6686 /* Character.swift */; };
 		C04CBA6F2A8D88B3003E6686 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA6E2A8D88B3003E6686 /* Origin.swift */; };
 		C04CBA712A8D88C1003E6686 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA702A8D88C1003E6686 /* Episode.swift */; };
-		C04CBA792A8D8923003E6686 /* CharacterResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA782A8D8923003E6686 /* CharacterResponseTests.swift */; };
+		C04CBA792A8D8923003E6686 /* CharacterResponseDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA782A8D8923003E6686 /* CharacterResponseDecodeTests.swift */; };
 		C04CBA812A8D8968003E6686 /* TestJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA802A8D8968003E6686 /* TestJSONResponse.swift */; };
 		C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA842A8D8E8B003E6686 /* CharacterResponse.swift */; };
 		C04CBA8A2A8D948B003E6686 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA882A8D948B003E6686 /* NetworkManager.swift */; };
@@ -86,6 +89,9 @@
 
 /* Begin PBXFileReference section */
 		C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNameLabel.swift; sourceTree = "<group>"; };
+		C03749D42A8F9ADA002E9565 /* EpisodeDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDecodeTests.swift; sourceTree = "<group>"; };
+		C03749D62A8F9B11002E9565 /* TestJSONEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONEpisode.swift; sourceTree = "<group>"; };
+		C03749D82A8F9B90002E9565 /* TestJSONLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONLocation.swift; sourceTree = "<group>"; };
 		C04CBA462A8D7F2E003E6686 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +106,7 @@
 		C04CBA6E2A8D88B3003E6686 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
 		C04CBA702A8D88C1003E6686 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		C04CBA762A8D8923003E6686 /* RickAndMortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C04CBA782A8D8923003E6686 /* CharacterResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponseTests.swift; sourceTree = "<group>"; };
+		C04CBA782A8D8923003E6686 /* CharacterResponseDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponseDecodeTests.swift; sourceTree = "<group>"; };
 		C04CBA802A8D8968003E6686 /* TestJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONResponse.swift; sourceTree = "<group>"; };
 		C04CBA842A8D8E8B003E6686 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
 		C04CBA882A8D948B003E6686 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -297,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				C04CBA802A8D8968003E6686 /* TestJSONResponse.swift */,
+				C03749D62A8F9B11002E9565 /* TestJSONEpisode.swift */,
+				C03749D82A8F9B90002E9565 /* TestJSONLocation.swift */,
 			);
 			path = TestData;
 			sourceTree = "<group>";
@@ -304,7 +312,8 @@
 		C04CBA822A8D89C5003E6686 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C04CBA782A8D8923003E6686 /* CharacterResponseTests.swift */,
+				C04CBA782A8D8923003E6686 /* CharacterResponseDecodeTests.swift */,
+				C03749D42A8F9ADA002E9565 /* EpisodeDecodeTests.swift */,
 			);
 			path = "Unit Tests";
 			sourceTree = "<group>";
@@ -728,7 +737,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04CBA812A8D8968003E6686 /* TestJSONResponse.swift in Sources */,
-				C04CBA792A8D8923003E6686 /* CharacterResponseTests.swift in Sources */,
+				C04CBA792A8D8923003E6686 /* CharacterResponseDecodeTests.swift in Sources */,
+				C03749D52A8F9ADA002E9565 /* EpisodeDecodeTests.swift in Sources */,
+				C03749D92A8F9B90002E9565 /* TestJSONLocation.swift in Sources */,
+				C03749D72A8F9B11002E9565 /* TestJSONEpisode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

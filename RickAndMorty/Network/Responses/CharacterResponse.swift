@@ -7,15 +7,16 @@
 
 import Foundation
 
-struct ResponseInfo: Decodable {
-    let count: Int
-    let pages: Int
-    let next: URL?
-    let prev: URL?
-}
-
 final class CharacterResponse: Decodable {
-    let info: ResponseInfo
+    
+    struct Info: Decodable {
+        let count: Int
+        let pages: Int
+        let next: URL?
+        let prev: URL?
+    }
+    
+    let info: Info
     let results: [Character]
 }
 
