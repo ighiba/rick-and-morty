@@ -86,7 +86,7 @@ final class CharacterCell: UICollectionViewCell {
                 self?.imageView.image = image
                 character.avatar.imageContainer?.image = image
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

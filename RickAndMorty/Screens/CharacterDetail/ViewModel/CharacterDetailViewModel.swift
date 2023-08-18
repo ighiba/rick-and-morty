@@ -53,7 +53,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
                     self?.originContainer = originContainer
                 }
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
@@ -68,7 +68,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
                 case .success(let fetchedEpisode):
                     episode.episode = EpisodeModel(episode: fetchedEpisode)
                 case .failure(let error):
-                    print(error)
+                    print(error.localizedDescription)
                 }
                 group.leave()
             }
