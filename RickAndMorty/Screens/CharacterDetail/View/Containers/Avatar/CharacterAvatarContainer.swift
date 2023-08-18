@@ -23,15 +23,10 @@ struct CharacterAvatarContainer: View {
         VStack(alignment: .center) {
             VStack {
                 if let characterImage = characterAvatar.imageContainer?.image {
-                    Image(uiImage: characterImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: avatarHeight, height: avatarHeight)
+                    resizeAvatarImage { Image(uiImage: characterImage) }
                 } else {
                     AsyncImage(url: characterAvatar.imageContainer?.url) { image in
-                        image.resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: avatarHeight, height: avatarHeight)
+                        resizeAvatarImage { image }
                     } placeholder: {
                         Image(uiImage: .characterAvatarPlaceholder)
                     }
@@ -50,6 +45,13 @@ struct CharacterAvatarContainer: View {
             }
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    private func resizeAvatarImage(image: () -> Image) -> some View {
+        return image()
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: avatarHeight, height: avatarHeight)
     }
 }
 
