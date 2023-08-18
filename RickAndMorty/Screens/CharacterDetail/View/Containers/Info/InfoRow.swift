@@ -13,20 +13,23 @@ struct InfoRow: View {
     var value: String
     
     private let textFont: Font = .gilroyMedium(16)
+    private let verticalSpacing: CGFloat = 16
+    private let rowHeight: CGFloat = 40
     
     var body: some View {
         HStack {
-            Text(title)
-                .font(textFont)
-                .foregroundColor(UIColor.secondaryTextColor.toColor())
-                .padding(.leading, 16)
+            makeText(title, color: UIColor.secondaryTextColor.toColor(), withPaddingEdge: .leading)
             Spacer()
-            Text(value)
-                .font(textFont)
-                .foregroundColor(UIColor.mainTextColor.toColor())
-                .padding(.trailing, 16)
+            makeText(value, color: UIColor.mainTextColor.toColor(), withPaddingEdge: .trailing)
         }
-        .frame(height: 40)
+        .frame(height: rowHeight)
+    }
+    
+    private func makeText(_ text: String, color: Color, withPaddingEdge paddingEdge: Edge.Set) -> some View {
+        return Text(text)
+            .font(textFont)
+            .foregroundColor(color)
+            .padding(paddingEdge, verticalSpacing)
     }
 }
 
