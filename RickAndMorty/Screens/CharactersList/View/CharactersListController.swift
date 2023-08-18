@@ -137,7 +137,7 @@ extension CharactersListController {
     }
     
     private func openDetail(forCharacter character: CharacterModel) {
-        let detailView = CharacterDetailModuleAssembly.configureModule(character: character)
+        let detailView = CharacterDetailScreenAssembly.configureScreen(character: character)
         navigationController?.pushViewController(detailView, animated: true)
     }
 }
