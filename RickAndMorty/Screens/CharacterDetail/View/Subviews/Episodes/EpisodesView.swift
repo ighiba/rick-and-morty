@@ -11,8 +11,10 @@ struct EpisodesView: View {
     
     @Binding var episodes: [EpisodeModel]
     
+    private let titleBottomPadding: CGFloat = -8
+
     var body: some View {
-        TitleHeader(title: "Episodes")
+        TitleHeader(title: "Episodes", bottomPadding: titleBottomPadding)
         ForEach(episodes) { episode in
             EpisodeRow(episode: episode)
         }

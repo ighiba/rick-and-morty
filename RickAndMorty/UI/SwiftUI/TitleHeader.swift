@@ -15,7 +15,7 @@ struct TitleHeader: View {
     
     private let headerFont: Font = .gilroySemibold(17)
     
-    init(title: String, leadingPadding: CGFloat = 0, bottomPadding: CGFloat = 8) {
+    init(title: String, leadingPadding: CGFloat = 2, bottomPadding: CGFloat = 8) {
         self.title = title
         self.leadingPadding = leadingPadding
         self.bottomPadding = bottomPadding

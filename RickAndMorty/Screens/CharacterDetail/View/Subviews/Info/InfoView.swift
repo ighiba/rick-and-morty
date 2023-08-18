@@ -24,7 +24,6 @@ struct InfoView: View {
                 InfoRow(title: "Type:", value: !characterInfo.type.isEmpty ? characterInfo.type : "None")
                 InfoRow(title: "Gender:", value: characterInfo.gender)
             }
-            .padding([.top, .bottom], verticalPadding)
             .background(UIColor.cellBackgroundColor.toColor())
             .cornerRadius(cornerRadius)
         }

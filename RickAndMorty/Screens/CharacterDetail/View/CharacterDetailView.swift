@@ -11,7 +11,8 @@ struct CharacterDetailView: View {
     
     @StateObject var viewModel: CharacterDetailViewModel
     
-    private let bottomPadding: CGFloat = 24
+    private let bottomPadding: CGFloat = 5
+    private let bottomListPadding: CGFloat = 10
 
     var body: some View {
         ZStack {
@@ -35,6 +36,9 @@ struct CharacterDetailView: View {
                         EpisodesView(episodes: $viewModel.episodes)
                     }
                 }
+                makeSection {
+                    makeEmptyView(withBottomPadding: bottomListPadding)
+                }
             }
             .listStyle(.plain)
         }
@@ -46,6 +50,11 @@ struct CharacterDetailView: View {
         }
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
+    }
+    
+    private func makeEmptyView(withBottomPadding padding: CGFloat) -> some View {
+        return VStack {}
+            .padding(.bottom, padding)
     }
 }
 

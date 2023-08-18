@@ -49,11 +49,11 @@ struct OriginView: View {
                     Spacer()
                 }
             }
+            .frame(height: viewHeight)
             .background(UIColor.cellBackgroundColor.toColor())
             .cornerRadius(cornerRadius)
         }
         .frame(maxWidth: .infinity)
-        .frame(height: viewHeight)
     }
 }
 
