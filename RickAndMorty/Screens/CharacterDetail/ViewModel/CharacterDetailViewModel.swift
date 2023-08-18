@@ -37,7 +37,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     
     func updateCharacterData() {
         updateOrigin()
-        //updateEpisodes()
+        updateEpisodes()
     }
     
     private func updateOrigin() {
@@ -47,9 +47,8 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
             switch result {
             case .success(let fetchedLocation):
                 self?.character.originContainer.location = fetchedLocation
-                if let originContainer = self?.character.originContainer {
-                    self?.originContainer = originContainer
-                }
+                guard let originContainer = self?.character.originContainer else { return }
+                self?.originContainer = originContainer
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -59,7 +58,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     private func updateEpisodes() {
         let group = DispatchGroup()
         
-        character.episodes.filter({ $0.episode == nil }).enumerated().forEach { (index, episode) in
+        character.episodeContainers.filter({ $0.episode == nil }).forEach { episode in
             group.enter()
             networkManager.fetchEpisode(endpoint: .directUrl(episode.url)) { result in
                 switch result {
@@ -73,7 +72,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
         }
 
         group.notify(queue: .main) { [weak self] in
-            if let episodes = self?.character.episodes.compactMap({ $0.episode }) {
+            if let episodes = self?.character.episodeContainers.compactMap({ $0.episode }) {
                 self?.episodes = episodes
             }
         }

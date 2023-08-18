@@ -15,7 +15,7 @@ class CharacterModel: Identifiable, ObservableObject {
     var avatar: Avatar
     var info: Info
     var originContainer: OriginContainer
-    var episodes: [EpisodeContainerModel]
+    var episodeContainers: [EpisodeContainer]
     
     init(
         id: Int,
@@ -26,13 +26,13 @@ class CharacterModel: Identifiable, ObservableObject {
         gender: String,
         originContainer: OriginContainer,
         imageContainer: ImageContainer?,
-        episodes: [EpisodeContainerModel]
+        episodes: [EpisodeContainer]
     ) {
         self.id = id
         self.avatar = Avatar(imageContainer: imageContainer, name: name, status: status)
         self.info = Info(species: species, type: type, gender: gender)
         self.originContainer = originContainer
-        self.episodes = episodes
+        self.episodeContainers = episodes
     }
     
     convenience init(character: Character) {
@@ -46,9 +46,9 @@ class CharacterModel: Identifiable, ObservableObject {
             return (url, nil)
         }()
         
-        let episodes: [EpisodeContainerModel] = character.episodeUrls.compactMap { stringUrl in
+        let episodes: [EpisodeContainer] = character.episodeUrls.compactMap { stringUrl in
             guard let url = URL(string: stringUrl) else { return nil }
-            return EpisodeContainerModel(url: url)
+            return EpisodeContainer(url: url)
         }
 
         self.init(
@@ -100,7 +100,7 @@ extension CharacterModel {
         }
     }
 
-    class EpisodeContainerModel {
+    class EpisodeContainer {
         var url: URL
         var episode: EpisodeModel?
         
