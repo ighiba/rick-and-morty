@@ -13,7 +13,7 @@ struct InfoRow: View {
     var value: String
     
     private let textFont: Font = .gilroyMedium(16)
-    private let verticalSpacing: CGFloat = 16
+    private let verticalPadding: CGFloat = 16
     private let rowHeight: CGFloat = 40
     
     var body: some View {
@@ -29,7 +29,7 @@ struct InfoRow: View {
         return Text(text)
             .font(textFont)
             .foregroundColor(color)
-            .padding(paddingEdge, verticalSpacing)
+            .padding(paddingEdge, verticalPadding)
     }
 }
 

@@ -11,21 +11,20 @@ struct InfoView: View {
     
     @Binding var characterInfo: CharacterModel.Info
     
-    private let verticalSpacing: CGFloat = 8
-    private let horizontalSpacing: CGFloat = 20
+    private let verticalPadding: CGFloat = 8
     private let cornerRadius: CGFloat = 16
     
     private let headerFont: Font = .gilroySemibold(17)
     
     var body: some View {
         VStack(alignment: .leading) {
-            TitleHeader(title: "Info", verticalSpacing: verticalSpacing)
+            TitleHeader(title: "Info")
             VStack {
                 InfoRow(title: "Species:", value: characterInfo.species)
                 InfoRow(title: "Type:", value: !characterInfo.type.isEmpty ? characterInfo.type : "None")
                 InfoRow(title: "Gender:", value: characterInfo.gender)
             }
-            .padding([.top, .bottom], verticalSpacing)
+            .padding([.top, .bottom], verticalPadding)
             .background(UIColor.cellBackgroundColor.toColor())
             .cornerRadius(cornerRadius)
         }

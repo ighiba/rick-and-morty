@@ -10,29 +10,29 @@ import SwiftUI
 struct TitleHeader: View {
     
     var title: String
-    var horizontalSpacing: CGFloat
-    var verticalSpacing: CGFloat
+    var leadingPadding: CGFloat
+    var bottomPadding: CGFloat
     
     private let headerFont: Font = .gilroySemibold(17)
     
-    init(title: String, horizontalSpacing: CGFloat = 0, verticalSpacing: CGFloat = 0) {
+    init(title: String, leadingPadding: CGFloat = 0, bottomPadding: CGFloat = 8) {
         self.title = title
-        self.horizontalSpacing = horizontalSpacing
-        self.verticalSpacing = verticalSpacing
+        self.leadingPadding = leadingPadding
+        self.bottomPadding = bottomPadding
     }
     
     var body: some View {
         Text(title)
             .font(headerFont)
             .foregroundColor(UIColor.mainTextColor.toColor())
-            .alignmentGuide(.leading, computeValue: { _ in -horizontalSpacing })
-            .padding(.bottom, verticalSpacing)
+            .alignmentGuide(.leading, computeValue: { _ in -leadingPadding })
+            .padding(.bottom, bottomPadding)
     }
 }
 
 struct TitleHeader_Previews: PreviewProvider {
     static var previews: some View {
-        TitleHeader(title: "Header", horizontalSpacing: 20, verticalSpacing: 8)
+        TitleHeader(title: "Header", leadingPadding: 20, bottomPadding: 8)
             .background(UIColor.cellBackgroundColor.toColor())
     }
 }

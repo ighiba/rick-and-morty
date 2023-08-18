@@ -11,10 +11,8 @@ struct EpisodesView: View {
     
     @Binding var episodes: [EpisodeModel]
     
-    private let verticalSpacing: CGFloat = 8
-    
     var body: some View {
-        TitleHeader(title: "Episodes", verticalSpacing: verticalSpacing)
+        TitleHeader(title: "Episodes")
         ForEach(episodes) { episode in
             EpisodeRow(episode: episode)
         }

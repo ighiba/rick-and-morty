@@ -11,11 +11,11 @@ struct OriginView: View {
     
     @Binding var originContainer: CharacterModel.OriginContainer
     
+    private let viewHeight: CGFloat = 80
     private let originImageHeight: CGFloat = 64
     
-    private let verticalSpacing: CGFloat = 8
-    private let interTextSpacing: CGFloat = 4
-    private let imagePadding: CGFloat = 12
+    private let horizontalPadding: CGFloat = 12
+    private let bottomMinSpacing: CGFloat = 14
     
     private let cornerRadius: CGFloat = 16
     private let imageCornerRadius: CGFloat = 10
@@ -25,7 +25,7 @@ struct OriginView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            TitleHeader(title: "Origin", verticalSpacing: verticalSpacing)
+            TitleHeader(title: "Origin")
             VStack(alignment: .leading) {
                 HStack {
                     Image(uiImage: .originPlanet)
@@ -33,16 +33,19 @@ struct OriginView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: originImageHeight, height: originImageHeight)
                         .cornerRadius(imageCornerRadius)
-                        .padding(imagePadding)
+                        .padding(horizontalPadding)
                     VStack(alignment: .leading) {
+                        Spacer()
                         Text(originContainer.location?.name ?? "Unknown")
                             .font(originNameFont)
                             .foregroundColor(UIColor.mainTextColor.toColor())
-                            .padding(.bottom, interTextSpacing)
+                        Spacer(minLength: 1)
                         Text(originContainer.location?.type ?? "Unknown")
                             .font(originTypeFont)
                             .foregroundColor(UIColor.greenAccentColor.toColor())
+                        Spacer(minLength: bottomMinSpacing)
                     }
+                    .padding(.trailing, horizontalPadding)
                     Spacer()
                 }
             }
@@ -50,6 +53,7 @@ struct OriginView: View {
             .cornerRadius(cornerRadius)
         }
         .frame(maxWidth: .infinity)
+        .frame(height: viewHeight)
     }
 }
 
@@ -57,10 +61,11 @@ struct OriginView_Previews: PreviewProvider {
     
     static let sampleData = CharacterModel.OriginContainer(
         url: URL(string: "https://rickandmortyapi.com/api/location/1")!,
-        location: Location(id: 0, name: "Earth (C-137)", type: "Planet")
+        location: Location(id: 0, name: "Earth (Replacement Dimension)", type: "Planet")
     )
     
     static var previews: some View {
         OriginView(originContainer: .constant(sampleData))
+            .frame(width: 350)
     }
 }

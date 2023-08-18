@@ -11,7 +11,7 @@ struct CharacterDetailView: View {
     
     @StateObject var viewModel: CharacterDetailViewModel
     
-    private let verticalSpacing: CGFloat = 24
+    private let bottomPadding: CGFloat = 24
 
     var body: some View {
         ZStack {
@@ -20,15 +20,15 @@ struct CharacterDetailView: View {
             List {
                 makeSection {
                     AvatarView(characterAvatar: $viewModel.characterAvatar)
-                        .padding(.bottom, verticalSpacing)
+                        .padding(.bottom, bottomPadding)
                 }
                 makeSection {
                     InfoView(characterInfo: $viewModel.characterInfo)
-                        .padding(.bottom, verticalSpacing)
+                        .padding(.bottom, bottomPadding)
                 }
                 makeSection {
                     OriginView(originContainer: $viewModel.originContainer)
-                        .padding(.bottom, verticalSpacing)
+                        .padding(.bottom, bottomPadding)
                 }
                 if !viewModel.episodes.isEmpty {
                     makeSection {
