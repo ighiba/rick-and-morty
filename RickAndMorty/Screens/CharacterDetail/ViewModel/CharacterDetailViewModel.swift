@@ -42,6 +42,22 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
         //updateEpisodes()
     }
     
+    private func updateOrigin() {
+        guard character.originContainer.location == nil else { return }
+        let url = character.originContainer.url
+        networkManager.fetchLocation(endpoint: .directUrl(url)) { [weak self] result in
+            switch result {
+            case .success(let fetchedLocation):
+                self?.character.originContainer.location = fetchedLocation
+                if let originContainer = self?.character.originContainer {
+                    self?.originContainer = originContainer
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     private func updateEpisodes() {
         let group = DispatchGroup()
         
@@ -61,22 +77,6 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
         group.notify(queue: .main) { [weak self] in
             if let episodes = self?.character.episodes.compactMap({ $0.episode }) {
                 self?.episodes = episodes
-            }
-        }
-    }
-    
-    private func updateOrigin() {
-        guard character.originContainer.location == nil else { return }
-        let url = character.originContainer.url
-        networkManager.fetchLocation(endpoint: .directUrl(url)) { [weak self] result in
-            switch result {
-            case .success(let fetchedLocation):
-                self?.character.originContainer.location = fetchedLocation
-                if let originContainer = self?.character.originContainer {
-                    self?.originContainer = originContainer
-                }
-            case .failure(let error):
-                print(error)
             }
         }
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterAvatarContainer: View {
     
-    var characterAvatar: CharacterModel.Avatar
+    @Binding var characterAvatar: CharacterModel.Avatar
     
     private let avatarHeight: CGFloat = 148
     private let cornerRadius: CGFloat = 16
@@ -60,14 +60,14 @@ struct CharacterAvatar_Previews: PreviewProvider {
         nil
     )
     
+    static let sampleData = CharacterModel.Avatar(
+        imageContainer: sampleImageContainer,
+        name: "Rick Sanchez",
+        status: "Alive"
+    )
+    
     static var previews: some View {
-        CharacterAvatarContainer(
-            characterAvatar: CharacterModel.Avatar(
-                imageContainer: sampleImageContainer,
-                name: "Rick Sanchez",
-                status: "Alive"
-            )
-        )
-        .background(UIColor.defaultBackgroundColor.toColor())
+        CharacterAvatarContainer(characterAvatar: .constant(sampleData))
+            .background(UIColor.defaultBackgroundColor.toColor())
     }
 }

@@ -33,5 +33,6 @@ struct TitleHeader: View {
 struct TitleHeader_Previews: PreviewProvider {
     static var previews: some View {
         TitleHeader(title: "Header", horizontalSpacing: 20, verticalSpacing: 8)
+            .background(UIColor.cellBackgroundColor.toColor())
     }
 }

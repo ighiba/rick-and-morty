@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterOriginContainer: View {
     
-    var originContainer: CharacterModel.OriginContainer
+    @Binding var originContainer: CharacterModel.OriginContainer
     
     private let originImageHeight: CGFloat = 64
     
@@ -62,6 +62,6 @@ struct CharacterOriginContainer_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        CharacterOriginContainer(originContainer: sampleData)
+        CharacterOriginContainer(originContainer: .constant(sampleData))
     }
 }

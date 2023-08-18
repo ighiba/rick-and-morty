@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterEpisodesContainer: View {
     
-    var episodes: [EpisodeModel]
+    @Binding var episodes: [EpisodeModel]
     
     private let verticalSpacing: CGFloat = 8
     
@@ -29,6 +29,7 @@ struct EpisodesContainer_Previews: PreviewProvider {
     ]
     
     static var previews: some View {
-        CharacterEpisodesContainer(episodes: sampleData)
+        CharacterEpisodesContainer(episodes: .constant(sampleData))
+            .background(UIColor.cellBackgroundColor.toColor())
     }
 }

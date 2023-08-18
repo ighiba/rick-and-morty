@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterInfoContainer: View {
     
-    var characterInfo: CharacterModel.Info
+    @Binding var characterInfo: CharacterModel.Info
     
     private let verticalSpacing: CGFloat = 8
     private let horizontalSpacing: CGFloat = 20
@@ -34,7 +34,10 @@ struct CharacterInfoContainer: View {
 }
 
 struct CharacterInfoContainer_Previews: PreviewProvider {
+    
+    static let sampleData = CharacterModel.Info(species: "Human", type: "None", gender: "Male")
+    
     static var previews: some View {
-        CharacterInfoContainer(characterInfo: CharacterModel.Info(species: "Human", type: "None", gender: "Male"))
+        CharacterInfoContainer(characterInfo: .constant(sampleData))
     }
 }
