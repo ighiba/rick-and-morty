@@ -16,6 +16,7 @@ class CharactersListController: UICollectionViewController {
     var viewModel: CharactersListViewModelDelegate! {
         didSet {
             viewModel.characterModelListDidChangeHandler = { [weak self] _ in
+                self?.loaderIndicator.stopAnimating()
                 self?.updateSnapshot()
             }
             viewModel.networkErrorHandler = { [weak self] _ in
@@ -24,7 +25,7 @@ class CharactersListController: UICollectionViewController {
         }
     }
     
-    var refreshControl = UIRefreshControl()
+    var loaderIndicator = LoaderIndicator(style: .large)
     var charactersListView = CharactersListView()
     var dataSource: DataSource!
     
@@ -44,6 +45,7 @@ class CharactersListController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoaderIndicator()
         setupRefreshControl()
         setupNavigationBar()
         viewModel.viewDidLoad()
@@ -51,9 +53,13 @@ class CharactersListController: UICollectionViewController {
 
     // MARK: - Methods
     
+    private func setupLoaderIndicator() {
+        loaderIndicator.addToView(view)
+    }
+    
     private func setupRefreshControl() {
-        refreshControl.tintColor = .mainTextColor
-        collectionView.refreshControl = refreshControl
+        collectionView.refreshControl = UIRefreshControl()
+        collectionView.refreshControl?.tintColor = .mainTextColor
     }
     
     private func setupNavigationBar() {
@@ -89,8 +95,8 @@ class CharactersListController: UICollectionViewController {
     }
     
     func handleRefreshControlEnd() {
-        guard refreshControl.isRefreshing else { return }
-        refreshControl.endRefreshing()
+        guard let isRefreshing = collectionView.refreshControl?.isRefreshing, isRefreshing else { return }
+        collectionView.refreshControl?.endRefreshing()
     }
 }
 
@@ -108,7 +114,7 @@ extension CharactersListController {
     
     // Refresh control handling only when user drops scroll viw
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if refreshControl.isRefreshing {
+        if let isRefreshing = collectionView.refreshControl?.isRefreshing, isRefreshing {
             handleRefreshControlBegin()
         }
     }

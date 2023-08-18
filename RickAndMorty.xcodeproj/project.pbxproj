@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0108DDC2A900BAE00374416 /* LoaderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0108DDB2A900BAE00374416 /* LoaderIndicator.swift */; };
 		C03749D32A8F96FF002E9565 /* CharacterNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */; };
 		C03749D52A8F9ADA002E9565 /* EpisodeDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D42A8F9ADA002E9565 /* EpisodeDecodeTests.swift */; };
 		C03749D72A8F9B11002E9565 /* TestJSONEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D62A8F9B11002E9565 /* TestJSONEpisode.swift */; };
@@ -93,6 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0108DDB2A900BAE00374416 /* LoaderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderIndicator.swift; sourceTree = "<group>"; };
 		C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNameLabel.swift; sourceTree = "<group>"; };
 		C03749D42A8F9ADA002E9565 /* EpisodeDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDecodeTests.swift; sourceTree = "<group>"; };
 		C03749D62A8F9B11002E9565 /* TestJSONEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONEpisode.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0108DDA2A900BA000374416 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				C0108DDB2A900BAE00374416 /* LoaderIndicator.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		C03749D12A8F96F7002E9565 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +397,7 @@
 				C0E5DAEF2A8E8ECE00DD1480 /* SwiftUI */,
 				C03749D12A8F96F7002E9565 /* Labels */,
 				C04CBAC72A8E4843003E6686 /* Cells */,
+				C0108DDA2A900BA000374416 /* Misc */,
 				C04CBACA2A8E4874003E6686 /* Fonts */,
 			);
 			path = UI;
@@ -733,6 +744,7 @@
 				C0E5DACF2A8E692B00DD1480 /* UIImage.swift in Sources */,
 				C0E5DAF12A8E8EE200DD1480 /* TitleHeader.swift in Sources */,
 				C0E5DAC02A8E596400DD1480 /* CharacterDetailViewModel.swift in Sources */,
+				C0108DDC2A900BAE00374416 /* LoaderIndicator.swift in Sources */,
 				C0E5DAD72A8E782000DD1480 /* InfoRow.swift in Sources */,
 				C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */,
 				C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */,
