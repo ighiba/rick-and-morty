@@ -7,19 +7,21 @@
 
 import SwiftUI
 
+private let rowHeight: CGFloat = 86
+
+private let horizontalPadding: CGFloat = 16
+private let bottomMinSpacing: CGFloat = 12
+
+private let episodeNameFont: Font = .gilroySemibold(17)
+private let episodeNumFont: Font = .gilroyMedium(13)
+private let episodeAirDateFont: Font = .gilroyMedium(12)
+
 struct EpisodeRow: View {
     
     var episode: EpisodeModel
     
-    private let rowHeight: CGFloat = 86
     private let cornerRadius: CGFloat = 16
-    private let horizontalPadding: CGFloat = 16
-    private let bottomMinSpacing: CGFloat = 12
-    
-    private let episodeNameFont: Font = .gilroySemibold(17)
-    private let episodeNumFont: Font = .gilroyMedium(13)
-    private let episodeAirDateFont: Font = .gilroyMedium(12)
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Spacer()

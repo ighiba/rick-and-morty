@@ -7,14 +7,14 @@
 
 import SwiftUI
 
+private let headerFont: Font = .gilroySemibold(17)
+
 struct TitleHeader: View {
     
     var title: String
     var leadingPadding: CGFloat
     var bottomPadding: CGFloat
-    
-    private let headerFont: Font = .gilroySemibold(17)
-    
+
     init(title: String, leadingPadding: CGFloat = 2, bottomPadding: CGFloat = 8) {
         self.title = title
         self.leadingPadding = leadingPadding
