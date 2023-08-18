@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class CharacterDetailViewController<T: View>: UIHostingController<T> {
+class CharacterDetailController<T: View>: UIHostingController<T> {
 
     weak var viewModel: CharacterDetailViewModelDelegate!
 

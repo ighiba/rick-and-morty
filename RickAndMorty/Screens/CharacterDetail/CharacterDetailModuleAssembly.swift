@@ -12,7 +12,7 @@ class CharacterDetailModuleAssembly {
     class func configureModule(character: CharacterModel) -> UIViewController {
         let viewModel = CharacterDetailViewModel(character: character)
         let rootView = CharacterDetailView(viewModel: viewModel)
-        let view = CharacterDetailViewController(rootView: rootView)
+        let view = CharacterDetailController(rootView: rootView)
 
         view.viewModel = viewModel
         viewModel.networkManager = NetworkManagerImpl()
