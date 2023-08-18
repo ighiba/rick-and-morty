@@ -73,7 +73,7 @@ final class CharacterCell: UICollectionViewCell {
     func configure(with characterModel: CharacterModel) {
         characterId = characterModel.id
         nameLabel.text = characterModel.avatar.name
-        imageView.image = characterModel.avatar.imageContainer?.image
+        imageView.image = UIImage.characterAvatarPlaceholder
         if characterModel.avatar.imageContainer?.image != nil {
             imageView.image = characterModel.avatar.imageContainer?.image
         } else {
@@ -90,8 +90,8 @@ final class CharacterCell: UICollectionViewCell {
             switch result {
             case .success(let image):
                 guard id == self?.characterId else { return }
-                self?.imageView.image = image
                 character.avatar.imageContainer?.image = image
+                self?.imageView.setImageAnimated(image)
             case .failure(let error):
                 print(error.localizedDescription)
             }
