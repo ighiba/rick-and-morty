@@ -1,5 +1,5 @@
 //
-//  CharacterOriginContainer.swift
+//  OriginView.swift
 //  RickAndMorty
 //
 //  Created by Ivan Ghiba on 17.08.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CharacterOriginContainer: View {
+struct OriginView: View {
     
     @Binding var originContainer: CharacterModel.OriginContainer
     
@@ -53,7 +53,7 @@ struct CharacterOriginContainer: View {
     }
 }
 
-struct CharacterOriginContainer_Previews: PreviewProvider {
+struct OriginView_Previews: PreviewProvider {
     
     static let sampleData = CharacterModel.OriginContainer(
         url: URL(string: "https://rickandmortyapi.com/api/location/1")!,
@@ -61,6 +61,6 @@ struct CharacterOriginContainer_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        CharacterOriginContainer(originContainer: .constant(sampleData))
+        OriginView(originContainer: .constant(sampleData))
     }
 }

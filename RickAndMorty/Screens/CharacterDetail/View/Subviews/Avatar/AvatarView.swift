@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CharacterAvatarContainer: View {
+struct AvatarView: View {
     
     @Binding var characterAvatar: CharacterModel.Avatar
     
@@ -55,7 +55,7 @@ struct CharacterAvatarContainer: View {
     }
 }
 
-struct CharacterAvatar_Previews: PreviewProvider {
+struct AvatarView_Previews: PreviewProvider {
     
     static let sampleImageContainer = ImageContainer(
         URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")!,
@@ -69,7 +69,7 @@ struct CharacterAvatar_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        CharacterAvatarContainer(characterAvatar: .constant(sampleData))
+        AvatarView(characterAvatar: .constant(sampleData))
             .background(UIColor.defaultBackgroundColor.toColor())
     }
 }

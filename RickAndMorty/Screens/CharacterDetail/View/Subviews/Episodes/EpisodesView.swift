@@ -1,5 +1,5 @@
 //
-//  CharacterEpisodesContainer.swift
+//  EpisodesView.swift
 //  RickAndMorty
 //
 //  Created by Ivan Ghiba on 17.08.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CharacterEpisodesContainer: View {
+struct EpisodesView: View {
     
     @Binding var episodes: [EpisodeModel]
     
@@ -21,7 +21,7 @@ struct CharacterEpisodesContainer: View {
     }
 }
 
-struct EpisodesContainer_Previews: PreviewProvider {
+struct EpisodesView_Previews: PreviewProvider {
     
     static let sampleData = [
         EpisodeModel(id: 0, name: "Pilot", airDate: "December 7, 2013", episodeNum: (1, 1)),
@@ -29,7 +29,7 @@ struct EpisodesContainer_Previews: PreviewProvider {
     ]
     
     static var previews: some View {
-        CharacterEpisodesContainer(episodes: .constant(sampleData))
+        EpisodesView(episodes: .constant(sampleData))
             .background(UIColor.cellBackgroundColor.toColor())
     }
 }

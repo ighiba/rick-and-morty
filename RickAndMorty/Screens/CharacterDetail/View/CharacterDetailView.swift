@@ -19,20 +19,20 @@ struct CharacterDetailView: View {
                 .ignoresSafeArea()
             List {
                 makeSection {
-                    CharacterAvatarContainer(characterAvatar: $viewModel.characterAvatar)
+                    AvatarView(characterAvatar: $viewModel.characterAvatar)
                         .padding(.bottom, verticalSpacing)
                 }
                 makeSection {
-                    CharacterInfoContainer(characterInfo: $viewModel.characterInfo)
+                    InfoView(characterInfo: $viewModel.characterInfo)
                         .padding(.bottom, verticalSpacing)
                 }
                 makeSection {
-                    CharacterOriginContainer(originContainer: $viewModel.originContainer)
+                    OriginView(originContainer: $viewModel.originContainer)
                         .padding(.bottom, verticalSpacing)
                 }
                 if !viewModel.episodes.isEmpty {
                     makeSection {
-                        CharacterEpisodesContainer(episodes: $viewModel.episodes)
+                        EpisodesView(episodes: $viewModel.episodes)
                     }
                 }
             }

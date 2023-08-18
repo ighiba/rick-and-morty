@@ -1,5 +1,5 @@
 //
-//  CharacterInfoContainer.swift
+//  InfoView.swift
 //  RickAndMorty
 //
 //  Created by Ivan Ghiba on 17.08.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CharacterInfoContainer: View {
+struct InfoView: View {
     
     @Binding var characterInfo: CharacterModel.Info
     
@@ -33,11 +33,11 @@ struct CharacterInfoContainer: View {
     }
 }
 
-struct CharacterInfoContainer_Previews: PreviewProvider {
+struct InfoView_Previews: PreviewProvider {
     
     static let sampleData = CharacterModel.Info(species: "Human", type: "None", gender: "Male")
     
     static var previews: some View {
-        CharacterInfoContainer(characterInfo: .constant(sampleData))
+        InfoView(characterInfo: .constant(sampleData))
     }
 }
