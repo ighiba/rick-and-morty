@@ -9,7 +9,7 @@ import UIKit
 
 class CharactersListModuleAssembly {
     class func configureModule() -> UIViewController {
-        let view = CharactersListViewController()
+        let view = CharactersListController()
         
         let networkManager = NetworkManagerImpl()
         let pagingService = PagingServiceImpl()

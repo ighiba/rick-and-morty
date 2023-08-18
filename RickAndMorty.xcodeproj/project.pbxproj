@@ -14,6 +14,7 @@
 		C03749DB2A8F9DE3002E9565 /* LocationDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749DA2A8F9DE3002E9565 /* LocationDecodeTests.swift */; };
 		C03749DD2A8FA517002E9565 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749DC2A8FA517002E9565 /* UIImageView.swift */; };
 		C03749E02A8FB344002E9565 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749DF2A8FB344002E9565 /* Appearance.swift */; };
+		C03749E22A8FB48C002E9565 /* CharactersListController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749E12A8FB48C002E9565 /* CharactersListController+DataSource.swift */; };
 		C04CBA4A2A8D7F2E003E6686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */; };
 		C04CBA4C2A8D7F2F003E6686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */; };
 		C04CBA532A8D7F2F003E6686 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CBA522A8D7F2F003E6686 /* Colors.xcassets */; };
@@ -98,6 +99,7 @@
 		C03749DA2A8F9DE3002E9565 /* LocationDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDecodeTests.swift; sourceTree = "<group>"; };
 		C03749DC2A8FA517002E9565 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		C03749DF2A8FB344002E9565 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		C03749E12A8FB48C002E9565 /* CharactersListController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersListController+DataSource.swift"; sourceTree = "<group>"; };
 		C04CBA462A8D7F2E003E6686 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				C04CBA622A8D816C003E6686 /* CharactersListView.swift */,
 				C04CBA612A8D816C003E6686 /* CharactersListController.swift */,
+				C03749E12A8FB48C002E9565 /* CharactersListController+DataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				C0E5DAC62A8E65F500DD1480 /* AvatarView.swift in Sources */,
 				C04CBA952A8D98F6003E6686 /* CharacterEndpoint.swift in Sources */,
 				C04CBA852A8D8E8B003E6686 /* CharacterResponse.swift in Sources */,
+				C03749E22A8FB48C002E9565 /* CharactersListController+DataSource.swift in Sources */,
 				C0E5DB032A8ED72A00DD1480 /* LocationEndpoint.swift in Sources */,
 				C04CBAA42A8E302A003E6686 /* ImageLoader.swift in Sources */,
 				C0E5DAC42A8E5D0D00DD1480 /* CharacterDetailView.swift in Sources */,
