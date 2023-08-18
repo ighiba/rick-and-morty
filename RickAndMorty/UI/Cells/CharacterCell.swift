@@ -93,7 +93,7 @@ final class CharacterCell: UICollectionViewCell {
                 character.avatar.imageContainer?.image = image
                 self?.imageView.setImageAnimated(image)
             case .failure(let error):
-                print(error.localizedDescription)
+                print("Failed to load character image for id:\(id). \(error.localizedDescription)")
             }
         }
     }

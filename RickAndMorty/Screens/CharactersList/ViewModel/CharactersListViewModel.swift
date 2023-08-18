@@ -78,7 +78,7 @@ class CharactersListViewModel: CharactersListViewModelDelegate {
         case .success(let response):
             processCharactersResponse(response, listAction: listAction)
         case .failure(let error):
-            print(error.localizedDescription)
+            print("Failed to load characters. \(error.localizedDescription)")
             networkErrorHandler?(error)
         }
     }

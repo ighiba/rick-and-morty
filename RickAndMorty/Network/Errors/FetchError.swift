@@ -20,7 +20,7 @@ enum FetchError: Error, LocalizedError {
         case .unknown:
             return NSLocalizedString("Unknown error", comment: "")
         case .badUrl(let endpoint):
-            return NSLocalizedString("Bad URL. Cannot obtain url from Endpoint \(endpoint)", comment: "")
+            return NSLocalizedString("Enpoint's url is nil: \(endpoint)", comment: "")
         case .networkError(let statusCode):
             return NSLocalizedString("Network error occured with code: \(statusCode)", comment: "")
         case .decode:

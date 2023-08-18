@@ -50,7 +50,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
                 guard let originContainer = self?.character.originContainer else { return }
                 self?.originContainer = originContainer
             case .failure(let error):
-                print(error.localizedDescription)
+                print("Failed to load origin. \(error.localizedDescription)")
             }
         }
     }
@@ -65,7 +65,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
                 case .success(let fetchedEpisode):
                     episode.episode = EpisodeModel(episode: fetchedEpisode)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("Failed to load episode. \(error.localizedDescription)")
                 }
                 group.leave()
             }
