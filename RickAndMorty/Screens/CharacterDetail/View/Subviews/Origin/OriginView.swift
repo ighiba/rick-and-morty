@@ -7,21 +7,21 @@
 
 import SwiftUI
 
+private let viewHeight: CGFloat = 80
+private let originImageHeight: CGFloat = 64
+
+private let horizontalPadding: CGFloat = 12
+private let bottomMinSpacing: CGFloat = 14
+
+private let originNameFont: Font = .gilroySemibold(17)
+private let originTypeFont: Font = .gilroyMedium(13)
+
 struct OriginView: View {
     
     @Binding var originContainer: CharacterModel.OriginContainer
     
-    private let viewHeight: CGFloat = 80
-    private let originImageHeight: CGFloat = 64
-    
-    private let horizontalPadding: CGFloat = 12
-    private let bottomMinSpacing: CGFloat = 14
-    
     private let cornerRadius: CGFloat = 16
     private let imageCornerRadius: CGFloat = 10
-    
-    private let originNameFont: Font = .gilroySemibold(17)
-    private let originTypeFont: Font = .gilroyMedium(13)
     
     var body: some View {
         VStack(alignment: .leading) {

@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+private let bottomListPadding: CGFloat = 10
+private let horizontalInset: CGFloat = 20
+
+private let avatarViewInsets = EdgeInsets(top: 30, leading: horizontalInset, bottom: 20, trailing: horizontalInset)
+private let defaultViewInsets = EdgeInsets(top: 15, leading: horizontalInset, bottom: 15, trailing: horizontalInset)
+private let episodeRowInsets = EdgeInsets(top: 8, leading: horizontalInset, bottom: 8, trailing: horizontalInset)
+private let episodesTitleInsets = EdgeInsets(top: 8, leading: horizontalInset, bottom: 8, trailing: horizontalInset)
+
 struct CharacterDetailView: View {
     
     @StateObject var viewModel: CharacterDetailViewModel
-    
-    private let bottomPadding: CGFloat = 5
-    private let bottomListPadding: CGFloat = 10
 
     var body: some View {
         ZStack {
@@ -21,23 +26,24 @@ struct CharacterDetailView: View {
             List {
                 makeSection {
                     AvatarView(characterAvatar: $viewModel.characterAvatar)
-                        .padding(.bottom, bottomPadding * 2)
                 }
+                .listRowInsets(avatarViewInsets)
                 makeSection {
                     InfoView(characterInfo: $viewModel.characterInfo)
-                        .padding(.bottom, bottomPadding)
                 }
+                .listRowInsets(defaultViewInsets)
                 makeSection {
                     OriginView(originContainer: $viewModel.originContainer)
-                        .padding(.bottom, bottomPadding)
                 }
+                .listRowInsets(defaultViewInsets)
                 if !viewModel.episodes.isEmpty {
                     makeSection {
-                        EpisodesView(episodes: $viewModel.episodes)
+                        EpisodesView(episodes: $viewModel.episodes, titleInsets: episodesTitleInsets)
                     }
-                }
-                makeSection {
-                    makeEmptyView(withBottomPadding: bottomListPadding)
+                    .listRowInsets(episodeRowInsets)
+                    makeSection {
+                        makeEmptyView(withBottomPadding: bottomListPadding)
+                    }
                 }
             }
             .listStyle(.plain)
