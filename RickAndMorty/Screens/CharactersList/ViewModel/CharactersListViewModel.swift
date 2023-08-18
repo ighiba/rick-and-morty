@@ -68,7 +68,7 @@ class CharactersListViewModel: CharactersListViewModelDelegate {
         guard pagingService?.isNextAvailable ?? true, !isLoading else { return }
         isLoading = true
         networkManager.fetchCharacters(endpoint: endpoint) { [weak self] result in
-            self?.processCharactersFetchResult(result, listAction: .append)
+            self?.processCharactersFetchResult(result, listAction: listAction)
             self?.isLoading = false
         }
     }
