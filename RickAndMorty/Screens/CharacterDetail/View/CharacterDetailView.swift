@@ -21,7 +21,7 @@ struct CharacterDetailView: View {
             List {
                 makeSection {
                     AvatarView(characterAvatar: $viewModel.characterAvatar)
-                        .padding(.bottom, bottomPadding)
+                        .padding(.bottom, bottomPadding * 2)
                 }
                 makeSection {
                     InfoView(characterInfo: $viewModel.characterInfo)
