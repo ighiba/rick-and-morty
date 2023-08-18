@@ -9,12 +9,6 @@ import UIKit
 
 typealias ImageLoadResult = Result<UIImage, ImageLoadError>
 
-enum ImageLoadError: Error {
-    case unknown
-    case networkError(statusCode: Int)
-    case dataError
-}
-
 protocol ImageLoader: AnyObject {
     func load(url: URL, completion: @escaping (ImageLoadResult) -> Void)
 }

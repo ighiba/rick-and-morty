@@ -9,16 +9,13 @@ import UIKit
 
 typealias ImageContainer = (url: URL, image: UIImage?)
 
-class CharacterModel: Identifiable {
+class CharacterModel: Identifiable, ObservableObject {
+    
     let id: Int
-    let name: String
-    let status: String
-    let species: String
-    let type: String
-    let gender: String
-    let origin: Origin
-    var imageContainer: ImageContainer?
-    var episodes: [(URL, EpisodeModel?)]
+    var avatar: Avatar
+    var info: Info
+    var originContainer: OriginContainer
+    var episodes: [EpisodeContainerModel]
     
     init(
         id: Int,
@@ -27,23 +24,24 @@ class CharacterModel: Identifiable {
         species: String,
         type: String,
         gender: String,
-        origin: Origin,
-        image: ImageContainer?,
-        episodes: [(URL, EpisodeModel?)]
+        originContainer: OriginContainer,
+        imageContainer: ImageContainer?,
+        episodes: [EpisodeContainerModel]
     ) {
         self.id = id
-        self.name = name
-        self.status = status
-        self.species = species
-        self.type = type
-        self.gender = gender
-        self.origin = origin
-        self.imageContainer = image
+        self.avatar = Avatar(imageContainer: imageContainer, name: name, status: status)
+        self.info = Info(species: species, type: type, gender: gender)
+        self.originContainer = originContainer
         self.episodes = episodes
     }
     
     convenience init(character: Character) {
-        let image: ImageContainer? = {
+        let originContainer: OriginContainer = {
+            let url = URL(string: character.origin.url ?? "")
+            return OriginContainer(url: url, location: nil)
+        }()
+        
+        let imageContainer: ImageContainer? = {
             if let url = URL(string: character.imageUrl) {
                 return (url, nil)
             } else {
@@ -51,9 +49,9 @@ class CharacterModel: Identifiable {
             }
         }()
         
-        let episodes: [(URL, EpisodeModel?)] = character.episodeUrls.compactMap { stringUrl in
+        let episodes: [EpisodeContainerModel] = character.episodeUrls.enumerated().compactMap { (index, stringUrl) in
             if let url = URL(string: stringUrl) {
-                return (url, nil)
+                return EpisodeContainerModel(id: index, url: url)
             } else {
                 return nil
             }
@@ -66,9 +64,57 @@ class CharacterModel: Identifiable {
             species: character.species,
             type: character.type,
             gender: character.gender,
-            origin: character.origin,
-            image: image,
+            originContainer: originContainer,
+            imageContainer: imageContainer,
             episodes: episodes
         )
+    }
+}
+
+extension CharacterModel {
+    class Avatar {
+        var imageContainer: ImageContainer?
+        let name: String
+        let status: String
+        
+        init(imageContainer: ImageContainer? = nil, name: String, status: String) {
+            self.imageContainer = imageContainer
+            self.name = name
+            self.status = status
+        }
+    }
+    
+    class Info {
+        let species: String
+        let type: String
+        let gender: String
+        
+        init(species: String, type: String, gender: String) {
+            self.species = species
+            self.type = type
+            self.gender = gender
+        }
+    }
+    
+    class OriginContainer {
+        var url: URL?
+        var location: Location?
+        
+        init(url: URL? = nil, location: Location? = nil) {
+            self.url = url
+            self.location = location
+        }
+    }
+
+    class EpisodeContainerModel: Identifiable {
+        var id: Int
+        var url: URL
+        var episode: EpisodeModel?
+        
+        init(id: Int, url: URL, episode: EpisodeModel? = nil) {
+            self.id = id
+            self.url = url
+            self.episode = episode
+        }
     }
 }

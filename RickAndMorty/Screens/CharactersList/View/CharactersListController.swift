@@ -38,27 +38,27 @@ class CharactersListViewController: UICollectionViewController {
         viewModel.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setNeedsStatusBarAppearanceUpdate()
-    }
-    
     private func setupNavigationBar() {
         title = "Characters"
         
+        navigationController?.navigationBar.standardAppearance = configureNavigationBarAppearance()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .white
+        navigationItem.backButtonDisplayMode = .minimal
+    }
+    
+    private func configureNavigationBarAppearance() -> UINavigationBarAppearance {
         let titleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.font : largeTitleFont,
             NSAttributedString.Key.foregroundColor : UIColor.white
         ]
-
+        
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
         navBarAppearance.backgroundColor = .defaultBackgroundColor
         navBarAppearance.largeTitleTextAttributes = titleAttributes
         navBarAppearance.titleTextAttributes = titleAttributes
-        
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.prefersLargeTitles = true
+        return navBarAppearance
     }
 }
 
@@ -73,7 +73,22 @@ extension CharactersListViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Delegate
 
 extension CharactersListViewController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let selectedCharacter = characterModel(forIndexPath: indexPath) {
+            openDetail(forCharacter: selectedCharacter)
+        }
+    }
     
+    private func characterModel(forIndexPath indexPath: IndexPath) -> CharacterModel? {
+        let row = indexPath.row
+        guard viewModel.characterModelList.indices.contains(row) else { return nil }
+        return viewModel.characterModelList[row]
+    }
+    
+    private func openDetail(forCharacter character: CharacterModel) {
+        let detailView = CharacterDetailModuleAssembly.configureModule(character: character)
+        navigationController?.pushViewController(detailView, animated: true)
+    }
 }
 
 // MARK: - DataSource

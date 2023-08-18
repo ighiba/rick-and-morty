@@ -65,10 +65,10 @@ final class CharacterCell: UICollectionViewCell {
     
     func configure(with characterModel: CharacterModel) {
         characterId = characterModel.id
-        nameLabel.text = characterModel.name
-        imageView.image = characterModel.imageContainer?.image
-        if characterModel.imageContainer?.image != nil {
-            imageView.image = characterModel.imageContainer?.image
+        nameLabel.text = characterModel.avatar.name
+        imageView.image = characterModel.avatar.imageContainer?.image
+        if characterModel.avatar.imageContainer?.image != nil {
+            imageView.image = characterModel.avatar.imageContainer?.image
         } else {
             loadCharacterImage(forCharacter: characterModel)
         }
@@ -77,14 +77,14 @@ final class CharacterCell: UICollectionViewCell {
     }
     
     private func loadCharacterImage(forCharacter character: CharacterModel) {
-        guard let imageUrl = character.imageContainer?.url else { return }
+        guard let imageUrl = character.avatar.imageContainer?.url else { return }
         let id = character.id
         CachedImageLoader.shared.load(url: imageUrl) { [weak self] result in
             switch result {
             case .success(let image):
                 guard id == self?.characterId else { return }
                 self?.imageView.image = image
-                character.imageContainer?.image = image
+                character.avatar.imageContainer?.image = image
             case .failure(let error):
                 print(error)
             }
