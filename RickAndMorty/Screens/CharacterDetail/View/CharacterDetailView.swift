@@ -41,6 +41,7 @@ struct CharacterDetailView: View {
                 }
             }
             .listStyle(.plain)
+            .modifier(ListBackgroundModifier())
         }
     }
     

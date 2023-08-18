@@ -44,6 +44,7 @@
 		C04CBACE2A8E4887003E6686 /* gilroy-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACB2A8E4887003E6686 /* gilroy-semibold.ttf */; };
 		C04CBACF2A8E4887003E6686 /* gilroy-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACC2A8E4887003E6686 /* gilroy-bold.ttf */; };
 		C04CBAD02A8E4887003E6686 /* gilroy-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04CBACD2A8E4887003E6686 /* gilroy-medium.ttf */; };
+		C0DC0A062A8FCF4900D8793A /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC0A052A8FCF4900D8793A /* ListBackgroundModifier.swift */; };
 		C0E5DA9A2A8E527E00DD1480 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DA992A8E527E00DD1480 /* Images.xcassets */; };
 		C0E5DAA92A8E543400DD1480 /* Portal.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAA62A8E543400DD1480 /* Portal.png */; };
 		C0E5DAAA2A8E543400DD1480 /* Portal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E5DAA72A8E543400DD1480 /* Portal@2x.png */; };
@@ -132,6 +133,7 @@
 		C04CBACB2A8E4887003E6686 /* gilroy-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-semibold.ttf"; sourceTree = "<group>"; };
 		C04CBACC2A8E4887003E6686 /* gilroy-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-bold.ttf"; sourceTree = "<group>"; };
 		C04CBACD2A8E4887003E6686 /* gilroy-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-medium.ttf"; sourceTree = "<group>"; };
+		C0DC0A052A8FCF4900D8793A /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		C0E5DA992A8E527E00DD1480 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C0E5DAA62A8E543400DD1480 /* Portal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Portal.png; sourceTree = "<group>"; };
 		C0E5DAA72A8E543400DD1480 /* Portal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portal@2x.png"; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E5DAF02A8E8EE200DD1480 /* TitleHeader.swift */,
+				C0DC0A052A8FCF4900D8793A /* ListBackgroundModifier.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */,
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,
 				C0E5DB052A8ED7BC00DD1480 /* Location.swift in Sources */,
+				C0DC0A062A8FCF4900D8793A /* ListBackgroundModifier.swift in Sources */,
 				C0E5DABD2A8E596400DD1480 /* CharacterDetailScreenAssembly.swift in Sources */,
 				C03749DD2A8FA517002E9565 /* UIImageView.swift in Sources */,
 				C03749D32A8F96FF002E9565 /* CharacterNameLabel.swift in Sources */,
