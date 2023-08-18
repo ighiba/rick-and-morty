@@ -17,9 +17,7 @@ protocol Endpoint {
 extension Endpoint {
     var baseUrl: URL { URL(string: "https://rickandmortyapi.com")! }
     
-    var url: URL? {
-        return defaultUrl()
-    }
+    var url: URL? { defaultUrl() }
     
     func defaultUrl() -> URL? {
         var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)!

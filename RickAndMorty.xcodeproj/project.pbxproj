@@ -220,6 +220,7 @@
 		C04CBA5E2A8D7FE3003E6686 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C0E5DB092A8F8B1500DD1480 /* DecodableEntities */,
 				C04CBA6A2A8D842D003E6686 /* Entities */,
 			);
 			path = Models;
@@ -255,10 +256,6 @@
 		C04CBA6A2A8D842D003E6686 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C04CBA6C2A8D862B003E6686 /* Character.swift */,
-				C04CBA6E2A8D88B3003E6686 /* Origin.swift */,
-				C0E5DB042A8ED7BC00DD1480 /* Location.swift */,
-				C04CBA702A8D88C1003E6686 /* Episode.swift */,
 				C04CBA962A8DA72C003E6686 /* CharacterModel.swift */,
 				C04CBA982A8DA84E003E6686 /* EpisodeModel.swift */,
 			);
@@ -538,6 +535,17 @@
 				C0E5DB072A8F723900DD1480 /* PagingService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C0E5DB092A8F8B1500DD1480 /* DecodableEntities */ = {
+			isa = PBXGroup;
+			children = (
+				C04CBA6C2A8D862B003E6686 /* Character.swift */,
+				C04CBA6E2A8D88B3003E6686 /* Origin.swift */,
+				C0E5DB042A8ED7BC00DD1480 /* Location.swift */,
+				C04CBA702A8D88C1003E6686 /* Episode.swift */,
+			);
+			path = DecodableEntities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

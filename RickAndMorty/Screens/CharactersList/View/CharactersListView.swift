@@ -13,23 +13,24 @@ private let heightToWidthMultiplier: CGFloat = 1.3
 
 class CharactersListView: UICollectionView {
     
-    lazy var flowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = lineSpacing
-        layout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
-        return layout
-    }()
+    lazy var flowLayout = configureLayout()
 
     init() {
-        let defaultLayout = UICollectionViewCompositionalLayout.list(using: .init(appearance: .insetGrouped))
-        super.init(frame: .zero, collectionViewLayout: defaultLayout)
-        self.collectionViewLayout = flowLayout
+        super.init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        collectionViewLayout = flowLayout
         setupStyle()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = lineSpacing
+        layout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
+        return layout
     }
     
     private func setupStyle() {

@@ -35,9 +35,11 @@ class CharactersListViewController: UICollectionViewController {
         collectionView.delegate = self
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
         
-        dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            return self.configureCell(collectionView: collectionView, itemIdentifier: itemIdentifier, for: indexPath)
-        })
+        dataSource = DataSource(
+            collectionView: collectionView,
+            cellProvider: { collectionView, indexPath, itemIdentifier in
+                return self.configureCell(collectionView: collectionView, itemIdentifier: itemIdentifier, for: indexPath)
+            })
     }
 
     override func viewDidLoad() {
@@ -57,9 +59,10 @@ class CharactersListViewController: UICollectionViewController {
     private func setupNavigationBar() {
         title = "Characters"
         
-        navigationController?.navigationBar.standardAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
-        navigationController?.navigationBar.scrollEdgeAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
-        navigationController?.navigationBar.compactAppearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
+        let appearance = configureNavigationBarAppearance(largeTitleFont: largeTitleFont)
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .mainTextColor
         navigationItem.backButtonDisplayMode = .minimal

@@ -13,9 +13,7 @@ enum FetchError: Error, LocalizedError {
     case networkError(statusCode: Int)
     case decode
 
-     var errorDescription: String? {
-        return "FetchError: \(getLocalizedDescription())"
-    }
+    var errorDescription: String? { "FetchError: \(getLocalizedDescription())" }
     
     private func getLocalizedDescription() -> String {
         switch self {

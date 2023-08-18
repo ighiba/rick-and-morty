@@ -42,19 +42,13 @@ class CharacterModel: Identifiable, ObservableObject {
         }()
         
         let imageContainer: ImageContainer? = {
-            if let url = URL(string: character.imageUrl) {
-                return (url, nil)
-            } else {
-                return nil
-            }
+            guard let url = URL(string: character.imageUrl) else { return nil }
+            return (url, nil)
         }()
         
-        let episodes: [EpisodeContainerModel] = character.episodeUrls.enumerated().compactMap { (index, stringUrl) in
-            if let url = URL(string: stringUrl) {
-                return EpisodeContainerModel(id: index, url: url)
-            } else {
-                return nil
-            }
+        let episodes: [EpisodeContainerModel] = character.episodeUrls.compactMap { stringUrl in
+            guard let url = URL(string: stringUrl) else { return nil }
+            return EpisodeContainerModel(url: url)
         }
 
         self.init(
@@ -106,13 +100,11 @@ extension CharacterModel {
         }
     }
 
-    class EpisodeContainerModel: Identifiable {
-        var id: Int
+    class EpisodeContainerModel {
         var url: URL
         var episode: EpisodeModel?
         
-        init(id: Int, url: URL, episode: EpisodeModel? = nil) {
-            self.id = id
+        init(url: URL, episode: EpisodeModel? = nil) {
             self.url = url
             self.episode = episode
         }
