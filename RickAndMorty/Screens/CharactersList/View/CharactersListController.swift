@@ -70,7 +70,20 @@ extension CharactersListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Delegate
+// MARK: - Delegate paging
+
+extension CharactersListViewController {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let bottomOffset = scrollView.contentOffset.y + scrollView.bounds.size.height + 500
+        let contentHeight = scrollView.contentSize.height
+        
+        if bottomOffset >= contentHeight {
+            viewModel.loadNextPage()
+        }
+    }
+}
+
+// MARK: - Delegate didSelectItemAt
 
 extension CharactersListViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

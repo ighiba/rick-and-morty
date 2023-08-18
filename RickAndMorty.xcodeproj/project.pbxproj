@@ -70,6 +70,7 @@
 		C0E5DB012A8ED40600DD1480 /* ImageLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DB002A8ED40600DD1480 /* ImageLoadError.swift */; };
 		C0E5DB032A8ED72A00DD1480 /* LocationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DB022A8ED72A00DD1480 /* LocationEndpoint.swift */; };
 		C0E5DB052A8ED7BC00DD1480 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DB042A8ED7BC00DD1480 /* Location.swift */; };
+		C0E5DB082A8F723900DD1480 /* PagingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5DB072A8F723900DD1480 /* PagingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		C0E5DB002A8ED40600DD1480 /* ImageLoadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadError.swift; sourceTree = "<group>"; };
 		C0E5DB022A8ED72A00DD1480 /* LocationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEndpoint.swift; sourceTree = "<group>"; };
 		C0E5DB042A8ED7BC00DD1480 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		C0E5DB072A8F723900DD1480 /* PagingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				C04CBA492A8D7F2E003E6686 /* AppDelegate.swift */,
 				C04CBA4B2A8D7F2F003E6686 /* SceneDelegate.swift */,
+				C0E5DB062A8F723000DD1480 /* Services */,
 				C04CBA6B2A8D8511003E6686 /* Network */,
 				C04CBA5E2A8D7FE3003E6686 /* Models */,
 				C04CBA5D2A8D7FDB003E6686 /* Screens */,
@@ -529,6 +532,14 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		C0E5DB062A8F723000DD1480 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C0E5DB072A8F723900DD1480 /* PagingService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -681,6 +692,7 @@
 				C04CBA642A8D816C003E6686 /* CharactersListModuleAssembly.swift in Sources */,
 				C0E5DAD32A8E6EF900DD1480 /* UIColor+Color.swift in Sources */,
 				C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */,
+				C0E5DB082A8F723900DD1480 /* PagingService.swift in Sources */,
 				C0E5DADB2A8E803D00DD1480 /* CharacterOriginContainer.swift in Sources */,
 				C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */,
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,

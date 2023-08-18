@@ -10,7 +10,10 @@ import UIKit
 class CharactersListModuleAssembly {
     class func configureModule() -> UIViewController {
         let view = CharactersListViewController()
-        let viewModel = CharactersListViewModel(networkManager: NetworkManagerImpl())
+        
+        let networkManager = NetworkManagerImpl()
+        let pagingService = PagingServiceImpl()
+        let viewModel = CharactersListViewModel(networkManager: networkManager, pagingService: pagingService)
         
         view.viewModel = viewModel
 
