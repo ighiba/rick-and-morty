@@ -7,14 +7,17 @@
 
 import SwiftUI
 
+private let titleBottomPadding: CGFloat = 0
+
 struct EpisodesView: View {
     
     @Binding var episodes: [EpisodeModel]
     
-    private let titleBottomPadding: CGFloat = -8
+    var titleInsets = EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24)
 
     var body: some View {
         TitleHeader(title: "Episodes", bottomPadding: titleBottomPadding)
+            .listRowInsets(titleInsets)
         ForEach(episodes) { episode in
             EpisodeRow(episode: episode)
         }
