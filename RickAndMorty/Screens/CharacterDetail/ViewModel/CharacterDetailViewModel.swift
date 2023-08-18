@@ -26,11 +26,13 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     
     // MARK: - Init
     
-    init(character: CharacterModel) {
+    init(character: CharacterModel, networkManager: NetworkManager) {
         self.characterAvatar = character.avatar
         self.characterInfo = character.info
         self.originContainer = character.originContainer
         self.character = character
+        self.networkManager = networkManager
+        updateCharacterData()
     }
     
     // MARK: - Methods

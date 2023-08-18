@@ -71,6 +71,6 @@ struct CharacterDetailView_Previews: PreviewProvider {
     static let sampleCharacter: CharacterModel = sampleData.results.map( { CharacterModel(character: $0) }).first!
     
     static var previews: some View {
-        CharacterDetailView(viewModel: .init(character: sampleCharacter))
+        CharacterDetailView(viewModel: .init(character: sampleCharacter, networkManager: NetworkManagerImpl()))
     }
 }
