@@ -45,6 +45,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     private func updateOrigin() {
         guard character.originContainer.location == nil else { return }
         let url = character.originContainer.url
+        
         networkManager.fetchLocation(endpoint: .directUrl(url)) { [weak self] result in
             switch result {
             case .success(let fetchedLocation):
@@ -60,7 +61,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     private func updateEpisodes() {
         let episodeIds = character.episodeContainer.filter({ $0.value == nil }).map { $0.key }
         guard !episodeIds.isEmpty else { return }
-        
+
         networkManager.fetchEpisodes(endpoint: .getMultiple(episodeIds: episodeIds)) { [weak self] result in
             switch result {
             case .success(let fetchedEpisodes):
