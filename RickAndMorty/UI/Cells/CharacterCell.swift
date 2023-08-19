@@ -80,16 +80,25 @@ final class CharacterCell: UICollectionViewCell {
     }
     
     private func loadCharacterImage(forCharacter character: CharacterModel) {
+        let cachedImageLoader = CachedImageLoader.shared
         guard let imageUrl = character.avatar.imageUrl else { return }
-        let id = character.id
-        CachedImageLoader.shared.load(url: imageUrl) { [weak self] result in
-            switch result {
-            case .success(let image):
-                guard id == self?.characterId else { return }
-                self?.imageView.setImageAnimated(image)
-            case .failure(let error):
-                print("Failed to load character image for id:\(id). \(error.localizedDescription)")
+        if let cachedImage = cachedImageLoader.cachedImage(forUrl: imageUrl) {
+            imageView.image = cachedImage
+        } else {
+            let id = character.id
+            cachedImageLoader.load(url: imageUrl) { [weak self] result in
+                self?.processImageLoadResult(result, processedId: id)
             }
+        }
+    }
+    
+    private func processImageLoadResult(_ result: ImageLoadResult, processedId id: CharacterModel.ID) {
+        switch result {
+        case .success(let image):
+            guard id == characterId else { return }
+            imageView.setImageAnimated(image)
+        case .failure(let error):
+            print("Failed to load character image for id:\(id). \(error.localizedDescription)")
         }
     }
     
