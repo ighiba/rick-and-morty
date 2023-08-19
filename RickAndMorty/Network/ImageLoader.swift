@@ -15,9 +15,21 @@ protocol ImageLoader: AnyObject {
 
 class CachedImageLoader: ImageLoader {
     
+    struct Config {
+        let countLimit: Int
+        let totalCostLimit: Int
+        
+        static let defaultConfig = Config(countLimit: 50, totalCostLimit: 1024 * 1024 * 50) // 50 mb
+    }
+    
     static let shared = CachedImageLoader()
     
-    private var cachedImages = NSCache<NSString, UIImage>()
+    private var cachedImages: NSCache<AnyObject, AnyObject> = {
+        let cache = NSCache<AnyObject, AnyObject>()
+        cache.countLimit = Config.defaultConfig.countLimit
+        cache.totalCostLimit = Config.defaultConfig.totalCostLimit
+        return cache
+    }()
     
     private let session = URLSession.shared
     private let validCodes = 200...299
@@ -25,7 +37,7 @@ class CachedImageLoader: ImageLoader {
     private init() {}
     
     func load(url: URL, completion: @escaping (ImageLoadResult) -> Void) {
-        if let cachedImage = cachedImages.object(forKey: url.absoluteString as NSString) {
+        if let cachedImage = cachedImages.object(forKey: url as AnyObject) as? UIImage {
             completion(.success(cachedImage))
         }
         
@@ -58,7 +70,7 @@ class CachedImageLoader: ImageLoader {
                     result = .failure(.dataError)
                     return
                 }
-                strongSelf.cachedImages.setObject(image, forKey:  url.absoluteString as NSString)
+                strongSelf.cachedImages.setObject(image as AnyObject, forKey: url as AnyObject)
                 result = .success(image)
             } else {
                 result = .failure(.dataError)

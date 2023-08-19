@@ -9,13 +9,17 @@ import Foundation
 
 extension API {
     enum Episode: Endpoint {
-        case get(episodeId: Int)
+        case getSingle(episodeId: Int)
+        case getMultiple(episodeIds: [Int])
         case directUrl(URL?)
         
         var path: String {
             switch self {
-            case .get(let episodeId):
-                return "/api/episode/\(episodeId)"
+            case .getSingle(let episodeId):
+                return "/episode/\(episodeId)"
+            case .getMultiple(let episodeIds):
+                let stringIds = episodeIds.map(String.init).joined(separator: ",")
+                return "/episode/\(stringIds)"
             case .directUrl(_):
                 return ""
             }
@@ -25,7 +29,7 @@ extension API {
         
         var url: URL? {
             switch self {
-            case .get(_):
+            case .getSingle(_), .getMultiple(_):
                 return defaultUrl()
             case .directUrl(let url):
                 return url

@@ -74,23 +74,18 @@ final class CharacterCell: UICollectionViewCell {
         characterId = characterModel.id
         nameLabel.text = characterModel.avatar.name
         imageView.image = UIImage.characterAvatarPlaceholder
-        if characterModel.avatar.imageContainer?.image != nil {
-            imageView.image = characterModel.avatar.imageContainer?.image
-        } else {
-            loadCharacterImage(forCharacter: characterModel)
-        }
+        loadCharacterImage(forCharacter: characterModel)
 
         backgroundConfiguration = configureBackground()
     }
     
     private func loadCharacterImage(forCharacter character: CharacterModel) {
-        guard let imageUrl = character.avatar.imageContainer?.url else { return }
+        guard let imageUrl = character.avatar.imageUrl else { return }
         let id = character.id
         CachedImageLoader.shared.load(url: imageUrl) { [weak self] result in
             switch result {
             case .success(let image):
                 guard id == self?.characterId else { return }
-                character.avatar.imageContainer?.image = image
                 self?.imageView.setImageAnimated(image)
             case .failure(let error):
                 print("Failed to load character image for id:\(id). \(error.localizedDescription)")
