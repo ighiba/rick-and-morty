@@ -11,8 +11,7 @@ import SwiftUI
 class CharacterDetailScreenAssembly {
     class func configureScreen(character: CharacterModel) -> UIViewController {
         let viewModel = CharacterDetailViewModel(character: character, networkManager: NetworkManagerImpl())
-        let rootView = CharacterDetailView(viewModel: viewModel)
-        let view = CharacterDetailController(rootView: rootView)
+        let view = CharacterDetailController(viewModel: viewModel)
         
         return view
     }
