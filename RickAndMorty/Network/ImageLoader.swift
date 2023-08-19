@@ -19,7 +19,7 @@ class CachedImageLoader: ImageLoader {
         let countLimit: Int
         var totalCostLimit: Int { 1024 * 1024 * countLimit }
         
-        static let defaultConfig = Config(countLimit: 50) // 50 mb
+        static let defaultConfig = Config(countLimit: 100) // 100 mb
     }
     
     static let shared = CachedImageLoader()
@@ -37,8 +37,12 @@ class CachedImageLoader: ImageLoader {
 
     private init() {}
     
+    func cachedImage(forUrl url: URL) -> UIImage? {
+        return cachedImages.object(forKey: url as AnyObject) as? UIImage
+    }
+    
     func load(url: URL, completion: @escaping (ImageLoadResult) -> Void) {
-        if let cachedImage = cachedImages.object(forKey: url as AnyObject) as? UIImage {
+        if let cachedImage = cachedImage(forUrl: url) {
             completion(.success(cachedImage))
             return
         }
