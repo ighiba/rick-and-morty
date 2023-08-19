@@ -7,8 +7,6 @@
 
 import UIKit
 
-typealias ImageContainer = (url: URL, image: UIImage?)
-
 class CharacterModel: Identifiable, ObservableObject {
     
     let id: Int
@@ -24,26 +22,23 @@ class CharacterModel: Identifiable, ObservableObject {
         species: String,
         type: String,
         gender: String,
+        imageUrl: URL?,
         originContainer: OriginContainer,
-        imageContainer: ImageContainer?,
         episodes: [EpisodeContainer]
     ) {
         self.id = id
-        self.avatar = Avatar(imageContainer: imageContainer, name: name, status: status)
+        self.avatar = Avatar(imageUrl: imageUrl, name: name, status: status)
         self.info = Info(species: species, type: type, gender: gender)
         self.originContainer = originContainer
         self.episodeContainers = episodes
     }
     
     convenience init(character: Character) {
+        let imageUrl = URL(string: character.imageUrl)
+        
         let originContainer: OriginContainer = {
             let url = URL(string: character.origin.url ?? "")
             return OriginContainer(url: url, location: nil)
-        }()
-        
-        let imageContainer: ImageContainer? = {
-            guard let url = URL(string: character.imageUrl) else { return nil }
-            return (url, nil)
         }()
         
         let episodes: [EpisodeContainer] = character.episodeUrls.compactMap { stringUrl in
@@ -58,8 +53,8 @@ class CharacterModel: Identifiable, ObservableObject {
             species: character.species,
             type: character.type,
             gender: character.gender,
+            imageUrl: imageUrl,
             originContainer: originContainer,
-            imageContainer: imageContainer,
             episodes: episodes
         )
     }
@@ -67,12 +62,12 @@ class CharacterModel: Identifiable, ObservableObject {
 
 extension CharacterModel {
     class Avatar {
-        var imageContainer: ImageContainer?
+        var imageUrl: URL?
         let name: String
         let status: String
         
-        init(imageContainer: ImageContainer? = nil, name: String, status: String) {
-            self.imageContainer = imageContainer
+        init(imageUrl: URL?, image: UIImage? = nil, name: String, status: String) {
+            self.imageUrl = imageUrl
             self.name = name
             self.status = status
         }

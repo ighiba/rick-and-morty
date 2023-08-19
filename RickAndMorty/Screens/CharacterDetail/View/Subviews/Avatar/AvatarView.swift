@@ -24,14 +24,10 @@ struct AvatarView: View {
     var body: some View {
         VStack(alignment: .center) {
             VStack {
-                if let characterImage = characterAvatar.imageContainer?.image {
-                    resizeAvatarImage { Image(uiImage: characterImage) }
-                } else {
-                    AsyncImage(url: characterAvatar.imageContainer?.url) { image in
-                        resizeAvatarImage { image }
-                    } placeholder: {
-                        Image(uiImage: .characterAvatarPlaceholder)
-                    }
+                AsyncImage(url: characterAvatar.imageUrl) { image in
+                    resizeAvatarImage { image }
+                } placeholder: {
+                    Image(uiImage: .characterAvatarPlaceholder)
                 }
             }
             .cornerRadius(cornerRadius)
@@ -59,13 +55,8 @@ struct AvatarView: View {
 
 struct AvatarView_Previews: PreviewProvider {
     
-    static let sampleImageContainer = ImageContainer(
-        URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")!,
-        nil
-    )
-    
     static let sampleData = CharacterModel.Avatar(
-        imageContainer: sampleImageContainer,
+        imageUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")!,
         name: "Rick Sanchez",
         status: "Alive"
     )
