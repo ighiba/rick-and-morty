@@ -9,13 +9,13 @@ import Foundation
 
 extension API {
     enum Location: Endpoint {
-        case get(locationId: Int)
+        case getSingle(locationId: Int)
         case directUrl(URL?)
         
         var path: String {
             switch self {
-            case .get(let locationId):
-                return "/api/location/\(locationId)"
+            case .getSingle(let locationId):
+                return "/location/\(locationId)"
             case .directUrl(_):
                 return ""
             }
@@ -25,7 +25,7 @@ extension API {
         
         var url: URL? {
             switch self {
-            case .get(_):
+            case .getSingle(_):
                 return defaultUrl()
             case .directUrl(let url):
                 return url

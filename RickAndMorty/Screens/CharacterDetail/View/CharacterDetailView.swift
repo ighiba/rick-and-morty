@@ -51,6 +51,7 @@ struct CharacterDetailView: View {
                 }
             }
             .listStyle(.plain)
+            .animation(.default, value: viewModel.episodes.isEmpty)
             .modifier(ListBackgroundModifier())
         }
     }

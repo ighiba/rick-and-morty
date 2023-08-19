@@ -57,7 +57,7 @@ class CharactersListViewModel: CharactersListViewModelDelegate {
     }
     
     private func loadFirstPage() {
-        loadCharactersData(endpoint: .getCharacters(page: 1), listAction: .replace)
+        loadCharactersData(endpoint: .getSingle(page: 1), listAction: .replace)
     }
     
     func loadNextPage() {
