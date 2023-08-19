@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C0108DDC2A900BAE00374416 /* LoaderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0108DDB2A900BAE00374416 /* LoaderIndicator.swift */; };
+		C0108DDE2A90E93F00374416 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0108DDD2A90E93F00374416 /* CGSize.swift */; };
+		C0108DE02A90E97000374416 /* DefaultImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0108DDF2A90E97000374416 /* DefaultImageRenderer.swift */; };
 		C03749D32A8F96FF002E9565 /* CharacterNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */; };
 		C03749D52A8F9ADA002E9565 /* EpisodeDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D42A8F9ADA002E9565 /* EpisodeDecodeTests.swift */; };
 		C03749D72A8F9B11002E9565 /* TestJSONEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03749D62A8F9B11002E9565 /* TestJSONEpisode.swift */; };
@@ -95,6 +97,8 @@
 
 /* Begin PBXFileReference section */
 		C0108DDB2A900BAE00374416 /* LoaderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderIndicator.swift; sourceTree = "<group>"; };
+		C0108DDD2A90E93F00374416 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		C0108DDF2A90E97000374416 /* DefaultImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageRenderer.swift; sourceTree = "<group>"; };
 		C03749D22A8F96FF002E9565 /* CharacterNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNameLabel.swift; sourceTree = "<group>"; };
 		C03749D42A8F9ADA002E9565 /* EpisodeDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDecodeTests.swift; sourceTree = "<group>"; };
 		C03749D62A8F9B11002E9565 /* TestJSONEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONEpisode.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				C03749DF2A8FB344002E9565 /* Appearance.swift */,
+				C0108DDF2A90E97000374416 /* DefaultImageRenderer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 		C04CBA9A2A8DAA1C003E6686 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0108DDD2A90E93F00374416 /* CGSize.swift */,
 				C0E5DAD02A8E6DB400DD1480 /* Font.swift */,
 				C04CBAB72A8E4036003E6686 /* UIFont.swift */,
 				C04CBAB92A8E42E1003E6686 /* UIColor.swift */,
@@ -749,6 +755,7 @@
 				C04CBA9C2A8DAA2F003E6686 /* Array+Identifable.swift in Sources */,
 				C04CBA992A8DA84E003E6686 /* EpisodeModel.swift in Sources */,
 				C0E5DB012A8ED40600DD1480 /* ImageLoadError.swift in Sources */,
+				C0108DDE2A90E93F00374416 /* CGSize.swift in Sources */,
 				C0E5DAD92A8E7CA400DD1480 /* InfoView.swift in Sources */,
 				C04CBA8A2A8D948B003E6686 /* NetworkManager.swift in Sources */,
 				C04CBA662A8D816C003E6686 /* CharactersListView.swift in Sources */,
@@ -758,6 +765,7 @@
 				C0E5DAD32A8E6EF900DD1480 /* UIColor+Color.swift in Sources */,
 				C04CBA902A8D9840003E6686 /* Endpoint.swift in Sources */,
 				C0E5DB082A8F723900DD1480 /* PagingService.swift in Sources */,
+				C0108DE02A90E97000374416 /* DefaultImageRenderer.swift in Sources */,
 				C0E5DADB2A8E803D00DD1480 /* OriginView.swift in Sources */,
 				C04CBAB82A8E4036003E6686 /* UIFont.swift in Sources */,
 				C04CBA972A8DA72C003E6686 /* CharacterModel.swift in Sources */,
@@ -926,7 +934,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 586JQB45F3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickAndMorty/Info.plist;
@@ -940,7 +948,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0b4;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ighiba.RickAndMorty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -955,7 +963,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 586JQB45F3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickAndMorty/Info.plist;
@@ -969,7 +977,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0b4;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ighiba.RickAndMorty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

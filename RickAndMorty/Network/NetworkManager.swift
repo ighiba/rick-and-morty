@@ -8,12 +8,14 @@
 import Foundation
 
 typealias CharactersFetchResult = Result<CharacterResponse, FetchError>
-typealias EpisodesFetchResult = Result<[Episode], FetchError>
+typealias EpisodeSingleFetchResult = Result<Episode, FetchError>
+typealias EpisodeMultipleFetchResult = Result<[Episode], FetchError>
 typealias LocationFetchResult = Result<Location, FetchError>
 
 protocol NetworkManager: AnyObject {
     func fetchCharacters(endpoint: API.Character, completion: @escaping (CharactersFetchResult) -> Void)
-    func fetchEpisodes(endpoint: API.Episode, completion: @escaping (EpisodesFetchResult) -> Void)
+    func fetchEpisodeSingle(endpoint: API.Episode, completion: @escaping (EpisodeSingleFetchResult) -> Void)
+    func fetchEpisodeMultiple(endpoint: API.Episode, completion: @escaping (EpisodeMultipleFetchResult) -> Void)
     func fetchLocation(endpoint: API.Location, completion: @escaping (LocationFetchResult) -> Void)
 }
 
@@ -28,7 +30,11 @@ class NetworkManagerImpl: NetworkManager {
         fetch(endpoint: endpoint, completion: completion)
     }
     
-    func fetchEpisodes(endpoint: API.Episode, completion: @escaping (EpisodesFetchResult) -> Void) {
+    func fetchEpisodeSingle(endpoint: API.Episode, completion: @escaping (EpisodeSingleFetchResult) -> Void) {
+        fetch(endpoint: endpoint, completion: completion)
+    }
+    
+    func fetchEpisodeMultiple(endpoint: API.Episode, completion: @escaping (EpisodeMultipleFetchResult) -> Void) {
         fetch(endpoint: endpoint, completion: completion)
     }
     
