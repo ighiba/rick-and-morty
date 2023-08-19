@@ -5,7 +5,7 @@
 //  Created by Ivan Ghiba on 17.08.2023.
 //
 
-import UIKit
+import Foundation
 
 typealias EpisodeContainer = [Int : EpisodeModel?]
 
@@ -71,7 +71,7 @@ extension CharacterModel {
         let name: String
         let status: String
         
-        init(imageUrl: URL?, image: UIImage? = nil, name: String, status: String) {
+        init(imageUrl: URL?, name: String, status: String) {
             self.imageUrl = imageUrl
             self.name = name
             self.status = status

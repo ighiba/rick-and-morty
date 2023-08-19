@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class CharacterDetailScreenAssembly {
     class func configureScreen(character: CharacterModel) -> UIViewController {
