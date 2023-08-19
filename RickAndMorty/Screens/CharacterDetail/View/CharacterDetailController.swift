@@ -8,8 +8,19 @@
 import UIKit
 import SwiftUI
 
-class CharacterDetailController<T: View>: UIHostingController<T> {
-
+class CharacterDetailController: UIHostingController<CharacterDetailView>{
+    
+    weak var viewModel: CharacterDetailViewModelDelegate?
+    
+    init(viewModel: CharacterDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(rootView: CharacterDetailView(viewModel: viewModel))
+    }
+    
+    @MainActor required dynamic init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationItem()

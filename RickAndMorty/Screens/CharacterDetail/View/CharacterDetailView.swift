@@ -17,7 +17,11 @@ private let episodesTitleInsets = EdgeInsets(top: 8, leading: horizontalInset, b
 
 struct CharacterDetailView: View {
     
-    @StateObject var viewModel: CharacterDetailViewModel
+    @ObservedObject var viewModel: CharacterDetailViewModel
+    
+    init(viewModel: CharacterDetailViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ZStack {
@@ -69,8 +73,9 @@ struct CharacterDetailView_Previews: PreviewProvider {
     
     static let sampleData = CharacterResponse.sampleData
     static let sampleCharacter: CharacterModel = sampleData.results.map( { CharacterModel(character: $0) }).first!
+    static let sampleViewModel = CharacterDetailViewModel(character: sampleCharacter, networkManager: NetworkManagerImpl())
     
     static var previews: some View {
-        CharacterDetailView(viewModel: .init(character: sampleCharacter, networkManager: NetworkManagerImpl()))
+        CharacterDetailView(viewModel: sampleViewModel)
     }
 }
