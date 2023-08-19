@@ -22,7 +22,7 @@ extension Endpoint {
     func defaultUrl() -> URL? {
         var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)!
         components.path = "/api" + path
-        components.queryItems = queryItems
+        components.queryItems = !queryItems.isEmpty ? queryItems : nil
         return components.url
     }
 }

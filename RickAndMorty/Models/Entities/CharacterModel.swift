@@ -7,13 +7,15 @@
 
 import UIKit
 
+typealias EpisodeContainer = [Int : EpisodeModel?]
+
 class CharacterModel: Identifiable, ObservableObject {
     
     let id: Int
     var avatar: Avatar
     var info: Info
     var originContainer: OriginContainer
-    var episodeContainers: [EpisodeContainer]
+    var episodeContainer: EpisodeContainer
     
     init(
         id: Int,
@@ -24,13 +26,13 @@ class CharacterModel: Identifiable, ObservableObject {
         gender: String,
         imageUrl: URL?,
         originContainer: OriginContainer,
-        episodes: [EpisodeContainer]
+        episodeContainer: EpisodeContainer
     ) {
         self.id = id
         self.avatar = Avatar(imageUrl: imageUrl, name: name, status: status)
         self.info = Info(species: species, type: type, gender: gender)
         self.originContainer = originContainer
-        self.episodeContainers = episodes
+        self.episodeContainer = episodeContainer
     }
     
     convenience init(character: Character) {
@@ -41,10 +43,13 @@ class CharacterModel: Identifiable, ObservableObject {
             return OriginContainer(url: url, location: nil)
         }()
         
-        let episodes: [EpisodeContainer] = character.episodeUrls.compactMap { stringUrl in
-            guard let url = URL(string: stringUrl) else { return nil }
-            return EpisodeContainer(url: url)
+        let episodeIds: [Int] = character.episodeUrls.compactMap { stringUrl in
+            guard let url = URL(string: stringUrl), let id = Int(url.lastPathComponent) else { return nil }
+            return id
         }
+        
+        var episodeContainer = EpisodeContainer()
+        episodeIds.forEach { episodeContainer.updateValue(nil, forKey: $0) }
 
         self.init(
             id: character.id,
@@ -55,7 +60,7 @@ class CharacterModel: Identifiable, ObservableObject {
             gender: character.gender,
             imageUrl: imageUrl,
             originContainer: originContainer,
-            episodes: episodes
+            episodeContainer: episodeContainer
         )
     }
 }
@@ -92,16 +97,6 @@ extension CharacterModel {
         init(url: URL? = nil, location: Location? = nil) {
             self.url = url
             self.location = location
-        }
-    }
-
-    class EpisodeContainer {
-        var url: URL
-        var episode: EpisodeModel?
-        
-        init(url: URL, episode: EpisodeModel? = nil) {
-            self.url = url
-            self.episode = episode
         }
     }
 }

@@ -9,12 +9,12 @@ import Foundation
 
 extension API {
     enum Character: Endpoint {
-        case getCharacters(page: Int)
+        case getSingle(page: Int)
         case directUrl(URL?)
         
         var path: String {
             switch self {
-            case .getCharacters(_):
+            case .getSingle(_):
                 return "/character"
             case .directUrl(_):
                 return ""
@@ -23,7 +23,7 @@ extension API {
         
         var queryItems: [URLQueryItem] {
             switch self {
-            case .getCharacters(let page):
+            case .getSingle(let page):
                 return [URLQueryItem(name: "page", value: "\(page)")]
             case .directUrl(_):
                 return []
@@ -32,7 +32,7 @@ extension API {
         
         var url: URL? {
             switch self {
-            case .getCharacters(_):
+            case .getSingle(_):
                 return defaultUrl()
             case .directUrl(let url):
                 return url

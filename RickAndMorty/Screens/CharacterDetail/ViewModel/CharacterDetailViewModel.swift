@@ -58,24 +58,21 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     }
     
     private func updateEpisodes() {
-        let group = DispatchGroup()
+        let episodeIds = character.episodeContainer.filter({ $0.value == nil }).map { $0.key }
+        guard !episodeIds.isEmpty else { return }
         
-        character.episodeContainers.filter({ $0.episode == nil }).forEach { episode in
-            group.enter()
-            networkManager.fetchEpisode(endpoint: .directUrl(episode.url)) { result in
-                switch result {
-                case .success(let fetchedEpisode):
-                    episode.episode = EpisodeModel(episode: fetchedEpisode)
-                case .failure(let error):
-                    print("Failed to load episode. \(error.localizedDescription)")
+        networkManager.fetchEpisodes(endpoint: .getMultiple(episodeIds: episodeIds)) { [weak self] result in
+            switch result {
+            case .success(let fetchedEpisodes):
+                let episodes = fetchedEpisodes.map { fetchedEpisode in
+                    let episodeModel = EpisodeModel(episode: fetchedEpisode)
+                    self?.character.episodeContainer.updateValue(episodeModel, forKey: fetchedEpisode.id)
+                    return episodeModel
                 }
-                group.leave()
+                self?.episodes = episodes
+            case .failure(let error):
+                print("Failed to load episodes. \(error.localizedDescription)")
             }
-        }
-
-        group.notify(queue: .main) { [weak self] in
-            guard let episodes = self?.character.episodeContainers.compactMap({ $0.episode }) else { return }
-            self?.episodes = episodes
         }
     }
 }
