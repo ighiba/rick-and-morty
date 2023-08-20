@@ -18,17 +18,15 @@ private let statusFont: Font = .gilroyMedium(16)
 struct AvatarView: View {
     
     @Binding var characterAvatar: CharacterModel.Avatar
+    
+    private let uiImageLoader = CachedImageLoader.shared
 
     private let cornerRadius: CGFloat = 16
     
     var body: some View {
         VStack(alignment: .center) {
             VStack {
-                AsyncImage(url: characterAvatar.imageUrl) { image in
-                    resizeAvatarImage { image }
-                } placeholder: {
-                    Image(uiImage: .characterAvatarPlaceholder)
-                }
+                makeAvatarImage(forUrl: characterAvatar.imageUrl)
             }
             .cornerRadius(cornerRadius)
             VStack {
@@ -43,6 +41,19 @@ struct AvatarView: View {
             }
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    @ViewBuilder
+    private func makeAvatarImage(forUrl url: URL?) -> some View {
+        if let imageUrl = url, let cachedImage = uiImageLoader.cachedImage(forUrl: imageUrl) {
+            resizeAvatarImage { Image(uiImage: cachedImage) }
+        } else {
+            AsyncImage(url: url) { image in
+                resizeAvatarImage { image }
+            } placeholder: {
+                Image(uiImage: .characterAvatarPlaceholder)
+            }
+        }
     }
     
     private func resizeAvatarImage(image: () -> Image) -> some View {
