@@ -19,7 +19,7 @@ struct AvatarView: View {
     
     @Binding var characterAvatar: CharacterModel.Avatar
     
-    private let uiImageLoader = CachedImageLoader.shared
+    private let cachedImageLoader = CachedImageLoader.shared
 
     private let cornerRadius: CGFloat = 16
     
@@ -45,7 +45,7 @@ struct AvatarView: View {
     
     @ViewBuilder
     private func makeAvatarImage(forUrl url: URL?) -> some View {
-        if let imageUrl = url, let cachedImage = uiImageLoader.cachedImage(forUrl: imageUrl) {
+        if let imageUrl = url, let cachedImage = cachedImageLoader.cachedImage(forUrl: imageUrl) {
             resizeAvatarImage { Image(uiImage: cachedImage) }
         } else {
             AsyncImage(url: url) { image in

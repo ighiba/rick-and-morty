@@ -30,8 +30,6 @@ final class CachedImageLoader: ImageLoader {
         return cache
     }()
     
-    private let imageProcessingQueue = DispatchQueue(label: "ru.ighiba.imageProcessing", qos: .utility)
-
     private let session = URLSession.shared
     private let validCodes = 200...299
 
@@ -65,12 +63,10 @@ final class CachedImageLoader: ImageLoader {
     }
 
     private func processImage(_ image: UIImage) async -> UIImage {
-        var processedImage = image
-        
-        if let compressedImage = processedImage.compressed(.high) {
-            processedImage = compressedImage.resized(to: .avatarImageSize)
+        if let compressedImage = image.compressed(.high) {
+            return compressedImage.resized(to: .avatarImageSize)
         }
         
-        return processedImage
+        return image
     }
 }
