@@ -53,8 +53,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
             switch result {
             case .success(let fetchedLocation):
                 self?.character.originContainer.location = fetchedLocation
-                guard let originContainer = self?.character.originContainer else { return }
-                self?.originContainer = originContainer
+                self?.objectWillChange.send()
             case .failure(let error):
                 self?.handleError(message: "Failed to load origin.", error)
             }

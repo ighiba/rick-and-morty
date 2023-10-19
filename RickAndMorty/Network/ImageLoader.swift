@@ -51,9 +51,7 @@ class CachedImageLoader: ImageLoader {
             var result: ImageLoadResult
             
             defer {
-                DispatchQueue.main.async {
-                    completion(result)
-                }
+                self?.processResult(result, forUrl: url, completion: completion)
             }
             
             guard let strongSelf = self else {
@@ -71,30 +69,40 @@ class CachedImageLoader: ImageLoader {
                 return
             }
             
-            if error == nil, let data  {
+            if error == nil, let data {
                 guard let image = UIImage(data: data) else {
                     result = .failure(.dataError)
                     return
                 }
                 result = .success(image)
-                strongSelf.processImage(image, onQueue: strongSelf.imageProcessingQueue) { processedImage in
-                    self?.cachedImages.setObject(processedImage, forKey: url as AnyObject)
-                    result = .success(processedImage)
-                    return
-                }
             } else {
                 result = .failure(.dataError)
             }
         }.resume()
     }
     
-    private func processImage(_ image: UIImage, onQueue queue: DispatchQueue, completion: @escaping (UIImage) -> Void) {
-        queue.async {
+    private func processResult(_ result: ImageLoadResult, forUrl url: URL, completion: @escaping (ImageLoadResult) -> Void) {
+        if case .success(let image) = result {
+            processImage(image, forUrl: url, completeOn: .main) { processedImage in
+                completion(.success(processedImage))
+            }
+        } else {
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    private func processImage(_ image: UIImage, forUrl url: URL, completeOn completionQueue: DispatchQueue = .main, completion: @escaping (UIImage) -> Void) {
+        imageProcessingQueue.async { [weak self] in
             var processedImage = image
             if let compressedImage = processedImage.compressed(.high) {
                 processedImage = compressedImage.resized(to: .avatarImageSize)
             }
-            completion(processedImage)
+            self?.cachedImages.setObject(processedImage, forKey: url as AnyObject)
+            completionQueue.async {
+                completion(processedImage)
+            }
         }
     }
 }

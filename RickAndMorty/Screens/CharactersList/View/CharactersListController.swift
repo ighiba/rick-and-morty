@@ -112,6 +112,15 @@ extension CharactersListController: UICollectionViewDelegateFlowLayout {
 
 extension CharactersListController {
     
+    private var loadNextPageCellsOffset: Int { 4 }
+    
+    // Handle loading next page
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row >= viewModel.characterModelList.count - loadNextPageCellsOffset - 1 {
+            viewModel.loadNextPage()
+        }
+    }
+    
     // Refresh control handling only when user drops scroll viw
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if let isRefreshing = collectionView.refreshControl?.isRefreshing, isRefreshing {
@@ -119,16 +128,6 @@ extension CharactersListController {
         }
     }
 
-    // Handle loading next page when user scroll down
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let bottomOffset = scrollView.contentOffset.y + scrollView.bounds.size.height + 500
-        let contentHeight = scrollView.contentSize.height
-        
-        if bottomOffset >= contentHeight {
-            viewModel.loadNextPage()
-        }
-    }
-    
     // Cell selection handling
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let selectedCharacter = characterModel(forIndexPath: indexPath) {
