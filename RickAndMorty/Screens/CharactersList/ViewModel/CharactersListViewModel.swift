@@ -67,9 +67,12 @@ class CharactersListViewModel: CharactersListViewModelDelegate {
     private func loadCharactersData(endpoint: API.Character, listAction: ListAction, usingPagingService pagingService: PagingService? = nil) {
         guard pagingService?.isNextAvailable ?? true, !isLoading else { return }
         isLoading = true
-        networkManager.fetchCharacters(endpoint: endpoint) { [weak self] result in
-            self?.processCharactersFetchResult(result, listAction: listAction)
-            self?.isLoading = false
+        Task {
+            let result = await networkManager.fetchCharacters(endpoint: endpoint)
+            await MainActor.run {
+                processCharactersFetchResult(result, listAction: listAction)
+                isLoading = false
+            }
         }
     }
     

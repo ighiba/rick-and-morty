@@ -86,8 +86,11 @@ final class CharacterCell: UICollectionViewCell {
             imageView.image = cachedImage
         } else {
             let id = character.id
-            cachedImageLoader.load(url: imageUrl) { [weak self] result in
-                self?.processImageLoadResult(result, processedId: id)
+            Task {
+                let result = await cachedImageLoader.load(url: imageUrl)
+                await MainActor.run {
+                    processImageLoadResult(result, processedId: id)
+                }
             }
         }
     }
@@ -98,7 +101,7 @@ final class CharacterCell: UICollectionViewCell {
             guard id == characterId else { return }
             imageView.setImageAnimated(image)
         case .failure(let error):
-            print("Failed to load character image for id:\(id). \(error.localizedDescription)")
+            print("Failed to load character image for id: \(id). \(error.localizedDescription)")
         }
     }
     
