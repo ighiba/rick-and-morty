@@ -49,14 +49,21 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
         guard character.originContainer.location == nil else { return }
         let url = character.originContainer.url
         
-        networkManager.fetchLocation(endpoint: .directUrl(url)) { [weak self] result in
-            switch result {
-            case .success(let fetchedLocation):
-                self?.character.originContainer.location = fetchedLocation
-                self?.objectWillChange.send()
-            case .failure(let error):
-                self?.handleError(message: "Failed to load origin.", error)
+        Task {
+            let result = await networkManager.fetchLocation(endpoint: .directUrl(url))
+            await MainActor.run {
+                processLocationFetchResult(result)
             }
+        }
+    }
+    
+    private func processLocationFetchResult(_ result: LocationFetchResult) {
+        switch result {
+        case .success(let fetchedLocation):
+            character.originContainer.location = fetchedLocation
+            objectWillChange.send()
+        case .failure(let error):
+            handleError(message: "Failed to load origin.", error)
         }
     }
     
@@ -75,21 +82,27 @@ class CharacterDetailViewModel: CharacterDetailViewModelDelegate, ObservableObje
     }
     
     private func fetchEpisodeMultiple(withIds ids: [Int]) {
-        networkManager.fetchEpisodeMultiple(endpoint: .getMultiple(episodeIds: ids)) { [weak self] result in
-            self?.processEpisodeFetchResult(result, completion: { fetchedEpisodes in
-                fetchedEpisodes.forEach { fetchedEpisode in
-                    self?.updateEpisodeContainer(with: fetchedEpisode)
+        Task {
+            let result = await networkManager.fetchEpisodeMultiple(endpoint: .getMultiple(episodeIds: ids))
+            await MainActor.run {
+                processEpisodeFetchResult(result) { fetchedEpisodes in
+                    fetchedEpisodes.forEach { fetchedEpisode in
+                        updateEpisodeContainer(with: fetchedEpisode)
+                    }
+                    return obtainEpisodesFromContainer()
                 }
-                return self?.obtainEpisodesFromContainer() ?? []
-            })
+            }
         }
     }
     
     private func fetchEpisodeSingle(withId id: Int) {
-        networkManager.fetchEpisodeSingle(endpoint: .getSingle(episodeId: id)) { [weak self] result in
-            self?.processEpisodeFetchResult(result) { fetchedEpisode in
-                self?.updateEpisodeContainer(with: fetchedEpisode)
-                return self?.obtainEpisodesFromContainer() ?? []
+        Task {
+            let result = await networkManager.fetchEpisodeSingle(endpoint: .getSingle(episodeId: id))
+            await MainActor.run {
+                processEpisodeFetchResult(result) { fetchedEpisode in
+                    updateEpisodeContainer(with: fetchedEpisode)
+                    return obtainEpisodesFromContainer()
+                }
             }
         }
     }
